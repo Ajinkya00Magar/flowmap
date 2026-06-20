@@ -4,10 +4,17 @@ import { createClient, SupabaseClient } from '@supabase/supabase-js'
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || 'https://placeholder-project.supabase.co'
 const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || 'placeholder-anon-key'
 
-// Validate that both are set AND the anon key is a real JWT (Supabase keys start with 'eyJ')
-// This prevents hanging on placeholder/malformed keys (e.g. 'sb_publishable_...' format is wrong)
-const hasValidUrl = !!(process.env.NEXT_PUBLIC_SUPABASE_URL && !process.env.NEXT_PUBLIC_SUPABASE_URL.includes('placeholder'))
-const hasValidKey = !!(process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY && process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY.startsWith('eyJ'))
+// Validate both env vars are set and not placeholders.
+// Supabase uses two key formats: legacy JWT (starts with 'eyJ') and new publishable keys (starts with 'sb_publishable_').
+const hasValidUrl = !!(
+  process.env.NEXT_PUBLIC_SUPABASE_URL &&
+  !process.env.NEXT_PUBLIC_SUPABASE_URL.includes('placeholder')
+)
+const hasValidKey = !!(
+  process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY &&
+  process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY !== 'placeholder-anon-key' &&
+  process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY.length > 10
+)
 export const isSupabaseConfigured = hasValidUrl && hasValidKey
 
 export const supabase: SupabaseClient = createClient(supabaseUrl, supabaseAnonKey)
