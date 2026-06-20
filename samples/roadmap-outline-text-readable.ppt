@@ -1,0 +1,25 @@
+FlowMap text-readable PPT fixture
+
+This file intentionally uses plain text with a .ppt extension so FlowMap's current FileReader-based outline parser can read it during testing. It is not a binary PowerPoint parser test.
+
+DevOps Roadmap
+
+Linux and Networking
+  - Shell navigation
+  - Permissions and processes
+  - DNS, ports, and HTTP
+
+Containers
+  - Docker images
+  - Dockerfiles
+  - Docker Compose services
+
+CI/CD
+  - GitHub Actions workflows
+  - Test automation
+  - Deployment gates
+
+Cloud Operations
+  - Environment variables
+  - Monitoring basics
+  - Incident response checklist

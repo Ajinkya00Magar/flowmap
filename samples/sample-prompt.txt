@@ -1,0 +1,1 @@
+Create a 12-week roadmap for becoming job-ready in full-stack web development. Include frontend foundations, React, Next.js, backend API design, PostgreSQL, Supabase authentication, deployment, and three portfolio projects. Break the roadmap into phases and include practical tasks under each phase.

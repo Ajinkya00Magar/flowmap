@@ -1,0 +1,15 @@
+# Dependencies
+node_modules/
+
+# Next.js Build Output
+.next/
+out/
+build/
+
+# Local Environment Variables
+.env*.local
+
+# System/IDE settings
+.DS_Store
+.gemini/
+task.md

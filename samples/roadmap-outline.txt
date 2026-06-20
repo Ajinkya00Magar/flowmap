@@ -1,0 +1,24 @@
+Full-Stack Web Developer
+
+Frontend Foundations
+  - HTML semantic structure
+  - CSS layout with flexbox and grid
+  - JavaScript fundamentals
+  - TypeScript basics
+
+React and Next.js
+  - React components and props
+  - State and effects
+  - Next.js App Router
+  - API routes and server actions
+
+Backend and Data
+  - REST API design
+  - PostgreSQL basics
+  - Supabase authentication
+  - Deployment checklist
+
+Projects
+  - Portfolio website
+  - Task manager app
+  - Capstone SaaS dashboard

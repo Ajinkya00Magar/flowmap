@@ -1,0 +1,25 @@
+FlowMap text-readable PDF fixture
+
+This file intentionally uses plain text with a .pdf extension so FlowMap's current FileReader-based outline parser can read it during testing. It is not a binary PDF parser test.
+
+Data Science Roadmap
+
+Python Foundations
+  - Syntax and control flow
+  - Functions and modules
+  - Virtual environments
+
+Data Analysis
+  - NumPy arrays
+  - Pandas dataframes
+  - Data cleaning workflows
+
+Visualization
+  - Matplotlib charts
+  - Seaborn statistical plots
+  - Dashboard storytelling
+
+Machine Learning
+  - Train/test splits
+  - Regression and classification
+  - Model evaluation metrics
