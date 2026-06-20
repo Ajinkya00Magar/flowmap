@@ -1,4 +1,4 @@
-import type { RoadmapState, RoadmapNode, NodeColor, Priority } from '@/types/roadmap'
+import type { RoadmapState, RoadmapNode, NodeColor, Priority, Resource } from '@/types/roadmap'
 
 const COLORS: NodeColor[] = ['indigo', 'emerald', 'violet', 'cyan', 'amber', 'rose', 'blue', 'teal']
 
@@ -14,7 +14,7 @@ function makeGeneratedNode(
   priority: Priority = 'medium',
   notes = '',
   childTasks: Array<{ id: string; title: string; completed: boolean }> = [],
-  resources: Array<{ id: string; title: string; url: string; type: 'video' | 'article' | 'book' | 'interactive' | 'other' }> = []
+  resources: Resource[] = []
 ): RoadmapNode {
   const now = new Date().toISOString()
   return {
