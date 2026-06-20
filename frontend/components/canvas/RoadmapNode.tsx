@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useCallback, useEffect, useRef, useState } from 'react'
-import { motion, useAnimationControls, useMotionValue, useSpring } from 'framer-motion'
+import { motion, useAnimationControls } from 'framer-motion'
 import { ChevronDown, ChevronRight, Plus, Trash2, Copy, Check } from 'lucide-react'
 import type { RoadmapNode as RoadmapNodeType } from '@/types/roadmap'
 import { NODE_COLOR_MAP } from '@/types/roadmap'
@@ -119,7 +119,7 @@ export default function RoadmapNode({
       mounted = false
       clearTimeout(timeout)
     }
-  }, [phaseOffset])
+  }, [controls, phaseOffset])
 
   // Stop float while dragging
   const stopFloat = useCallback(() => {
@@ -130,6 +130,15 @@ export default function RoadmapNode({
   const resumeFloat = useCallback(() => {
     controls.start(getFloatKeyframes(phaseOffset))
   }, [controls, phaseOffset])
+  // ── Ripple effect ──────────────────────────────────────────────────
+
+  const triggerRipple = useCallback(() => {
+    const el = nodeRef.current
+    if (!el) return
+    const rect = el.getBoundingClientRect()
+    setRipple({ x: rect.width / 2, y: rect.height / 2 })
+    setTimeout(() => setRipple(null), 600)
+  }, [])
 
   // ── Drag handlers ──────────────────────────────────────────────────
 
@@ -180,17 +189,8 @@ export default function RoadmapNode({
 
     window.addEventListener('mousemove', handleMouseMove)
     window.addEventListener('mouseup', handleMouseUp)
-  }, [node, scale, onMove, onSelect, stopFloat, resumeFloat])
+  }, [node, scale, onMove, onSelect, stopFloat, resumeFloat, triggerRipple])
 
-  // ── Ripple effect ──────────────────────────────────────────────────
-
-  const triggerRipple = useCallback(() => {
-    const el = nodeRef.current
-    if (!el) return
-    const rect = el.getBoundingClientRect()
-    setRipple({ x: rect.width / 2, y: rect.height / 2 })
-    setTimeout(() => setRipple(null), 600)
-  }, [])
 
   // ── Glow intensity based on progress ──────────────────────────────
 
@@ -459,3 +459,6 @@ export default function RoadmapNode({
     </motion.div>
   )
 }
+
+
+

@@ -2,7 +2,7 @@
 
 import React, { createContext, useContext, useEffect, useState } from 'react'
 import { useRouter, usePathname } from 'next/navigation'
-import { supabase } from '@/lib/supabaseClient'
+import { supabase, isSupabaseConfigured } from '@/lib/supabaseClient'
 
 interface AuthContextType {
   user: any
@@ -26,6 +26,12 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   const pathname = usePathname()
 
   useEffect(() => {
+    // If Supabase isn't properly configured, skip auth check entirely
+    if (!isSupabaseConfigured) {
+      setIsLoading(false)
+      return
+    }
+
     let mounted = true
 
     const finishLoading = async (nextSession: any = null) => {
@@ -73,7 +79,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     const timeout = window.setTimeout(() => {
       console.warn('Supabase session check timed out; continuing without an active session.')
       finishLoading(null)
-    }, 6000)
+    }, 3000)
 
     // Fetch initial session. Do not let a slow network keep the app on the loading screen forever.
     supabase.auth.getSession()
@@ -163,22 +169,41 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 
   const isAuthPage = pathname === '/auth'
 
+  // While loading, render children with a subtle overlay instead of blocking them
+  // This avoids double-screen blocking (SplashScreen + auth spinner stacking)
   if (isLoading) {
     return (
-      <div style={{
-        height: '100vh', width: '100vw', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
-        background: '#050810', color: 'rgba(255,255,255,0.4)', fontFamily: 'Inter, sans-serif', gap: 16
-      }}>
+      <>
+        <AuthContext.Provider value={{ user, profile, session, isLoading, signUp, signIn, signOut, updateProfile }}>
+          {children}
+        </AuthContext.Provider>
         <div style={{
-          width: 32, height: 32, borderRadius: '50%',
-          border: '2px solid rgba(255,255,255,0.1)', borderTopColor: '#818CF8',
-          animation: 'spin 1s linear infinite'
-        }} />
-        <span style={{ fontSize: 12, letterSpacing: '0.05em', fontWeight: 600 }}>CONNECTING TO FLOWMAP UNIVERSE...</span>
-        <style>{`
-          @keyframes spin { to { transform: rotate(360deg); } }
-        `}</style>
-      </div>
+          position: 'fixed',
+          inset: 0,
+          zIndex: 99998,
+          background: '#050810',
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          justifyContent: 'center',
+          color: 'rgba(255,255,255,0.4)',
+          fontFamily: 'Inter, sans-serif',
+          gap: 16,
+        }}>
+          <div style={{
+            width: 32,
+            height: 32,
+            borderRadius: '50%',
+            border: '2px solid rgba(255,255,255,0.1)',
+            borderTopColor: '#818CF8',
+            animation: 'spin 1s linear infinite',
+          }} />
+          <span style={{ fontSize: 12, letterSpacing: '0.05em', fontWeight: 600 }}>CONNECTING TO FLOWMAP UNIVERSE...</span>
+          <style>{`
+            @keyframes spin { to { transform: rotate(360deg); } }
+          `}</style>
+        </div>
+      </>
     )
   }
 
