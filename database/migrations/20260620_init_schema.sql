@@ -86,8 +86,8 @@ create policy "Users can perform all actions on their own folders"
 -- Policies for roadmaps
 drop policy if exists "Users can perform all actions on their own roadmaps" on public.roadmaps;
 drop policy if exists "Users can perform all actions on their own roadmaps" on roadmaps;
-drop policy if exists "Users can view shared roadmaps" on public.roadmaps;
-drop policy if exists "Users can view shared roadmaps" on roadmaps;
+drop policy if exists "Users can select shared roadmaps" on public.roadmaps;
+drop policy if exists "Users can select shared roadmaps" on roadmaps;
 drop policy if exists "Users can insert their own roadmaps" on public.roadmaps;
 drop policy if exists "Users can insert their own roadmaps" on roadmaps;
 drop policy if exists "Users can update roadmap content" on public.roadmaps;
