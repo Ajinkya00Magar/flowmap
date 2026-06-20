@@ -379,7 +379,7 @@ export function mergeAIOutlineToState(state: RoadmapState, aiOutlineText: string
         const xOffset = ((childIdx % 3) - 1) * 160
         const yOffset = Math.floor(childIdx / 3) * 140 + 120
         const pos = { x: rootNode!.position.x + xOffset, y: rootNode!.position.y + yOffset }
-        childNode = makeGeneratedNode(childId, c.title, rootNode!.id, pos, rootNode!.color, c.description, c.hours ? Number(c.hours) : 10, 'medium', c.notes)
+        childNode = makeGeneratedNode(childId, c.title, rootNode!.id, pos, rootNode!.color, c.description, 10, 'medium', c.notes)
         
         if (c.subtasks) {
           childNode.childTasks = c.subtasks.map(st => ({ id: `task-${Math.random()}`, title: st, completed: false }))
