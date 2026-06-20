@@ -895,7 +895,7 @@ export function RoadmapProvider({ children }: { children: React.ReactNode }) {
 
   const value = useMemo<RoadmapContextValue>(() => ({
     // Current Roadmap Canvas
-    state: activeState || { nodes: {}, rootIds: [], selectedNodeId: null, version: 0, lastSaved: '' },
+    state: activeState || { nodes: {}, rootIds: [], selectedNodeId: null, selectedNodeIds: [], version: 0, lastSaved: '' },
     dispatch,
     stats,
     selectedNode,
