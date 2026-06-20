@@ -3,20 +3,20 @@
 import React, { useEffect, useState } from 'react'
 import dynamic from 'next/dynamic'
 import { usePathname } from 'next/navigation'
-import { AnimatePresence, motion } from 'framer-motion'
+import { motion } from 'framer-motion'
 
-const Sidebar    = dynamic(() => import('@/components/sidebar/Sidebar'),    { ssr: false })
-const TopBar     = dynamic(() => import('@/components/sidebar/TopBar'),     { ssr: false })
-const Spotlight  = dynamic(() => import('@/components/ui/Spotlight'),       { ssr: false })
+const Sidebar = dynamic(() => import('@/components/sidebar/Sidebar'), { ssr: false })
+const TopBar = dynamic(() => import('@/components/sidebar/TopBar'), { ssr: false })
+const Spotlight = dynamic(() => import('@/components/ui/Spotlight'), { ssr: false })
 const NodeEditorPanel = dynamic(() => import('@/components/panels/NodeEditorPanel'), { ssr: false })
 
 const PAGE_META: Record<string, { title: string; subtitle: string }> = {
-  '/roadmaps':  { title: 'Workspace Explorer', subtitle: 'Organize your folders and learning roadmaps' },
+  '/roadmaps': { title: 'Workspace Explorer', subtitle: 'Organize your folders and learning roadmaps' },
   '/analytics': { title: 'Analytics', subtitle: 'Visualize your learning progress' },
-  '/timeline':  { title: 'Timeline',  subtitle: 'Deadlines & scheduled milestones' },
-  '/focus':     { title: 'Focus',     subtitle: 'Pomodoro timer for deep work sessions' },
-  '/notes':     { title: 'Journal',   subtitle: 'Daily reflections & learning notes' },
-  '/settings':  { title: 'Settings',  subtitle: 'Preferences, data & keyboard shortcuts' },
+  '/timeline': { title: 'Timeline', subtitle: 'Deadlines & scheduled milestones' },
+  '/focus': { title: 'Focus', subtitle: 'Pomodoro timer for deep work sessions' },
+  '/notes': { title: 'Journal', subtitle: 'Daily reflections & learning notes' },
+  '/settings': { title: 'Settings', subtitle: 'Preferences, data & keyboard shortcuts' },
 }
 
 interface AppShellProps {
@@ -26,8 +26,17 @@ interface AppShellProps {
 
 export default function AppShell({ children, actions }: AppShellProps) {
   const pathname = usePathname()
-  const [collapsed, setCollapsed]       = useState(false)
-  const [spotlightOpen, setSpotlight]   = useState(false)
+  const [collapsed, setCollapsed] = useState(() => {
+    if (typeof window === 'undefined') return false
+    return sessionStorage.getItem('flowmap_sidebar_collapsed') === '1'
+  })
+
+  const toggle = () => setCollapsed(v => {
+    const next = !v
+    sessionStorage.setItem('flowmap_sidebar_collapsed', next ? '1' : '0')
+    return next
+  })
+  const [spotlightOpen, setSpotlight] = useState(false)
 
   const meta = PAGE_META[pathname] ?? { title: 'FlowMap', subtitle: '' }
 
@@ -46,7 +55,7 @@ export default function AppShell({ children, actions }: AppShellProps) {
   return (
     <div style={{ display: 'flex', height: '100vh', overflow: 'hidden', background: '#050810' }}>
       {/* Sidebar */}
-      <Sidebar collapsed={collapsed} onToggle={() => setCollapsed(v => !v)} />
+      <Sidebar collapsed={collapsed} onToggle={toggle} />
 
       {/* Main area */}
       <div style={{ flex: 1, display: 'flex', flexDirection: 'column', overflow: 'hidden', minWidth: 0 }}>
