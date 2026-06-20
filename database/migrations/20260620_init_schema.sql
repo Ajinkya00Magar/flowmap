@@ -205,3 +205,9 @@ create index if not exists journal_entries_user_id_idx on public.journal_entries
 -- Create index on pomodoro user_id
 create index if not exists pomodoro_sessions_user_id_idx on public.pomodoro_sessions(user_id);
 
+
+-- ─── Realtime Subscriptions ──────────────────────────────────────────────────
+
+-- Enable realtime for roadmaps table
+alter publication supabase_realtime add table public.roadmaps;
+

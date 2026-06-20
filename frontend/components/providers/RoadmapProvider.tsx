@@ -335,6 +335,8 @@ export function RoadmapProvider({ children }: { children: React.ReactNode }) {
       return
     }
 
+    let isMounted = true
+
     const fetchRoadmapState = async () => {
       setIsLoadingRoadmap(true)
       try {
@@ -343,6 +345,8 @@ export function RoadmapProvider({ children }: { children: React.ReactNode }) {
           .select('state')
           .eq('id', currentRoadmapId)
           .single()
+
+        if (!isMounted) return
 
         if (stateErr) throw stateErr
         if (data?.state) {
@@ -353,13 +357,40 @@ export function RoadmapProvider({ children }: { children: React.ReactNode }) {
           localStorage.setItem(`flowmap_active_id_${user.id}`, currentRoadmapId)
         }
       } catch (err: any) {
-        error(`Failed to load roadmap canvas: ${err.message || err}`)
+        if (isMounted) error(`Failed to load roadmap canvas: ${err.message || err}`)
       } finally {
-        setIsLoadingRoadmap(false)
+        if (isMounted) setIsLoadingRoadmap(false)
       }
     }
 
     fetchRoadmapState()
+
+    // --- Real-time collaboration subscription ---
+    const channel = supabase
+      .channel(`roadmap-${currentRoadmapId}`)
+      .on(
+        'postgres_changes',
+        { event: 'UPDATE', schema: 'public', table: 'roadmaps', filter: `id=eq.${currentRoadmapId}` },
+        (payload) => {
+          const newState = payload.new.state as RoadmapState
+          if (newState && newState.version !== undefined) {
+            setActiveState(prev => {
+              // Only accept remote state if it is newer than our local state
+              // This prevents our own debounced writes from echoing back and resetting fast local edits
+              if (!prev || newState.version > prev.version) {
+                return newState
+              }
+              return prev
+            })
+          }
+        }
+      )
+      .subscribe()
+
+    return () => {
+      isMounted = false
+      supabase.removeChannel(channel)
+    }
   }, [currentRoadmapId, user, error])
 
   // ─── Workspace CRUD Operations ───────────────────────────────────────────
