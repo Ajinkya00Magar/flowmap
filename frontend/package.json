@@ -10,6 +10,7 @@
         "typecheck": "tsc --noEmit"
     },
     "dependencies": {
+        "@google/generative-ai": "^0.24.1",
         "@radix-ui/react-checkbox": "^1.1.1",
         "@radix-ui/react-dialog": "^1.1.1",
         "@radix-ui/react-progress": "^1.1.0",

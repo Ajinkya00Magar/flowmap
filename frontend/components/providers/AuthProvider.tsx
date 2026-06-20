@@ -34,6 +34,14 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 
     let mounted = true
 
+    // Hard timeout: No matter what happens with Supabase, remove the loading screen after 3.5 seconds
+    const safetyTimeout = window.setTimeout(() => {
+      if (mounted && isLoading) {
+        console.warn('Supabase auth or profile fetch timed out. Forcing UI to load.')
+        setIsLoading(false)
+      }
+    }, 3500)
+
     const finishLoading = async (nextSession: any = null) => {
       if (!mounted) return
       setSession(nextSession)
@@ -43,25 +51,29 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         let profileData = null
         let profileError: any = null
 
-        const { data, error } = await supabase
-          .from('profiles')
-          .select('id, email, display_name')
-          .eq('id', nextSession.user.id)
-          .single()
-
-        if (!error) {
-          profileData = data
-        } else if (error.message?.includes('display_name')) {
-          const fallback = await supabase
+        try {
+          const { data, error } = await supabase
             .from('profiles')
-            .select('id, email')
+            .select('id, email, display_name')
             .eq('id', nextSession.user.id)
             .single()
 
-          profileData = fallback.data
-          profileError = fallback.error
-        } else {
-          profileError = error
+          if (!error) {
+            profileData = data
+          } else if (error.message?.includes('display_name')) {
+            const fallback = await supabase
+              .from('profiles')
+              .select('id, email')
+              .eq('id', nextSession.user.id)
+              .single()
+
+            profileData = fallback.data
+            profileError = fallback.error
+          } else {
+            profileError = error
+          }
+        } catch (err) {
+          console.error("Caught error fetching profile", err)
         }
 
         if (!profileError) {
@@ -73,35 +85,30 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         setProfile(null)
       }
 
-      setIsLoading(false)
+      if (mounted) {
+        setIsLoading(false)
+        window.clearTimeout(safetyTimeout)
+      }
     }
 
-    const timeout = window.setTimeout(() => {
-      console.warn('Supabase session check timed out; continuing without an active session.')
-      finishLoading(null)
-    }, 3000)
-
-    // Fetch initial session. Do not let a slow network keep the app on the loading screen forever.
+    // Fetch initial session.
     supabase.auth.getSession()
       .then(({ data }) => {
-        window.clearTimeout(timeout)
         finishLoading(data?.session ?? null)
       })
       .catch((err) => {
-        window.clearTimeout(timeout)
         console.error('Failed to fetch Supabase session:', err)
         finishLoading(null)
       })
 
     // Listen for auth state changes
     const { data: { subscription } } = supabase.auth.onAuthStateChange(async (_event, currentSession) => {
-      window.clearTimeout(timeout)
       await finishLoading(currentSession)
     })
 
     return () => {
       mounted = false
-      window.clearTimeout(timeout)
+      window.clearTimeout(safetyTimeout)
       subscription.unsubscribe()
     }
   }, [])

@@ -9,6 +9,7 @@ export function createDefaultState(): RoadmapState {
     nodes: buildDefaultNodes(),
     rootIds: DEFAULT_ROOT_IDS,
     selectedNodeId: null,
+    selectedNodeIds: [],
     version: 0,
     lastSaved: new Date().toISOString(),
   }
@@ -19,6 +20,7 @@ export function createBlankState(): RoadmapState {
     nodes: {},
     rootIds: [],
     selectedNodeId: null,
+    selectedNodeIds: [],
     version: 0,
     lastSaved: new Date().toISOString(),
   }
@@ -420,7 +422,10 @@ export function parseImportedJSON(json: string): RoadmapState | null {
   try {
     const parsed = JSON.parse(json)
     if (!parsed.nodes || !parsed.rootIds) return null
-    return parsed as RoadmapState
+    return {
+      ...parsed,
+      selectedNodeIds: parsed.selectedNodeIds || []
+    } as RoadmapState
   } catch {
     return null
   }

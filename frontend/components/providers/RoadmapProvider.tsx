@@ -31,7 +31,18 @@ function roadmapReducer(state: RoadmapState, action: RoadmapAction): RoadmapStat
       return action.payload
 
     case 'SELECT_NODE':
-      return { ...state, selectedNodeId: action.payload }
+      return { ...state, selectedNodeId: action.payload, selectedNodeIds: action.payload ? [action.payload] : [] }
+
+    case 'TOGGLE_SELECT_NODE': {
+      const isSelected = state.selectedNodeIds.includes(action.payload)
+      const newSelectedIds = isSelected
+        ? state.selectedNodeIds.filter(id => id !== action.payload)
+        : [...state.selectedNodeIds, action.payload]
+      return { ...state, selectedNodeIds: newSelectedIds, selectedNodeId: newSelectedIds.length === 1 ? newSelectedIds[0] : null }
+    }
+
+    case 'SELECT_MULTIPLE_NODES':
+      return { ...state, selectedNodeIds: action.payload, selectedNodeId: action.payload.length === 1 ? action.payload[0] : null }
 
     case 'UPDATE_NODE':
       return updateNodeInState(state, action.payload.id, action.payload.updates)
@@ -47,6 +58,20 @@ function roadmapReducer(state: RoadmapState, action: RoadmapAction): RoadmapStat
 
     case 'MOVE_NODE':
       return moveNodeInState(state, action.payload.id, action.payload.position)
+
+    case 'MOVE_NODES': {
+      let next = { ...state, version: state.version + 1, lastSaved: new Date().toISOString() }
+      action.payload.ids.forEach(id => {
+        const node = next.nodes[id]
+        if (node) {
+          next.nodes[id] = {
+            ...node,
+            position: { x: node.position.x + action.payload.delta.dx, y: node.position.y + action.payload.delta.dy }
+          }
+        }
+      })
+      return next
+    }
 
     case 'TOGGLE_EXPAND':
       return toggleExpandInState(state, action.payload)
@@ -350,7 +375,11 @@ export function RoadmapProvider({ children }: { children: React.ReactNode }) {
 
         if (stateErr) throw stateErr
         if (data?.state) {
-          setActiveState(data.state)
+          const loadedState = {
+            ...data.state,
+            selectedNodeIds: data.state.selectedNodeIds || []
+          } as RoadmapState
+          setActiveState(loadedState)
           // Reset history stacks
           pastRef.current = []
           futureRef.current = []

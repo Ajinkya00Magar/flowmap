@@ -10,6 +10,7 @@ import CanvasControls from './CanvasControls'
 import MiniMap from '@/components/ui/MiniMap'
 import ContextMenu, { type ContextMenuState } from './ContextMenu'
 import { createNode } from '@/lib/roadmapUtils'
+import AiCanvasPrompter from './AiCanvasPrompter'
 import { ExternalLink, Video, BookOpen, Wrench, FileText, Globe } from 'lucide-react'
 
 const CANVAS_W = 5000
@@ -98,8 +99,17 @@ export default function FloatingCanvas() {
   }, [dispatch, connectingFromId])
 
   const handleMove = useCallback((id: string, position: { x: number; y: number }) => {
-    dispatch({ type: 'MOVE_NODE', payload: { id, position } })
-  }, [dispatch])
+    const node = state.nodes[id]
+    if (!node) return
+    const dx = position.x - node.position.x
+    const dy = position.y - node.position.y
+
+    if (state.selectedNodeIds?.includes(id) && state.selectedNodeIds.length > 1) {
+      dispatch({ type: 'MOVE_NODES', payload: { ids: state.selectedNodeIds, delta: { dx, dy } } })
+    } else {
+      dispatch({ type: 'MOVE_NODE', payload: { id, position } })
+    }
+  }, [dispatch, state.nodes, state.selectedNodeIds])
 
   const handleToggleExpand = useCallback((id: string) => {
     dispatch({ type: 'TOGGLE_EXPAND', payload: id })
@@ -222,11 +232,77 @@ export default function FloatingCanvas() {
   // Context menu node
   const contextNode = contextMenu ? state.nodes[contextMenu.nodeId] ?? null : null
 
+  const lassoStartRef = useRef<{ x: number, y: number } | null>(null)
+  const [lassoRect, setLassoRect] = useState<{ x: number, y: number, w: number, h: number } | null>(null)
+  
+  const startCanvasInteraction = useCallback((e: React.MouseEvent) => {
+    if (e.button !== 0) return
+    if ((e.target as HTMLElement).closest('[data-node]')) return
+    if ((e.target as HTMLElement).closest('.no-canvas-pan')) return
+
+    if (e.shiftKey) {
+      // Start lasso
+      const pos = screenToCanvas(e.clientX, e.clientY)
+      lassoStartRef.current = pos
+      setLassoRect({ x: pos.x, y: pos.y, w: 0, h: 0 })
+      e.preventDefault()
+
+      const handleMouseMove = (moveEv: MouseEvent) => {
+         if (!lassoStartRef.current) return
+         const current = screenToCanvas(moveEv.clientX, moveEv.clientY)
+         const start = lassoStartRef.current
+         setLassoRect({
+           x: Math.min(start.x, current.x),
+           y: Math.min(start.y, current.y),
+           w: Math.abs(current.x - start.x),
+           h: Math.abs(current.y - start.y)
+         })
+      }
+
+      const handleMouseUp = (upEv: MouseEvent) => {
+         if (!lassoStartRef.current) return
+         const current = screenToCanvas(upEv.clientX, upEv.clientY)
+         const start = lassoStartRef.current
+         
+         const rx1 = Math.min(start.x, current.x)
+         const rx2 = Math.max(start.x, current.x)
+         const ry1 = Math.min(start.y, current.y)
+         const ry2 = Math.max(start.y, current.y)
+
+         const selectedIds: string[] = []
+         Object.values(state.nodes).forEach(node => {
+           const nx = node.position.x
+           const ny = node.position.y
+           if (nx < rx2 && nx + 160 > rx1 && ny < ry2 && ny + 60 > ry1) {
+             selectedIds.push(node.id)
+           }
+         })
+
+         if (selectedIds.length > 0) {
+           dispatch({ type: 'SELECT_MULTIPLE_NODES', payload: selectedIds })
+         } else {
+           dispatch({ type: 'SELECT_NODE', payload: null })
+         }
+
+         lassoStartRef.current = null
+         setLassoRect(null)
+         window.removeEventListener('mousemove', handleMouseMove)
+         window.removeEventListener('mouseup', handleMouseUp)
+      }
+
+      window.addEventListener('mousemove', handleMouseMove)
+      window.addEventListener('mouseup', handleMouseUp)
+    } else {
+      dispatch({ type: 'SELECT_NODE', payload: null })
+      startPan(e)
+    }
+  }, [startPan, screenToCanvas, state.nodes, dispatch])
+
   return (
     <div
       ref={containerRef}
       className="canvas-root canvas-cursor"
-      onMouseDown={startPan}
+      onMouseDown={startCanvasInteraction}
       onClick={handleDeselect}
       onDoubleClick={handleDoubleClick}
       onContextMenu={handleContextMenu}
@@ -251,6 +327,21 @@ export default function FloatingCanvas() {
           canvasHeight={CANVAS_H}
         />
 
+        {/* Lasso selection box */}
+        {lassoRect && (
+          <div style={{
+            position: 'absolute',
+            left: lassoRect.x,
+            top: lassoRect.y,
+            width: lassoRect.w,
+            height: lassoRect.h,
+            backgroundColor: 'rgba(139, 92, 246, 0.1)',
+            border: '1px solid rgba(139, 92, 246, 0.5)',
+            pointerEvents: 'none',
+            zIndex: 1000
+          }} />
+        )}
+
         <AnimatePresence>
           {Array.from(visibleNodeIds).map(nodeId => {
             const node = state.nodes[nodeId]
@@ -266,7 +357,7 @@ export default function FloatingCanvas() {
               >
                 <RoadmapNode
                   node={node}
-                  isSelected={state.selectedNodeId === nodeId}
+                  isSelected={state.selectedNodeIds?.includes(nodeId) || state.selectedNodeId === nodeId}
                   scale={transform.scale}
                   onSelect={handleSelect}
                   onOpenEditor={handleOpenEditor}
@@ -453,6 +544,8 @@ export default function FloatingCanvas() {
         viewportH={viewportSize.h}
         onJump={handleMiniMapJump}
       />
+
+      <AiCanvasPrompter />
 
       {connectingFromId && (() => {
         const source = state.nodes[connectingFromId]

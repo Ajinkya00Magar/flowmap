@@ -18,26 +18,49 @@ const SAMPLE_ROADMAP_OUTLINE = `Full-Stack Web Developer
 
 Frontend Foundations
   - HTML semantic structure
+    Description: Learn the standard markup language for documents designed to be displayed in a web browser.
+    Notes: Focus on accessibility tags like ARIA.
+    Subtasks: Forms and validation, Semantic tags, SEO basics
+    Resources: https://developer.mozilla.org, https://web.dev
   - CSS layout with flexbox and grid
+    Description: Master responsive design layouts.
+    Notes: Grid for 2D layouts, Flexbox for 1D.
+    Subtasks: Media queries, Flexbox froggy, CSS Grid Garden
+    Resources: https://css-tricks.com, https://flexboxfroggy.com
   - JavaScript fundamentals
-  - TypeScript basics
+    Description: Core logic and DOM manipulation.
+    Notes: Understand closures and the event loop.
+    Subtasks: ES6 Syntax, Promises and Async/Await, DOM Selection
+    Resources: https://javascript.info
 
 React and Next.js
   - React components and props
-  - State and effects
+    Description: Building reusable UI components.
+    Notes: Functional components are preferred over class components.
+    Subtasks: useState, useEffect, Context API
   - Next.js App Router
-  - API routes and server actions
+    Description: Server-side rendering and routing framework.
+    Notes: v13+ uses the new App Router paradigm.
+    Subtasks: Server components, Client components, Data fetching
+    Resources: https://nextjs.org/docs
 
 Backend and Data
   - REST API design
+    Description: Architecting clean and stateless APIs.
+    Notes: Use standard HTTP methods and status codes.
+    Subtasks: Endpoint structuring, Authentication middleware, Error handling
   - PostgreSQL basics
-  - Supabase authentication
-  - Deployment checklist
+    Description: Relational database fundamentals.
+    Notes: Practice writing raw SQL before using an ORM.
+    Subtasks: Table creation, Joins, Indexes
+    Resources: https://postgresql.org
 
 Projects
-  - Portfolio website
-  - Task manager app
-  - Capstone SaaS dashboard`
+  - Full-stack Capstone
+    Description: Build a complete end-to-end web application.
+    Notes: Integrate all the previous skills.
+    Subtasks: Database schema design, API implementation, Frontend integration, Deployment
+    Resources: https://vercel.com`
 
 export default function RoadmapsPage() {
   const router = useRouter()
@@ -211,48 +234,69 @@ export default function RoadmapsPage() {
       }
 
       setAiGenerating(true)
-      setAiStep(0)
-
-      // Step animations
-      const steps = [
-        'Analyzing learning requirements...',
-        'Extracting key learning modules...',
-        'Mapping prerequisite dependancies...',
-        'Assembling nodes grid layout...',
-        'Finalizing roadmap state...'
-      ]
-
-      for (let i = 0; i < steps.length; i++) {
-        setAiStep(i)
-        await new Promise(r => setTimeout(r, 600))
-      }
-
-      // Generate the state schema
-      const state = generateRoadmapFromInput(
-        newRoadmapName.trim(),
-        inputText,
-        aiFileType === 'file' ? uploadedFileName : undefined
-      )
-
-      const id = await createRoadmap(newRoadmapName.trim(), activeFolderId, state)
-      setAiGenerating(false)
+      setAiStep(0) // 0 = Analyzing learning requirements...
       
-      if (id) {
-        // Invite after AI-generated roadmap creation if requested
-        if (enableCollab && inviteEmailOnCreate.trim()) {
-          await shareRoadmap(id, inviteEmailOnCreate.trim(), inviteRoleOnCreate)
+      let finalParsedText = inputText
+
+      try {
+        if (aiFileType === 'text') {
+          // Ask Gemini to expand the prompt into a formatted outline
+          const res = await fetch('/api/generate-flowmap', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ prompt: inputText })
+          })
+          const data = await res.json()
+          
+          if (!res.ok) {
+            throw new Error(data.error || 'Failed to generate flowmap via AI')
+          }
+          finalParsedText = data.result
         }
 
-        toastSuccess('Roadmap generated successfully!')
-        setShowRoadmapModal(false)
-        setNewRoadmapName('')
-        setAiPrompt('')
-        setUploadedFileName('')
-        setUploadedFileText('')
-        setEnableCollab(false)
-        setInviteEmailOnCreate('')
-        setInviteRoleOnCreate('editor')
-        handleOpenRoadmap(id)
+        // Proceed to other steps
+        const steps = [
+          'Extracting key learning modules...',
+          'Mapping prerequisite dependancies...',
+          'Assembling nodes grid layout...',
+          'Finalizing roadmap state...'
+        ]
+
+        for (let i = 0; i < steps.length; i++) {
+          setAiStep(i + 1)
+          await new Promise(r => setTimeout(r, 400))
+        }
+
+        // Generate the state schema from the AI's response (or file upload)
+        const state = generateRoadmapFromInput(
+          newRoadmapName.trim(),
+          finalParsedText,
+          aiFileType === 'file' ? uploadedFileName : undefined
+        )
+
+        const id = await createRoadmap(newRoadmapName.trim(), activeFolderId, state)
+        setAiGenerating(false)
+        
+        if (id) {
+          // Invite after AI-generated roadmap creation if requested
+          if (enableCollab && inviteEmailOnCreate.trim()) {
+            await shareRoadmap(id, inviteEmailOnCreate.trim(), inviteRoleOnCreate)
+          }
+
+          toastSuccess('Roadmap generated successfully!')
+          setShowRoadmapModal(false)
+          setNewRoadmapName('')
+          setAiPrompt('')
+          setUploadedFileName('')
+          setUploadedFileText('')
+          setEnableCollab(false)
+          setInviteEmailOnCreate('')
+          setInviteRoleOnCreate('editor')
+          handleOpenRoadmap(id)
+        }
+      } catch (err: any) {
+        toastError(err.message)
+        setAiGenerating(false)
       }
     }
   }

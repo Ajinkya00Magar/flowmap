@@ -72,6 +72,7 @@ export interface RoadmapState {
   nodes: Record<string, RoadmapNode>
   rootIds: string[]                    // ordered top-level category ids
   selectedNodeId: string | null
+  selectedNodeIds: string[]            // newly added for multi-selection lasso
   version: number                      // incremented on every mutation
   lastSaved: string
 }
@@ -142,11 +143,14 @@ export interface HistoryEntry {
 export type RoadmapAction =
   | { type: 'SET_STATE'; payload: RoadmapState }
   | { type: 'SELECT_NODE'; payload: string | null }
+  | { type: 'TOGGLE_SELECT_NODE'; payload: string }
+  | { type: 'SELECT_MULTIPLE_NODES'; payload: string[] }
   | { type: 'UPDATE_NODE'; payload: { id: string; updates: Partial<RoadmapNode> } }
   | { type: 'ADD_NODE'; payload: RoadmapNode }
   | { type: 'DELETE_NODE'; payload: string }
   | { type: 'DUPLICATE_NODE'; payload: string }
   | { type: 'MOVE_NODE'; payload: { id: string; position: { x: number; y: number } } }
+  | { type: 'MOVE_NODES'; payload: { ids: string[]; delta: { dx: number; dy: number } } }
   | { type: 'TOGGLE_EXPAND'; payload: string }
   | { type: 'TOGGLE_COMPLETE'; payload: string }
   | { type: 'UPDATE_PROGRESS'; payload: { id: string; progress: number } }
