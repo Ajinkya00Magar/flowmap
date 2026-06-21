@@ -194,55 +194,45 @@ export function toggleExpandInState(state: RoadmapState, id: string): RoadmapSta
 
 // ─── Toggle Complete ──────────────────────────────────────────────────────
 
-function setSubtreeCompletion(state: RoadmapState, id: string, completed: boolean): RoadmapState {
-  const subtreeIds = getSubtree(state, id)
-  let nextState = state
-
-  subtreeIds.forEach(nodeId => {
-    const target = nextState.nodes[nodeId]
-    if (!target) return
-
-    nextState = updateNodeInState(nextState, nodeId, {
-      completed,
-      status: completed ? 'completed' : 'not_started',
-      progress: completed ? 100 : 0,
-    })
-  })
-
-  return nextState
-}
-
 export function toggleCompleteInState(state: RoadmapState, id: string): RoadmapState {
   const node = state.nodes[id]
   if (!node) return state
 
   const completed = !node.completed
-  const subtreeIds = getSubtree(state, id)
+  let nextState = state
 
-  let nextState = setSubtreeCompletion(state, id, completed)
-  const exempt = new Set<string>(subtreeIds)
-  nextState = resolvePrerequisiteBlocking(nextState, exempt)
-  nextState = recalculateProgressForParents(nextState, subtreeIds)
+  if (!node.isRoot) {
+    // Toggle only this individual non-root node
+    nextState = updateNodeInState(state, id, {
+      completed,
+      status: completed ? 'completed' : 'not_started',
+      progress: completed ? 100 : 0,
+    })
+    
+    // Find the root (Main Category) node and update its progress only
+    const ancestors = getAncestors(state, id)
+    const rootId = ancestors.length > 0 ? ancestors[ancestors.length - 1] : null
+    if (rootId) {
+      nextState = recalculateProgress(nextState, rootId)
+    }
+  } else {
+    // If root node, toggle ALL descendants to match the desired state
+    const subtreeIds = getSubtree(state, id)
+    const descendantIds = subtreeIds.filter(nId => nId !== id)
+    
+    descendantIds.forEach(dId => {
+      nextState = updateNodeInState(nextState, dId, {
+        completed,
+        status: completed ? 'completed' : 'not_started',
+        progress: completed ? 100 : 0,
+      })
+    })
+
+    // Now recalculate progress for the root node itself
+    nextState = recalculateProgress(nextState, id)
+  }
 
   return nextState
-}
-
-function recalculateProgressForParents(state: RoadmapState, nodeIds: string[]): RoadmapState {
-  const parentIds = new Set<string>()
-
-  nodeIds.forEach(nodeId => {
-    let current = state.nodes[nodeId]
-    while (current?.parentId) {
-      parentIds.add(current.parentId)
-      current = state.nodes[current.parentId]
-    }
-  })
-
-  const sortedParentIds = Array.from(parentIds).sort((a, b) =>
-    getAncestors(state, b).length - getAncestors(state, a).length
-  )
-
-  return sortedParentIds.reduce((nextState, parentId) => recalculateProgress(nextState, parentId), state)
 }
 
 // ─── Progress Recalculation ───────────────────────────────────────────────
@@ -251,39 +241,38 @@ export function recalculateProgress(state: RoadmapState, nodeId: string): Roadma
   const node = state.nodes[nodeId]
   if (!node) return state
 
-  if (node.status === 'blocked' || hasIncompletePrerequisites(state, nodeId)) {
-    let nextState = updateNodeInState(state, nodeId, {
-      completed: false,
-      status: 'blocked',
-      progress: 0,
-    })
-
-    if (node.parentId) {
-      nextState = recalculateProgress(nextState, node.parentId)
-    }
-
-    return nextState
+  // We ONLY automatically calculate progress for ROOT (Main Category) nodes
+  if (!node.isRoot) {
+    return state
   }
 
-  if (node.childIds.length === 0) return state
+  // Find all descendants
+  const subtreeIds = getSubtree(state, nodeId)
+  const descendantIds = subtreeIds.filter(id => id !== nodeId)
 
-  const children = node.childIds.map(id => state.nodes[id]).filter(Boolean)
-  const totalProgress = children.reduce((sum, c) => sum + c.progress, 0)
-  const avgProgress = Math.round(totalProgress / children.length)
-  const allCompleted = children.every(c => c.completed)
+  if (descendantIds.length === 0) return state
 
-  let nextState = updateNodeInState(state, nodeId, {
+  const descendants = descendantIds.map(id => state.nodes[id]).filter(Boolean)
+  const totalProgress = descendants.reduce((sum, d) => sum + d.progress, 0)
+  const avgProgress = Math.round(totalProgress / descendants.length)
+  const allCompleted = descendants.every(d => d.completed)
+  const anyBlocked = descendants.some(d => d.status === 'blocked')
+  const isSelfBlocked = hasIncompletePrerequisites(state, nodeId)
+
+  let newStatus: typeof node.status = 'not_started'
+  if (isSelfBlocked || anyBlocked) {
+    newStatus = 'blocked'
+  } else if (avgProgress === 100 && allCompleted) {
+    newStatus = 'completed'
+  } else if (avgProgress > 0) {
+    newStatus = 'in_progress'
+  }
+
+  return updateNodeInState(state, nodeId, {
     progress: avgProgress,
     completed: allCompleted,
-    status: allCompleted ? 'completed' : avgProgress > 0 ? 'in_progress' : 'not_started',
+    status: newStatus,
   })
-
-  // Bubble up to grandparent
-  if (node.parentId) {
-    nextState = recalculateProgress(nextState, node.parentId)
-  }
-
-  return nextState
 }
 
 // ─── Prerequisite helpers ─────────────────────────────────────────────────
