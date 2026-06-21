@@ -75,6 +75,7 @@ export interface RoadmapState {
   selectedNodeIds: string[]            // newly added for multi-selection lasso
   version: number                      // incremented on every mutation
   lastSaved: string
+  layout?: string                      // optional layout structure to apply
 }
 
 export interface RoadmapOwner {

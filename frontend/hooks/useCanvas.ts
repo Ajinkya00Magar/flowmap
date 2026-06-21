@@ -13,7 +13,7 @@ interface UseCanvasOptions {
 
 export function useCanvas({ initialTransform }: UseCanvasOptions = {}) {
   const [transform, setTransform] = useState<CanvasTransform>(
-    initialTransform ?? { x: 0, y: 0, scale: 0.72 }
+    initialTransform ?? { x: 0, y: 0, scale: 0.5 }
   )
   const [isPanning, setIsPanning] = useState(false)
   const containerRef = useRef<HTMLDivElement>(null)
@@ -141,13 +141,14 @@ export function useCanvas({ initialTransform }: UseCanvasOptions = {}) {
   }, [])
 
   const resetView = useCallback(() => {
-    setTransform({ x: 0, y: 0, scale: 0.72 })
+    setTransform({ x: 0, y: 0, scale: 0.5 })
   }, [])
 
   const fitToScreen = useCallback((
     nodePositions: Array<{ x: number; y: number }>,
     nodeWidth = 160,
-    nodeHeight = 60
+    nodeHeight = 60,
+    maxFitScale = MAX_SCALE
   ) => {
     const container = containerRef.current
     if (!container || nodePositions.length === 0) return
@@ -165,7 +166,7 @@ export function useCanvas({ initialTransform }: UseCanvasOptions = {}) {
 
     const scaleX = (rect.width - padding * 2) / contentW
     const scaleY = (rect.height - padding * 2) / contentH
-    const scale = Math.min(Math.min(scaleX, scaleY), MAX_SCALE)
+    const scale = Math.min(Math.min(scaleX, scaleY), maxFitScale)
 
     const x = (rect.width - contentW * scale) / 2 - minX * scale
     const y = (rect.height - contentH * scale) / 2 - minY * scale

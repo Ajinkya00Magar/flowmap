@@ -19,6 +19,9 @@
         "@radix-ui/react-tooltip": "^1.1.2",
         "@supabase/supabase-js": "^2.108.2",
         "clsx": "^2.1.1",
+        "d3-force": "^3.0.0",
+        "d3-hierarchy": "^3.1.2",
+        "dagre": "^0.8.5",
         "framer-motion": "^11.3.19",
         "lucide-react": "^0.436.0",
         "next": "^14.2.35",
@@ -29,6 +32,9 @@
         "uuid": "^10.0.0"
     },
     "devDependencies": {
+        "@types/d3-force": "^3.0.10",
+        "@types/d3-hierarchy": "^3.1.7",
+        "@types/dagre": "^0.7.54",
         "@types/node": "^22.4.0",
         "@types/react": "^18.3.4",
         "@types/react-dom": "^18.3.0",

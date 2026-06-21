@@ -48,16 +48,20 @@ export default function FloatingCanvas() {
     return () => window.removeEventListener('resize', update)
   }, [])
 
-  // Fit on mount
-  const hasFitted = useRef(false)
+  // Fit on mount or when switching roadmaps
+  const lastFittedRoadmapRef = useRef<string | null>(null)
+  const { currentRoadmapId } = useRoadmapContext()
+  
   useEffect(() => {
-    if (hasFitted.current) return
-    hasFitted.current = true
+    if (lastFittedRoadmapRef.current === currentRoadmapId) return
+    if (!currentRoadmapId) return
+    
+    lastFittedRoadmapRef.current = currentRoadmapId
     const positions = Object.values(state.nodes).map(n => n.position)
     if (positions.length > 0) {
-      setTimeout(() => fitToScreen(positions, 176, 64), 200)
+      setTimeout(() => fitToScreen(positions, 176, 64, 0.5), 200)
     }
-  }, []) // eslint-disable-line react-hooks/exhaustive-deps
+  }, [currentRoadmapId, state.nodes, fitToScreen])
 
   // Global Keyboard Shortcuts
   useEffect(() => {

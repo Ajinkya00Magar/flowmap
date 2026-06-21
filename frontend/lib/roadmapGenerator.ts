@@ -1,4 +1,5 @@
 import type { RoadmapState, RoadmapNode, NodeColor, Priority, Resource } from '@/types/roadmap'
+import { applyLayout } from '@/lib/layoutEngine'
 
 const COLORS: NodeColor[] = ['indigo', 'emerald', 'violet', 'cyan', 'amber', 'rose', 'blue', 'teal']
 
@@ -42,52 +43,6 @@ function makeGeneratedNode(
   }
 }
 
-// Layout nodes in a clean grid under each category root
-function layoutTree(
-  rootId: string,
-  rootTitle: string,
-  childrenData: Array<{ id: string; title: string; description?: string; hours?: number; notes?: string; subtasks?: string[]; resources?: string[] }>,
-  xCenter: number,
-  yStart: number,
-  color: NodeColor
-): { root: RoadmapNode; children: RoadmapNode[] } {
-  const root = makeGeneratedNode(rootId, rootTitle, null, { x: xCenter, y: yStart }, color, `${rootTitle} modules & study path.`, 0, 'critical')
-  
-  const children: RoadmapNode[] = []
-  const itemsPerRow = 3
-  const xSpacing = 150
-  const ySpacing = 120
-
-  childrenData.forEach((c, index) => {
-    const row = Math.floor(index / itemsPerRow)
-    const colInRow = index % itemsPerRow
-    
-    // Calculate centered x positions for this row
-    const rowCount = Math.min(itemsPerRow, childrenData.length - row * itemsPerRow)
-    const startX = xCenter - ((rowCount - 1) * xSpacing) / 2
-    const x = startX + colInRow * xSpacing
-    const y = yStart + 140 + row * ySpacing
-
-    const childNode = makeGeneratedNode(
-      c.id,
-      c.title,
-      rootId,
-      { x, y },
-      color,
-      c.description || `Master ${c.title} concepts.`,
-      c.hours || 8,
-      index < 3 ? 'high' : 'medium',
-      c.notes || '',
-      (c.subtasks || []).map((st, i) => ({ id: `st-${i}-${c.id}`, title: st, completed: false })),
-      (c.resources || []).map((res, i) => ({ id: `res-${i}-${c.id}`, title: res, url: res, type: 'article' }))
-    )
-    
-    children.push(childNode)
-    root.childIds.push(childNode.id)
-  })
-
-  return { root, children }
-}
 
 // ─── Predefined Curated Templates ──────────────────────────────────────────
 const TEMPLATES: Record<string, Array<{ rootTitle: string; color: NodeColor; children: Array<{ title: string; description: string; hours: number }> }>> = {
@@ -260,6 +215,14 @@ export function generateRoadmapFromInput(
   // Decide which source to analyze: file name, raw text input, etc.
   const sourceText = (rawInput + ' ' + (fileName || '')).toLowerCase()
   
+  // Extract layout if provided by AI
+  let layoutName = 'Classic Top-Down Tree'
+  const layoutMatch = rawInput.match(/^Layout:\s*(.+)$/im)
+  if (layoutMatch) {
+    layoutName = layoutMatch[1].trim()
+    rawInput = rawInput.replace(layoutMatch[0], '') // Remove it so it doesn't mess up parsing
+  }
+
   let categoryOutlines: Array<{ rootTitle: string; color?: NodeColor; children: Array<{ title: string; description?: string; hours?: number }> }> = []
 
   // 1. Try outline parsing first (so AI output isn't overwritten by keyword templates)
@@ -280,38 +243,35 @@ export function generateRoadmapFromInput(
     const catId = `gen-cat-${catIdx}-${Math.random().toString(36).substring(2, 5)}`
     const color = outline.color || COLORS[catIdx % COLORS.length]
     
-    // Grid layout for Root Categories (max 3 categories per row)
-    const MAX_COLS = 3
-    const gridRow = Math.floor(catIdx / MAX_COLS)
-    const gridCol = catIdx % MAX_COLS
-
-    const xCenter = (gridCol * 520) + 300
-    const yStart = (gridRow * 450) + 120
-
-    const { root, children } = layoutTree(
-      catId,
-      outline.rootTitle,
-      outline.children.map((c, i) => ({
-        id: `gen-node-${catIdx}-${i}-${Math.random().toString(36).substring(2, 5)}`,
-        title: c.title,
-        description: c.description,
-        hours: c.hours
-      })),
-      xCenter,
-      yStart,
-      color
-    )
-
+    const root = makeGeneratedNode(catId, outline.rootTitle, null, { x: 0, y: 0 }, color, `${outline.rootTitle} modules & study path.`, 0, 'critical')
     nodes[root.id] = root
     rootIds.push(root.id)
 
-    children.forEach(c => {
-      nodes[c.id] = c
+    outline.children.forEach((c, i) => {
+      const childId = `gen-node-${catIdx}-${i}-${Math.random().toString(36).substring(2, 5)}`
+      const childNode = makeGeneratedNode(
+        childId,
+        c.title,
+        root.id,
+        { x: 0, y: 0 },
+        color,
+        c.description || `Master ${c.title} concepts.`,
+        c.hours || 8,
+        i < 3 ? 'high' : 'medium',
+        c.notes || '',
+        (c.subtasks || []).map((st, j) => ({ id: `st-${j}-${childId}`, title: st, completed: false })),
+        (c.resources || []).map((res, j) => ({ id: `res-${j}-${childId}`, title: res, url: res, type: 'article' }))
+      )
+      nodes[childNode.id] = childNode
+      root.childIds.push(childNode.id)
     })
   })
 
+  // Apply smart layout using the Layout Engine
+  const laidOutNodes = applyLayout(nodes, layoutName)
+
   return {
-    nodes,
+    nodes: laidOutNodes,
     rootIds,
     selectedNodeId: null,
     selectedNodeIds: [],
@@ -416,11 +376,21 @@ export function mergeAIOutlineToState(state: RoadmapState, aiOutlineText: string
     }
   })
 
+  // Extract layout if provided by AI
+  let layoutName = 'Classic Top-Down Tree'
+  const layoutMatch = aiOutlineText.match(/^Layout:\s*(.+)$/im)
+  if (layoutMatch) {
+    layoutName = layoutMatch[1].trim()
+  }
+
+  // Apply layout again after merging AI nodes
+  const laidOutNodes = applyLayout(nextNodes, layoutName)
+
   // We could delete nodes that are no longer in the AI outline, but to be safe and preserve manual user work, we leave them in `nextNodes` even if they aren't in `childIds`. They will act as disconnected/orphan nodes.
 
   return {
     ...state,
-    nodes: nextNodes,
+    nodes: laidOutNodes,
     rootIds: nextRootIds,
     version: state.version + 1,
     lastSaved: new Date().toISOString()

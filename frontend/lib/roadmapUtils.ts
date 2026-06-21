@@ -1,6 +1,7 @@
 import { v4 as uuidv4 } from 'uuid'
 import type { RoadmapNode, RoadmapState, NodeColor } from '@/types/roadmap'
 import { buildDefaultNodes, DEFAULT_ROOT_IDS } from './defaultRoadmap'
+import { applyLayout } from './layoutEngine'
 
 // ─── State Factory ────────────────────────────────────────────────────────
 
@@ -411,8 +412,15 @@ export function parseImportedJSON(json: string): RoadmapState | null {
   try {
     const parsed = JSON.parse(json)
     if (!parsed.nodes || !parsed.rootIds) return null
+    
+    let finalNodes = parsed.nodes
+    if (parsed.layout) {
+      finalNodes = applyLayout(finalNodes, parsed.layout)
+    }
+
     return {
       ...parsed,
+      nodes: finalNodes,
       selectedNodeIds: parsed.selectedNodeIds || []
     } as RoadmapState
   } catch {
