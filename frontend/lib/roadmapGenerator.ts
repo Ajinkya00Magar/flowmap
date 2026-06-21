@@ -223,7 +223,7 @@ export function generateRoadmapFromInput(
     rawInput = rawInput.replace(layoutMatch[0], '') // Remove it so it doesn't mess up parsing
   }
 
-  let categoryOutlines: Array<{ rootTitle: string; color?: NodeColor; children: Array<{ title: string; description?: string; hours?: number }> }> = []
+  let categoryOutlines: Array<{ rootTitle: string; color?: NodeColor; children: Array<{ title: string; description?: string; hours?: number; notes?: string; subtasks?: string[]; resources?: string[] }> }> = []
 
   // 1. Try outline parsing first (so AI output isn't overwritten by keyword templates)
   const parsed = parseTextOutline(rawInput)
