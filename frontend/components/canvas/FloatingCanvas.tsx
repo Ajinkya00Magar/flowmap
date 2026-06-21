@@ -22,7 +22,7 @@ function nodePhase(id: string): number {
 }
 
 export default function FloatingCanvas() {
-  const { state, dispatch, editingNode, openNodeEditor, closeNodeEditor } = useRoadmapContext()
+  const { state, dispatch, editingNode, openNodeEditor, closeNodeEditor, undo, redo } = useRoadmapContext()
   const [showGrid, setShowGrid] = useState(true)
   const [contextMenu, setContextMenu] = useState<ContextMenuState | null>(null)
   const [connectingFromId, setConnectingFromId] = useState<string | null>(null)
@@ -59,6 +59,50 @@ export default function FloatingCanvas() {
     }
   }, []) // eslint-disable-line react-hooks/exhaustive-deps
 
+  // Global Keyboard Shortcuts
+  useEffect(() => {
+    const handleGlobalKeyDown = (e: KeyboardEvent) => {
+      if (['INPUT', 'TEXTAREA'].includes((e.target as HTMLElement).tagName)) return
+
+      const isMac = navigator.platform.toUpperCase().indexOf('MAC') >= 0
+      const isCmdOrCtrl = isMac ? e.metaKey : e.ctrlKey
+
+      if (isCmdOrCtrl) {
+        if (e.key.toLowerCase() === 'z') {
+          e.preventDefault()
+          if (e.shiftKey) {
+            redo()
+          } else {
+            undo()
+          }
+        } else if (e.key.toLowerCase() === 'y') {
+          e.preventDefault()
+          redo()
+        } else if (e.key.toLowerCase() === 'a') {
+          e.preventDefault()
+          const allIds = Object.keys(state.nodes)
+          if (allIds.length > 0) {
+            dispatch({ type: 'SELECT_MULTIPLE_NODES', payload: allIds })
+          }
+        } else if (e.key.toLowerCase() === 'd') {
+          e.preventDefault()
+          // Duplicate selected node(s)
+          if (state.selectedNodeIds && state.selectedNodeIds.length > 0) {
+            state.selectedNodeIds.forEach(id => {
+              dispatch({ type: 'DUPLICATE_NODE', payload: id })
+            })
+            // Small timeout to allow nodes to be created before selecting them? 
+            // In a real app we'd need their new IDs, but DUPLICATE_NODE generates IDs internally.
+            // For now, dispatching is enough.
+          }
+        }
+      }
+    }
+    
+    window.addEventListener('keydown', handleGlobalKeyDown)
+    return () => window.removeEventListener('keydown', handleGlobalKeyDown)
+  }, [undo, redo, state.nodes, state.selectedNodeIds, dispatch])
+
   // ── Node handlers ──────────────────────────────────────────────────
 
   const handleSelect = useCallback((id: string) => {
@@ -89,6 +133,7 @@ export default function FloatingCanvas() {
 
   const handleDeselect = useCallback((e: React.MouseEvent) => {
     if ((e.target as HTMLElement).closest('[data-node]')) return
+    if (Date.now() - lastLassoTimeRef.current < 200) return
     if (connectingFromId) {
       setConnectingFromId(null)
       setContextMenu(null)
@@ -98,14 +143,12 @@ export default function FloatingCanvas() {
     setContextMenu(null)
   }, [dispatch, connectingFromId])
 
-  const handleMove = useCallback((id: string, position: { x: number; y: number }) => {
+  const handleMove = useCallback((id: string, position: { x: number; y: number }, delta?: { dx: number; dy: number }) => {
     const node = state.nodes[id]
     if (!node) return
-    const dx = position.x - node.position.x
-    const dy = position.y - node.position.y
 
-    if (state.selectedNodeIds?.includes(id) && state.selectedNodeIds.length > 1) {
-      dispatch({ type: 'MOVE_NODES', payload: { ids: state.selectedNodeIds, delta: { dx, dy } } })
+    if (state.selectedNodeIds?.includes(id) && state.selectedNodeIds.length > 1 && delta) {
+      dispatch({ type: 'MOVE_NODES', payload: { ids: state.selectedNodeIds, delta } })
     } else {
       dispatch({ type: 'MOVE_NODE', payload: { id, position } })
     }
@@ -229,12 +272,12 @@ export default function FloatingCanvas() {
     return visible
   }, [state.nodes, state.rootIds])
 
-  // Context menu node
   const contextNode = contextMenu ? state.nodes[contextMenu.nodeId] ?? null : null
 
   const lassoStartRef = useRef<{ x: number, y: number } | null>(null)
+  const lastLassoTimeRef = useRef(0)
   const [lassoRect, setLassoRect] = useState<{ x: number, y: number, w: number, h: number } | null>(null)
-  
+
   const startCanvasInteraction = useCallback((e: React.MouseEvent) => {
     if (e.button !== 0) return
     if ((e.target as HTMLElement).closest('[data-node]')) return
@@ -248,46 +291,47 @@ export default function FloatingCanvas() {
       e.preventDefault()
 
       const handleMouseMove = (moveEv: MouseEvent) => {
-         if (!lassoStartRef.current) return
-         const current = screenToCanvas(moveEv.clientX, moveEv.clientY)
-         const start = lassoStartRef.current
-         setLassoRect({
-           x: Math.min(start.x, current.x),
-           y: Math.min(start.y, current.y),
-           w: Math.abs(current.x - start.x),
-           h: Math.abs(current.y - start.y)
-         })
+        if (!lassoStartRef.current) return
+        const current = screenToCanvas(moveEv.clientX, moveEv.clientY)
+        const start = lassoStartRef.current
+        setLassoRect({
+          x: Math.min(start.x, current.x),
+          y: Math.min(start.y, current.y),
+          w: Math.abs(current.x - start.x),
+          h: Math.abs(current.y - start.y)
+        })
       }
 
       const handleMouseUp = (upEv: MouseEvent) => {
-         if (!lassoStartRef.current) return
-         const current = screenToCanvas(upEv.clientX, upEv.clientY)
-         const start = lassoStartRef.current
-         
-         const rx1 = Math.min(start.x, current.x)
-         const rx2 = Math.max(start.x, current.x)
-         const ry1 = Math.min(start.y, current.y)
-         const ry2 = Math.max(start.y, current.y)
+        if (!lassoStartRef.current) return
+        const current = screenToCanvas(upEv.clientX, upEv.clientY)
+        const start = lassoStartRef.current
 
-         const selectedIds: string[] = []
-         Object.values(state.nodes).forEach(node => {
-           const nx = node.position.x
-           const ny = node.position.y
-           if (nx < rx2 && nx + 160 > rx1 && ny < ry2 && ny + 60 > ry1) {
-             selectedIds.push(node.id)
-           }
-         })
+        const rx1 = Math.min(start.x, current.x)
+        const rx2 = Math.max(start.x, current.x)
+        const ry1 = Math.min(start.y, current.y)
+        const ry2 = Math.max(start.y, current.y)
 
-         if (selectedIds.length > 0) {
-           dispatch({ type: 'SELECT_MULTIPLE_NODES', payload: selectedIds })
-         } else {
-           dispatch({ type: 'SELECT_NODE', payload: null })
-         }
+        const selectedIds: string[] = []
+        Object.values(state.nodes).forEach(node => {
+          const nx = node.position.x
+          const ny = node.position.y
+          if (nx < rx2 && nx + 160 > rx1 && ny < ry2 && ny + 60 > ry1) {
+            selectedIds.push(node.id)
+          }
+        })
 
-         lassoStartRef.current = null
-         setLassoRect(null)
-         window.removeEventListener('mousemove', handleMouseMove)
-         window.removeEventListener('mouseup', handleMouseUp)
+        if (selectedIds.length > 0) {
+          dispatch({ type: 'SELECT_MULTIPLE_NODES', payload: selectedIds })
+        } else {
+          dispatch({ type: 'SELECT_NODE', payload: null })
+        }
+
+        lassoStartRef.current = null
+        setLassoRect(null)
+        lastLassoTimeRef.current = Date.now()
+        window.removeEventListener('mousemove', handleMouseMove)
+        window.removeEventListener('mouseup', handleMouseUp)
       }
 
       window.addEventListener('mousemove', handleMouseMove)
@@ -474,54 +518,54 @@ export default function FloatingCanvas() {
               )
             })()}
 
-              {selected.resources && selected.resources.length > 0 && (
-                <div style={{ marginTop: 14 }}>
-                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 8 }}>
-                    <div style={{ fontSize: 12, fontWeight: 700, color: 'rgba(255,255,255,0.86)' }}>Resources</div>
-                    <div style={{ fontSize: 11, color: 'rgba(255,255,255,0.45)' }}>{selected.resources.length} item{selected.resources.length !== 1 ? 's' : ''}</div>
-                  </div>
-                  <div style={{ display: 'grid', gap: 8 }}>
-                    {selected.resources.map(r => (
-                      <div
-                        key={r.id}
-                        style={{
-                          display: 'flex',
-                          alignItems: 'center',
-                          gap: 10,
-                          padding: '8px 10px',
-                          background: 'rgba(255,255,255,0.02)',
-                          border: '1px solid rgba(255,255,255,0.04)',
-                          borderRadius: 10,
-                          fontSize: 12,
-                          color: 'rgba(255,255,255,0.8)',
-                        }}
-                        onClick={() => { if (r.url) window.open(r.url, '_blank') }}
-                      >
-                        <span style={{ flexShrink: 0, display: 'flex', alignItems: 'center', color: '#9CA3FF' }}>
-                          {r.type === 'video' && <Video size={14} />}
-                          {r.type === 'article' && <FileText size={14} />}
-                          {r.type === 'course' && <BookOpen size={14} />}
-                          {r.type === 'book' && <BookOpen size={14} />}
-                          {r.type === 'tool' && <Wrench size={14} />}
-                          {r.type === 'other' && <Globe size={14} />}
-                        </span>
-                        <span style={{ flex: 1, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{r.title}</span>
-                        {r.url && (
-                          <a
-                            href={r.url}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            onClick={e => e.stopPropagation()}
-                            style={{ color: 'rgba(255,255,255,0.35)', display: 'flex', alignItems: 'center' }}
-                          >
-                            <ExternalLink size={12} />
-                          </a>
-                        )}
-                      </div>
-                    ))}
-                  </div>
+            {selected.resources && selected.resources.length > 0 && (
+              <div style={{ marginTop: 14 }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 8 }}>
+                  <div style={{ fontSize: 12, fontWeight: 700, color: 'rgba(255,255,255,0.86)' }}>Resources</div>
+                  <div style={{ fontSize: 11, color: 'rgba(255,255,255,0.45)' }}>{selected.resources.length} item{selected.resources.length !== 1 ? 's' : ''}</div>
                 </div>
-              )}
+                <div style={{ display: 'grid', gap: 8 }}>
+                  {selected.resources.map(r => (
+                    <div
+                      key={r.id}
+                      style={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: 10,
+                        padding: '8px 10px',
+                        background: 'rgba(255,255,255,0.02)',
+                        border: '1px solid rgba(255,255,255,0.04)',
+                        borderRadius: 10,
+                        fontSize: 12,
+                        color: 'rgba(255,255,255,0.8)',
+                      }}
+                      onClick={() => { if (r.url) window.open(r.url, '_blank') }}
+                    >
+                      <span style={{ flexShrink: 0, display: 'flex', alignItems: 'center', color: '#9CA3FF' }}>
+                        {r.type === 'video' && <Video size={14} />}
+                        {r.type === 'article' && <FileText size={14} />}
+                        {r.type === 'course' && <BookOpen size={14} />}
+                        {r.type === 'book' && <BookOpen size={14} />}
+                        {r.type === 'tool' && <Wrench size={14} />}
+                        {r.type === 'other' && <Globe size={14} />}
+                      </span>
+                      <span style={{ flex: 1, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{r.title}</span>
+                      {r.url && (
+                        <a
+                          href={r.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          onClick={e => e.stopPropagation()}
+                          style={{ color: 'rgba(255,255,255,0.35)', display: 'flex', alignItems: 'center' }}
+                        >
+                          <ExternalLink size={12} />
+                        </a>
+                      )}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
           </div>
         )
       })()}

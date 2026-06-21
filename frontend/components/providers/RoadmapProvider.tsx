@@ -789,8 +789,12 @@ export function RoadmapProvider({ children }: { children: React.ReactNode }) {
     pastRef.current = pastRef.current.slice(0, -1)
     futureRef.current = [activeState, ...futureRef.current]
 
-    setActiveState(prev)
-    persistState(currentRoadmapId, prev)
+    // We must bump the version so the real-time listener doesn't mistakenly overwrite this undo 
+    // with a delayed broadcast of the pre-undo state. Undo is a new state mutation!
+    const nextState = { ...prev, version: activeState.version + 1, lastSaved: new Date().toISOString() }
+
+    setActiveState(nextState)
+    persistState(currentRoadmapId, nextState)
     info('Undo action')
   }, [activeState, currentRoadmapId, persistState, info])
 
@@ -800,8 +804,10 @@ export function RoadmapProvider({ children }: { children: React.ReactNode }) {
     futureRef.current = futureRef.current.slice(1)
     pastRef.current = [...pastRef.current, activeState]
 
-    setActiveState(next)
-    persistState(currentRoadmapId, next)
+    const nextState = { ...next, version: activeState.version + 1, lastSaved: new Date().toISOString() }
+
+    setActiveState(nextState)
+    persistState(currentRoadmapId, nextState)
     info('Redo action')
   }, [activeState, currentRoadmapId, persistState, info])
 

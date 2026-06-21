@@ -68,7 +68,7 @@ interface RoadmapNodeProps {
   scale: number
   onSelect: (id: string) => void
   onOpenEditor?: (id: string) => void
-  onMove: (id: string, position: { x: number; y: number }) => void
+  onMove: (id: string, position: { x: number; y: number }, delta?: { dx: number; dy: number }) => void
   onToggleExpand: (id: string) => void
   onAddChild: (parentId: string) => void
   onDelete: (id: string) => void
@@ -147,6 +147,12 @@ export default function RoadmapNode({
     if ((e.target as HTMLElement).closest('[data-action]')) return
 
     e.stopPropagation()
+
+    // If we click an unselected node, select it immediately so drag applies to it
+    if (!isSelected) {
+      onSelect(node.id)
+    }
+
     isDraggingRef.current = false
     stopFloat()
 
@@ -157,20 +163,31 @@ export default function RoadmapNode({
       nodeY: node.position.y,
     }
 
+    let lastMouseX = e.clientX
+    let lastMouseY = e.clientY
+
     const handleMouseMove = (moveEvent: MouseEvent) => {
       if (!dragStart.current) return
-      const dx = (moveEvent.clientX - dragStart.current.mouseX) / scale
-      const dy = (moveEvent.clientY - dragStart.current.mouseY) / scale
+      
+      const totalDx = (moveEvent.clientX - dragStart.current.mouseX) / scale
+      const totalDy = (moveEvent.clientY - dragStart.current.mouseY) / scale
 
-      if (Math.abs(dx) > 3 || Math.abs(dy) > 3) {
+      const frameDx = (moveEvent.clientX - lastMouseX) / scale
+      const frameDy = (moveEvent.clientY - lastMouseY) / scale
+      
+      lastMouseX = moveEvent.clientX
+      lastMouseY = moveEvent.clientY
+
+      if (Math.abs(totalDx) > 3 || Math.abs(totalDy) > 3) {
         isDraggingRef.current = true
       }
 
       if (isDraggingRef.current) {
-        onMove(node.id, {
-          x: dragStart.current.nodeX + dx,
-          y: dragStart.current.nodeY + dy,
-        })
+        onMove(
+          node.id, 
+          { x: dragStart.current.nodeX + totalDx, y: dragStart.current.nodeY + totalDy },
+          { dx: frameDx, dy: frameDy }
+        )
       }
     }
 
@@ -189,7 +206,7 @@ export default function RoadmapNode({
 
     window.addEventListener('mousemove', handleMouseMove)
     window.addEventListener('mouseup', handleMouseUp)
-  }, [node, scale, onMove, onSelect, stopFloat, resumeFloat, triggerRipple])
+  }, [node, scale, onMove, onSelect, stopFloat, resumeFloat, triggerRipple, isSelected])
 
 
   // ── Glow intensity based on progress ──────────────────────────────
@@ -260,8 +277,8 @@ export default function RoadmapNode({
           boxShadow: isSelected
             ? `0 0 0 2px ${colorMap.border}, 0 8px 32px rgba(0,0,0,0.5), 0 0 40px ${colorMap.glow.replace('0.4', '0.25')}`
             : isHovered
-            ? `0 8px 32px rgba(0,0,0,0.4), 0 0 20px ${colorMap.glow.replace('0.4', '0.15')}`
-            : '0 2px 16px rgba(0,0,0,0.35)',
+              ? `0 8px 32px rgba(0,0,0,0.4), 0 0 20px ${colorMap.glow.replace('0.4', '0.15')}`
+              : '0 2px 16px rgba(0,0,0,0.35)',
           cursor: isDraggingRef.current ? 'grabbing' : 'grab',
           position: 'relative',
           overflow: 'hidden',

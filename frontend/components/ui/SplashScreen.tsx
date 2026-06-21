@@ -12,9 +12,10 @@ export default function SplashScreen({ onComplete }: SplashScreenProps) {
   const [phase, setPhase] = useState<'logo' | 'tagline' | 'exit'>('logo')
 
   useEffect(() => {
-    const t1 = setTimeout(() => setPhase('tagline'), 800)
-    const t2 = setTimeout(() => setPhase('exit'), 2200)
-    const t3 = setTimeout(() => onComplete(), 2800)
+    // Sped up loading animation significantly
+    const t1 = setTimeout(() => setPhase('tagline'), 200)
+    const t2 = setTimeout(() => setPhase('exit'), 800)
+    const t3 = setTimeout(() => onComplete(), 1100)
     return () => { clearTimeout(t1); clearTimeout(t2); clearTimeout(t3) }
   }, [onComplete])
 
@@ -154,7 +155,7 @@ export default function SplashScreen({ onComplete }: SplashScreenProps) {
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ delay: 0.6 }}
+            transition={{ delay: 0.2 }}
             style={{
               position: 'absolute',
               bottom: 48,
@@ -169,7 +170,7 @@ export default function SplashScreen({ onComplete }: SplashScreenProps) {
             <motion.div
               initial={{ x: '-100%' }}
               animate={{ x: '0%' }}
-              transition={{ duration: 1.8, ease: 'easeInOut', delay: 0.3 }}
+              transition={{ duration: 0.8, ease: 'easeInOut', delay: 0.1 }}
               style={{
                 height: '100%',
                 background: 'linear-gradient(90deg, #6366F1, #10B981)',
