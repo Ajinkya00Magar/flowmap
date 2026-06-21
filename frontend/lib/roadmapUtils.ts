@@ -367,11 +367,35 @@ export interface Connection {
   targetId: string
 }
 
+export function getVisibleNodeIds(state: RoadmapState): Set<string> {
+  const visible = new Set<string>()
+  function addVisible(nodeId: string) {
+    const node = state.nodes[nodeId]
+    if (!node || visible.has(nodeId)) return
+    visible.add(nodeId)
+    if (node.isExpanded) node.childIds.forEach(addVisible)
+  }
+
+  state.rootIds.forEach(addVisible)
+
+  // Render orphans (no parent) so they aren't lost forever
+  Object.keys(state.nodes).forEach(nodeId => {
+    if (!visible.has(nodeId) && !state.nodes[nodeId].parentId) {
+      addVisible(nodeId)
+    }
+  })
+
+  return visible
+}
+
 export function getVisibleConnections(state: RoadmapState): Connection[] {
   const connections: Connection[] = []
   const { nodes } = state
+  const visibleIds = getVisibleNodeIds(state)
 
   Object.values(nodes).forEach(node => {
+    // Only process if the node itself is visible
+    if (!visibleIds.has(node.id)) return
     if (node.parentId) {
       const parent = nodes[node.parentId]
       if (parent && parent.isExpanded) {

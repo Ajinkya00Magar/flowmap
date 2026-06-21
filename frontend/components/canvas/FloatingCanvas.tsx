@@ -9,7 +9,7 @@ import ConnectionLines from './ConnectionLines'
 import CanvasControls from './CanvasControls'
 import MiniMap from '@/components/ui/MiniMap'
 import ContextMenu, { type ContextMenuState } from './ContextMenu'
-import { createNode, getSubtree } from '@/lib/roadmapUtils'
+import { createNode, getSubtree, getVisibleNodeIds } from '@/lib/roadmapUtils'
 import AiCanvasPrompter from './AiCanvasPrompter'
 import { ExternalLink, Video, BookOpen, Wrench, FileText, Globe } from 'lucide-react'
 
@@ -26,6 +26,7 @@ export default function FloatingCanvas() {
   const [showGrid, setShowGrid] = useState(true)
   const [contextMenu, setContextMenu] = useState<ContextMenuState | null>(null)
   const [connectingFromId, setConnectingFromId] = useState<string | null>(null)
+  const [isDraggingNode, setIsDraggingNode] = useState(false)
   const [viewportSize, setViewportSize] = useState({ w: window?.innerWidth ?? 1200, h: window?.innerHeight ?? 800 })
 
   const {
@@ -255,26 +256,7 @@ export default function FloatingCanvas() {
 
   // ── Visible node ids ───────────────────────────────────────────────
 
-  const visibleNodeIds = useMemo(() => {
-    const visible = new Set<string>()
-    function addVisible(nodeId: string) {
-      const node = state.nodes[nodeId]
-      if (!node || visible.has(nodeId)) return
-      visible.add(nodeId)
-      if (node.isExpanded) node.childIds.forEach(addVisible)
-    }
-
-    state.rootIds.forEach(addVisible)
-
-    // If there are orphan nodes or rootIds are missing, render them too.
-    Object.keys(state.nodes).forEach(nodeId => {
-      if (!visible.has(nodeId)) {
-        addVisible(nodeId)
-      }
-    })
-
-    return visible
-  }, [state.nodes, state.rootIds])
+  const visibleNodeIds = useMemo(() => getVisibleNodeIds(state), [state])
 
   const contextNode = contextMenu ? state.nodes[contextMenu.nodeId] ?? null : null
 
@@ -394,13 +376,53 @@ export default function FloatingCanvas() {
           {Array.from(visibleNodeIds).map(nodeId => {
             const node = state.nodes[nodeId]
             if (!node) return null
+            
+            // Calculate a stagger index based on its position in the parent's child list
+            const staggerIndex = node.parentId 
+              ? (state.nodes[node.parentId]?.childIds.indexOf(nodeId) ?? 0)
+              : 0
+
+            const parentNode = node.parentId ? state.nodes[node.parentId] : null
+            const dx = parentNode ? parentNode.position.x - node.position.x : 0
+            const dy = parentNode ? parentNode.position.y - node.position.y : -40
+
             return (
               <motion.div
                 key={nodeId}
-                initial={{ opacity: 0, scale: 0.7 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.6 }}
-                transition={{ type: 'spring', stiffness: 350, damping: 28 }}
+                id={`node-wrapper-${nodeId}`}
+                custom={{ staggerIndex, dx, dy }}
+                initial="hidden"
+                animate="visible"
+                exit="exit"
+                variants={{
+                  hidden: ({ dx, dy }) => ({ 
+                    opacity: 0, 
+                    x: dx,
+                    y: dy,
+                  }),
+                  visible: ({ staggerIndex }) => ({
+                    opacity: 1,
+                    x: 0,
+                    y: 0,
+                    transition: {
+                      type: 'spring',
+                      stiffness: 80,
+                      damping: 8,
+                      mass: 1,
+                      delay: staggerIndex * 0.08 // Stagger effect
+                    }
+                  }),
+                  exit: ({ dx, dy, staggerIndex }) => ({
+                    opacity: 0,
+                    x: dx,
+                    y: dy,
+                    transition: {
+                      duration: 0.3,
+                      ease: 'easeInOut',
+                      delay: staggerIndex * 0.04
+                    }
+                  })
+                }}
                 style={{ position: 'absolute', top: 0, left: 0 }}
               >
                 <RoadmapNode
@@ -415,6 +437,8 @@ export default function FloatingCanvas() {
                   onDelete={handleDelete}
                   onDuplicate={handleDuplicate}
                   onToggleComplete={handleToggleComplete}
+                  onDragStart={() => setIsDraggingNode(true)}
+                  onDragEnd={() => setIsDraggingNode(false)}
                   phaseOffset={nodePhase(nodeId)}
                   hiddenDescendantCount={
                     !node.isExpanded
@@ -428,7 +452,7 @@ export default function FloatingCanvas() {
         </AnimatePresence>
       </div>
 
-      {state.selectedNodeId && !editingNode && (() => {
+      {state.selectedNodeId && !editingNode && !isDraggingNode && (() => {
         const selected = state.nodes[state.selectedNodeId]
         if (!selected) return null
         const previewLeft = selected.position.x * transform.scale + transform.x + 200

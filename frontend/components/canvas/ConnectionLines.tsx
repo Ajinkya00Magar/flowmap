@@ -143,8 +143,26 @@ export default function ConnectionLines({
 
         if (!pathEl && !glowEl) return
 
-        const { cx: x1, cy: y1 } = getNodeCenter(source)
-        const { cx: x2, cy: y2 } = getNodeCenter(target)
+        let { cx: x1, cy: y1 } = getNodeCenter(source)
+        let { cx: x2, cy: y2 } = getNodeCenter(target)
+
+        // Sync with Framer Motion live transform values
+        const sourceEl = document.getElementById(`node-wrapper-${source.id}`)
+        if (sourceEl) {
+          const matchX = sourceEl.style.transform.match(/translateX\(([-\d.]+)px\)/)
+          const matchY = sourceEl.style.transform.match(/translateY\(([-\d.]+)px\)/)
+          if (matchX) x1 += parseFloat(matchX[1])
+          if (matchY) y1 += parseFloat(matchY[1])
+        }
+
+        const targetEl = document.getElementById(`node-wrapper-${target.id}`)
+        if (targetEl) {
+          const matchX = targetEl.style.transform.match(/translateX\(([-\d.]+)px\)/)
+          const matchY = targetEl.style.transform.match(/translateY\(([-\d.]+)px\)/)
+          if (matchX) x2 += parseFloat(matchX[1])
+          if (matchY) y2 += parseFloat(matchY[1])
+        }
+
         const d = getBezierPath(x1, y1, x2, y2, timestamp, index)
 
         if (pathEl) pathEl.setAttribute('d', d)

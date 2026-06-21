@@ -74,6 +74,8 @@ interface RoadmapNodeProps {
   onDelete: (id: string) => void
   onDuplicate: (id: string) => void
   onToggleComplete: (id: string) => void
+  onDragStart?: () => void
+  onDragEnd?: () => void
   phaseOffset: number
   hiddenDescendantCount?: number
 }
@@ -90,6 +92,8 @@ export default function RoadmapNode({
   onDuplicate,
   onToggleComplete,
   onOpenEditor,
+  onDragStart,
+  onDragEnd,
   phaseOffset,
   hiddenDescendantCount = 0,
 }: RoadmapNodeProps) {
@@ -113,7 +117,11 @@ export default function RoadmapNode({
     // Small delay so nodes don't all start in sync
     const timeout = setTimeout(() => {
       if (mounted && !isDraggingRef.current) {
-        controls.start(kf)
+        try {
+          controls.start(kf)
+        } catch (e) {
+          // Ignore 'should only be called after a component has mounted' if StrictMode unmounts it early
+        }
       }
     }, phaseOffset * 200)
 
@@ -181,7 +189,10 @@ export default function RoadmapNode({
       lastMouseY = moveEvent.clientY
 
       if (Math.abs(totalDx) > 3 || Math.abs(totalDy) > 3) {
-        isDraggingRef.current = true
+        if (!isDraggingRef.current) {
+          isDraggingRef.current = true
+          onDragStart?.()
+        }
       }
 
       if (isDraggingRef.current) {
@@ -198,6 +209,8 @@ export default function RoadmapNode({
         // It was a click, not a drag
         triggerRipple()
         onSelect(node.id)
+      } else {
+        onDragEnd?.()
       }
       isDraggingRef.current = false
       dragStart.current = null
@@ -208,7 +221,7 @@ export default function RoadmapNode({
 
     window.addEventListener('mousemove', handleMouseMove)
     window.addEventListener('mouseup', handleMouseUp)
-  }, [node, scale, onMove, onSelect, stopFloat, resumeFloat, triggerRipple, isSelected])
+  }, [node, scale, onMove, onSelect, stopFloat, resumeFloat, triggerRipple, isSelected, onDragStart, onDragEnd])
 
 
   // ── Glow intensity based on progress ──────────────────────────────
