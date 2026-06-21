@@ -52,7 +52,9 @@ export default function AuthPage() {
           const msg = error?.message || error?.error_description || error?.msg || 'Failed to create account'
           toastError(String(msg))
         } else {
-          toastSuccess('Account created! Check your email for a confirmation link, or sign in if auto-confirm is enabled.')
+          toastSuccess('Account created! Entering universe...')
+          // Attempt an immediate sign-in just in case the session wasn't auto-established
+          await signIn(email, password)
         }
       }
     } catch (err: any) {
