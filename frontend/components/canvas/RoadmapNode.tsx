@@ -75,6 +75,7 @@ interface RoadmapNodeProps {
   onDuplicate: (id: string) => void
   onToggleComplete: (id: string) => void
   phaseOffset: number
+  hiddenDescendantCount?: number
 }
 
 export default function RoadmapNode({
@@ -90,6 +91,7 @@ export default function RoadmapNode({
   onToggleComplete,
   onOpenEditor,
   phaseOffset,
+  hiddenDescendantCount = 0,
 }: RoadmapNodeProps) {
   const colorMap = NODE_COLOR_MAP[node.color] ?? NODE_COLOR_MAP.indigo
   const w = node.isRoot ? ROOT_W : CHILD_W
@@ -168,13 +170,13 @@ export default function RoadmapNode({
 
     const handleMouseMove = (moveEvent: MouseEvent) => {
       if (!dragStart.current) return
-      
+
       const totalDx = (moveEvent.clientX - dragStart.current.mouseX) / scale
       const totalDy = (moveEvent.clientY - dragStart.current.mouseY) / scale
 
       const frameDx = (moveEvent.clientX - lastMouseX) / scale
       const frameDy = (moveEvent.clientY - lastMouseY) / scale
-      
+
       lastMouseX = moveEvent.clientX
       lastMouseY = moveEvent.clientY
 
@@ -184,7 +186,7 @@ export default function RoadmapNode({
 
       if (isDraggingRef.current) {
         onMove(
-          node.id, 
+          node.id,
           { x: dragStart.current.nodeX + totalDx, y: dragStart.current.nodeY + totalDy },
           { dx: frameDx, dy: frameDy }
         )
@@ -253,6 +255,29 @@ export default function RoadmapNode({
           filter: 'blur(8px)',
         }}
       />
+      {/* Visual Cluster Stack (shown when collapsed) */}
+      {!node.isExpanded && hiddenDescendantCount > 0 && (
+        <>
+          <div style={{
+            position: 'absolute',
+            top: 4, left: 4, right: -4, bottom: -4,
+            background: colorMap.bg,
+            border: `1px solid ${colorMap.border}`,
+            borderRadius: 16,
+            zIndex: -2,
+            opacity: 0.6
+          }} />
+          <div style={{
+            position: 'absolute',
+            top: 8, left: 8, right: -8, bottom: -8,
+            background: colorMap.bg,
+            border: `1px solid ${colorMap.border}`,
+            borderRadius: 16,
+            zIndex: -3,
+            opacity: 0.3
+          }} />
+        </>
+      )}
 
       {/* Main node body */}
       <motion.div
@@ -375,26 +400,37 @@ export default function RoadmapNode({
             <ProgressRing progress={node.progress} color={colorMap.progress} size={18} />
           )}
 
-          {/* Expand toggle for parent nodes */}
+          {/* Expand toggle and Badge for parent nodes */}
           {node.childIds.length > 0 && (
-            <motion.button
-              data-action="expand"
-              onClick={(e) => { e.stopPropagation(); onToggleExpand(node.id) }}
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                color: 'rgba(255,255,255,0.4)',
-                cursor: 'pointer',
-                padding: 2,
-                flexShrink: 0,
-              }}
-              whileHover={{ color: 'rgba(255,255,255,0.9)', scale: 1.1 }}
-            >
-              {node.isExpanded
-                ? <ChevronDown size={12} />
-                : <ChevronRight size={12} />
-              }
-            </motion.button>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
+              {!node.isExpanded && hiddenDescendantCount > 0 && (
+                <span style={{
+                  fontSize: 10,
+                  fontWeight: 600,
+                  color: colorMap.text,
+                  background: 'rgba(255,255,255,0.1)',
+                  padding: '2px 6px',
+                  borderRadius: 10,
+                }}>
+                  +{hiddenDescendantCount}
+                </span>
+              )}
+              <motion.button
+                data-action="expand"
+                onClick={(e) => { e.stopPropagation(); onToggleExpand(node.id) }}
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  color: 'rgba(255,255,255,0.4)',
+                  cursor: 'pointer',
+                  padding: 2,
+                  flexShrink: 0,
+                }}
+                whileHover={{ color: 'rgba(255,255,255,0.9)', scale: 1.1 }}
+              >
+                {node.isExpanded ? <ChevronDown size={14} /> : <ChevronRight size={14} />}
+              </motion.button>
+            </div>
           )}
         </div>
 

@@ -9,7 +9,7 @@ import ConnectionLines from './ConnectionLines'
 import CanvasControls from './CanvasControls'
 import MiniMap from '@/components/ui/MiniMap'
 import ContextMenu, { type ContextMenuState } from './ContextMenu'
-import { createNode } from '@/lib/roadmapUtils'
+import { createNode, getSubtree } from '@/lib/roadmapUtils'
 import AiCanvasPrompter from './AiCanvasPrompter'
 import { ExternalLink, Video, BookOpen, Wrench, FileText, Globe } from 'lucide-react'
 
@@ -51,11 +51,11 @@ export default function FloatingCanvas() {
   // Fit on mount or when switching roadmaps
   const lastFittedRoadmapRef = useRef<string | null>(null)
   const { currentRoadmapId } = useRoadmapContext()
-  
+
   useEffect(() => {
     if (lastFittedRoadmapRef.current === currentRoadmapId) return
     if (!currentRoadmapId) return
-    
+
     lastFittedRoadmapRef.current = currentRoadmapId
     const positions = Object.values(state.nodes).map(n => n.position)
     if (positions.length > 0) {
@@ -102,7 +102,7 @@ export default function FloatingCanvas() {
         }
       }
     }
-    
+
     window.addEventListener('keydown', handleGlobalKeyDown)
     return () => window.removeEventListener('keydown', handleGlobalKeyDown)
   }, [undo, redo, state.nodes, state.selectedNodeIds, dispatch])
@@ -416,6 +416,11 @@ export default function FloatingCanvas() {
                   onDuplicate={handleDuplicate}
                   onToggleComplete={handleToggleComplete}
                   phaseOffset={nodePhase(nodeId)}
+                  hiddenDescendantCount={
+                    !node.isExpanded
+                      ? getSubtree(state, nodeId).length - 1
+                      : 0
+                  }
                 />
               </motion.div>
             )

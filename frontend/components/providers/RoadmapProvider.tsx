@@ -171,6 +171,27 @@ export function RoadmapProvider({ children }: { children: React.ReactNode }) {
   const pastRef = useRef<RoadmapState[]>([])
   const futureRef = useRef<RoadmapState[]>([])
 
+  // Safety net: force loading off if it gets stuck (HMR race conditions)
+  useEffect(() => {
+    let t1: any, t2: any
+    if (isLoadingWorkspace) {
+      t1 = setTimeout(() => {
+        console.warn('Workspace loading timed out. Forcing UI to load.')
+        setIsLoadingWorkspace(false)
+      }, 3000)
+    }
+    if (isLoadingRoadmap) {
+      t2 = setTimeout(() => {
+        console.warn('Roadmap loading timed out. Forcing UI to load.')
+        setIsLoadingRoadmap(false)
+      }, 3000)
+    }
+    return () => {
+      clearTimeout(t1)
+      clearTimeout(t2)
+    }
+  }, [isLoadingWorkspace, isLoadingRoadmap])
+
   // Database Save Debouncer
   const saveTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null)
 
@@ -351,7 +372,8 @@ export function RoadmapProvider({ children }: { children: React.ReactNode }) {
     }
 
     loadWorkspace()
-  }, [user, error])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [user?.id, error])
 
   // 2. Fetch full Roadmap State when active ID changes
   useEffect(() => {
@@ -420,7 +442,8 @@ export function RoadmapProvider({ children }: { children: React.ReactNode }) {
       isMounted = false
       supabase.removeChannel(channel)
     }
-  }, [currentRoadmapId, user, error])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [currentRoadmapId, user?.id, error])
 
   // ─── Workspace CRUD Operations ───────────────────────────────────────────
   const createFolder = useCallback(async (name: string) => {

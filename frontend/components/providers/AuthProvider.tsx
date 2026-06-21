@@ -36,10 +36,8 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 
     // Hard timeout: No matter what happens with Supabase, remove the loading screen after 1.2 seconds
     const safetyTimeout = window.setTimeout(() => {
-      if (mounted) {
-        console.warn('Supabase auth or profile fetch timed out. Forcing UI to load.')
-        setIsLoading(false)
-      }
+      console.warn('Supabase auth or profile fetch timed out. Forcing UI to load.')
+      setIsLoading(false)
     }, 1200)
 
     const finishLoading = async (nextSession: any = null) => {
