@@ -10,6 +10,8 @@ import CanvasControls from './CanvasControls'
 import MiniMap from '@/components/ui/MiniMap'
 import ContextMenu, { type ContextMenuState } from './ContextMenu'
 import { createNode, getSubtree, getVisibleNodeIds } from '@/lib/roadmapUtils'
+import { copyNodesToClipboard, readNodesFromClipboard } from '@/lib/clipboardUtils'
+import LiveCollaborators from './LiveCollaborators'
 import AiCanvasPrompter from './AiCanvasPrompter'
 import { ExternalLink, Video, BookOpen, Wrench, FileText, Globe } from 'lucide-react'
 
@@ -42,6 +44,34 @@ export default function FloatingCanvas() {
     screenToCanvas,
     setTransform,
   } = useCanvas()
+
+  // ── Global Keyboard Shortcuts ──────────────────────────────────────────────
+  useEffect(() => {
+    const handleGlobalKeyDown = async (e: KeyboardEvent) => {
+      const target = e.target as HTMLElement
+      if (['INPUT', 'TEXTAREA'].includes(target.tagName) || target.isContentEditable) return
+
+      // Copy (Ctrl+C / Cmd+C)
+      if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'c') {
+        if (state.selectedNodeIds && state.selectedNodeIds.length > 0) {
+          e.preventDefault()
+          await copyNodesToClipboard(state, state.selectedNodeIds)
+        }
+      }
+
+      // Paste (Ctrl+V / Cmd+V)
+      if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'v') {
+        e.preventDefault()
+        const pastedNodes = await readNodesFromClipboard()
+        if (pastedNodes && pastedNodes.length > 0) {
+          dispatch({ type: 'PASTE_NODES', payload: { nodes: pastedNodes } })
+        }
+      }
+    }
+
+    window.addEventListener('keydown', handleGlobalKeyDown)
+    return () => window.removeEventListener('keydown', handleGlobalKeyDown)
+  }, [state, dispatch])
 
   // Track viewport size for minimap and preview positioning
   useEffect(() => {
@@ -386,9 +416,9 @@ export default function FloatingCanvas() {
           {Array.from(visibleNodeIds).map(nodeId => {
             const node = state.nodes[nodeId]
             if (!node) return null
-            
+
             // Calculate a stagger index based on its position in the parent's child list
-            const staggerIndex = node.parentId 
+            const staggerIndex = node.parentId
               ? (state.nodes[node.parentId]?.childIds.indexOf(nodeId) ?? 0)
               : 0
 
@@ -405,8 +435,8 @@ export default function FloatingCanvas() {
                 animate="visible"
                 exit="exit"
                 variants={{
-                  hidden: ({ dx, dy }) => ({ 
-                    opacity: 0, 
+                  hidden: ({ dx, dy }) => ({
+                    opacity: 0,
                     x: dx,
                     y: dy,
                   }),
@@ -469,7 +499,7 @@ export default function FloatingCanvas() {
       {state.selectedNodeId && !editingNode && !isDraggingNode && !isResizingNode && (() => {
         const selected = state.nodes[state.selectedNodeId]
         if (!selected) return null
-        
+
         return (
           <div
             onMouseDown={e => e.stopPropagation()}
@@ -635,6 +665,9 @@ export default function FloatingCanvas() {
         showGrid={showGrid}
         onToggleGrid={() => setShowGrid(v => !v)}
       />
+
+      {/* Live Collaborators */}
+      <LiveCollaborators />
 
       {/* Mini map */}
       <MiniMap

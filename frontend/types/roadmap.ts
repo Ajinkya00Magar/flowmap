@@ -161,6 +161,7 @@ export type RoadmapAction =
   | { type: 'TOGGLE_SUBTASK'; payload: { nodeId: string; taskId: string } }
   | { type: 'UPDATE_PROGRESS'; payload: { id: string; progress: number } }
   | { type: 'REPARENT_NODE'; payload: { id: string; newParentId: string | null } }
+  | { type: 'PASTE_NODES'; payload: { nodes: RoadmapNode[] } }
   | { type: 'RESET_TO_DEFAULT' }
   | { type: 'IMPORT_STATE'; payload: RoadmapState }
 

@@ -16,6 +16,7 @@ import {
   toggleExpandInState,
   toggleCompleteInState,
   recalculateProgress,
+  pasteNodesIntoState,
   exportStateToJSON,
   parseImportedJSON,
 } from '@/lib/roadmapUtils'
@@ -163,6 +164,9 @@ function roadmapReducer(state: RoadmapState, action: RoadmapAction): RoadmapStat
 
       return { ...next, version: next.version + 1 }
     }
+
+    case 'PASTE_NODES':
+      return pasteNodesIntoState(state, action.payload.nodes)
 
     case 'RESET_TO_DEFAULT':
       return createBlankState()

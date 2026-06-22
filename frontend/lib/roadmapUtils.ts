@@ -153,6 +153,81 @@ export function deleteNodeFromState(state: RoadmapState, id: string): RoadmapSta
   }
 }
 
+// ─── Paste Nodes ─────────────────────────────────────────────────────────
+
+export function pasteNodesIntoState(state: RoadmapState, nodes: RoadmapNode[]): RoadmapState {
+  if (!nodes || nodes.length === 0) return state
+
+  const now = new Date().toISOString()
+  const nextNodes = { ...state.nodes }
+  const nextRootIds = [...state.rootIds]
+  const newSelectedNodeIds: string[] = []
+
+  // Create mapping from old ID to new ID
+  const idMap: Record<string, string> = {}
+  nodes.forEach(node => {
+    idMap[node.id] = uuidv4()
+  })
+
+  // Generate new nodes
+  nodes.forEach(oldNode => {
+    const newId = idMap[oldNode.id]
+    newSelectedNodeIds.push(newId)
+
+    // Shift position slightly so they don't perfectly overlap
+    const position = { x: oldNode.position.x + 40, y: oldNode.position.y + 40 }
+
+    // Map parent ID
+    const newParentId = oldNode.parentId && idMap[oldNode.parentId] ? idMap[oldNode.parentId] : null
+
+    // Map child IDs (only those that were also pasted)
+    const newChildIds = oldNode.childIds
+      .filter(childId => idMap[childId])
+      .map(childId => idMap[childId])
+
+    // Map prerequisites
+    const newPrerequisites = oldNode.prerequisites
+      .filter(prereqId => idMap[prereqId])
+      .map(prereqId => idMap[prereqId])
+
+    // Duplicate child tasks too, assigning them new IDs
+    const newChildTasks = oldNode.childTasks.map(task => ({
+      ...task,
+      id: uuidv4()
+    }))
+
+    const newNode: RoadmapNode = {
+      ...oldNode,
+      id: newId,
+      parentId: newParentId,
+      childIds: newChildIds,
+      prerequisites: newPrerequisites,
+      childTasks: newChildTasks,
+      position,
+      isRoot: newParentId === null,
+      createdAt: now,
+      updatedAt: now,
+    }
+
+    nextNodes[newId] = newNode
+
+    // Add to rootIds if it has no parent
+    if (newParentId === null) {
+      nextRootIds.push(newId)
+    }
+  })
+
+  return {
+    ...state,
+    nodes: nextNodes,
+    rootIds: nextRootIds,
+    selectedNodeIds: newSelectedNodeIds,
+    selectedNodeId: newSelectedNodeIds.length === 1 ? newSelectedNodeIds[0] : null,
+    version: state.version + 1,
+    lastSaved: now,
+  }
+}
+
 // ─── Duplicate Node ───────────────────────────────────────────────────────
 
 export function duplicateNodeInState(state: RoadmapState, id: string): RoadmapState {
