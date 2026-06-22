@@ -281,6 +281,17 @@ export default function NodeEditorFields({ node, onChange, onProgressChange }: N
         </Section>
       </div>
 
+      {/* Hide Checkbox */}
+      <label style={{ display: 'flex', alignItems: 'center', gap: 8, marginTop: 4, cursor: 'pointer' }}>
+        <input
+          type="checkbox"
+          checked={!!node.hideCheckbox}
+          onChange={e => onChange({ hideCheckbox: e.target.checked })}
+          style={{ cursor: 'pointer' }}
+        />
+        <span style={{ fontSize: 12, color: 'rgba(255,255,255,0.7)' }}>Hide Completion Checkbox</span>
+      </label>
+
       {/* Deadline & Estimated hours */}
       <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12 }}>
         <Section label="Deadline">

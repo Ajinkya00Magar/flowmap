@@ -162,24 +162,11 @@ function ShortcutRow({ keys, label }: { keys: string[]; label: string }) {
 // ─── SettingsView ──────────────────────────────────────────────────────────
 
 export default function SettingsView() {
-  const { state, exportJSON, importJSON, resetToDefault, stats } = useRoadmapContext()
+  const { state, exportJSON, importJSON, resetToDefault, stats, prefs, updatePref } = useRoadmapContext()
   const { user, profile, updateProfile, signOut } = useAuth()
   const { success, info } = useToast()
   const importRef = useRef<HTMLInputElement>(null)
   const [displayName, setDisplayName] = useState(profile?.display_name ?? '')
-
-  // Local preference state (persisted to localStorage)
-  const [prefs, setPrefs] = useState(() => {
-    if (typeof window === 'undefined') return { animations: true, particles: true, autoSave: true, compactNodes: false }
-    try { return JSON.parse(localStorage.getItem('flowmap_prefs') ?? '{}') } catch { return {} }
-  })
-
-  const setPref = (key: string, val: boolean) => {
-    const next = { ...prefs, [key]: val }
-    setPrefs(next)
-    if (typeof window !== 'undefined') localStorage.setItem('flowmap_prefs', JSON.stringify(next))
-    info(`${key.charAt(0).toUpperCase() + key.slice(1)} ${val ? 'enabled' : 'disabled'}`)
-  }
 
   React.useEffect(() => {
     setDisplayName(profile?.display_name ?? '')
@@ -214,22 +201,22 @@ export default function SettingsView() {
           {/* Appearance */}
           <Section icon={<Palette size={16} />} title="Appearance">
             <Row label="Particle background" description="Floating ambient particles on the canvas">
-              <Toggle value={prefs.particles ?? true} onChange={v => setPref('particles', v)} />
+              <Toggle value={prefs.particles ?? true} onChange={v => updatePref('particles', v)} />
             </Row>
             <Divider />
             <Row label="Spring animations" description="Physics-based motion throughout the UI">
-              <Toggle value={prefs.animations ?? true} onChange={v => setPref('animations', v)} />
+              <Toggle value={prefs.animations ?? true} onChange={v => updatePref('animations', v)} />
             </Row>
             <Divider />
             <Row label="Compact node size" description="Smaller nodes on the canvas for dense roadmaps">
-              <Toggle value={prefs.compactNodes ?? false} onChange={v => setPref('compactNodes', v)} />
+              <Toggle value={prefs.compactNodes ?? false} onChange={v => updatePref('compactNodes', v)} />
             </Row>
           </Section>
 
           {/* Data management */}
           <Section icon={<Database size={16} />} title="Data">
             <Row label="Auto-save" description="Automatically save changes to localStorage">
-              <Toggle value={prefs.autoSave ?? true} onChange={v => setPref('autoSave', v)} />
+              <Toggle value={prefs.autoSave ?? true} onChange={v => updatePref('autoSave', v)} />
             </Row>
             <Divider />
 

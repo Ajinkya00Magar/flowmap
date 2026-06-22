@@ -1,7 +1,7 @@
 'use client'
 
 import React, { createContext, useContext, useMemo, useState, useEffect, useRef, useCallback } from 'react'
-import type { Collaborator, RoadmapContextValue, RoadmapState, RoadmapAction, RoadmapNode, RoadmapListItem } from '@/types/roadmap'
+import type { Collaborator, RoadmapContextValue, RoadmapState, RoadmapAction, RoadmapNode, RoadmapListItem, UserPreferences } from '@/types/roadmap'
 import { useAuth } from './AuthProvider'
 import { useToast } from './ToastProvider'
 import { supabase } from '@/lib/supabaseClient'
@@ -166,6 +166,31 @@ export function RoadmapProvider({ children }: { children: React.ReactNode }) {
   const [activeState, setActiveState] = useState<RoadmapState | null>(null)
   const [isLoadingRoadmap, setIsLoadingRoadmap] = useState(false)
   const [editingNodeId, setEditingNodeId] = useState<string | null>(null)
+
+  // Preferences
+  const [prefs, setPrefs] = useState<UserPreferences>(() => {
+    if (typeof window === 'undefined') return { animations: true, particles: true, autoSave: true, compactNodes: false }
+    try { 
+      const stored = JSON.parse(localStorage.getItem('flowmap_prefs') ?? '{}') 
+      return {
+        animations: stored.animations ?? true,
+        particles: stored.particles ?? true,
+        autoSave: stored.autoSave ?? true,
+        compactNodes: stored.compactNodes ?? false
+      }
+    } catch { 
+      return { animations: true, particles: true, autoSave: true, compactNodes: false }
+    }
+  })
+
+  const updatePref = useCallback((key: keyof UserPreferences, val: boolean) => {
+    setPrefs(prev => {
+      const next = { ...prev, [key]: val }
+      if (typeof window !== 'undefined') localStorage.setItem('flowmap_prefs', JSON.stringify(next))
+      info(`${key.charAt(0).toUpperCase() + key.slice(1)} ${val ? 'enabled' : 'disabled'}`)
+      return next
+    })
+  }, [info])
 
   // Undo/Redo history stacks
   const pastRef = useRef<RoadmapState[]>([])
@@ -957,12 +982,14 @@ export function RoadmapProvider({ children }: { children: React.ReactNode }) {
     roadmapCollaborators,
     currentRoadmapRole: currentRole,
     canEditCurrentRoadmap: currentRole === 'owner' || currentRole === 'editor',
-    isLoadingWorkspace: isLoadingWorkspace || isLoadingRoadmap
+    isLoadingWorkspace: isLoadingWorkspace || isLoadingRoadmap,
+    prefs,
+    updatePref
   }), [
     activeState, dispatch, stats, selectedNode, editingNode, openNodeEditor, closeNodeEditor, undo, redo, canUndo, canRedo,
     exportJSON, importJSON, resetToDefault, folders, roadmapsList, currentRoadmapId, createFolder, deleteFolder,
     renameFolder, createRoadmap, deleteRoadmap, renameRoadmap, moveRoadmapToFolder, duplicateRoadmap, shareRoadmap,
-    loadRoadmapCollaborators, roadmapCollaborators, currentRole, isLoadingWorkspace, isLoadingRoadmap
+    loadRoadmapCollaborators, roadmapCollaborators, currentRole, isLoadingWorkspace, isLoadingRoadmap, prefs, updatePref
   ])
 
   return (

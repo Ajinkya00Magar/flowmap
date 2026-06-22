@@ -22,7 +22,7 @@ function nodePhase(id: string): number {
 }
 
 export default function FloatingCanvas() {
-  const { state, dispatch, editingNode, openNodeEditor, closeNodeEditor, undo, redo } = useRoadmapContext()
+  const { state, dispatch, editingNode, openNodeEditor, closeNodeEditor, undo, redo, prefs } = useRoadmapContext()
   const [showGrid, setShowGrid] = useState(true)
   const [contextMenu, setContextMenu] = useState<ContextMenuState | null>(null)
   const [connectingFromId, setConnectingFromId] = useState<string | null>(null)
@@ -201,6 +201,22 @@ export default function FloatingCanvas() {
 
     dispatch({ type: 'UPDATE_NODE', payload: { id: nodeId, updates: { childTasks } } })
   }, [state.nodes, dispatch])
+
+  const handleToggleCheckboxVisibility = useCallback((id: string) => {
+    const node = state.nodes[id]
+    if (!node) return
+    dispatch({ type: 'UPDATE_NODE', payload: { id, updates: { hideCheckbox: !node.hideCheckbox } } })
+  }, [state.nodes, dispatch])
+
+  const handleToggleStrikethrough = useCallback((id: string) => {
+    const node = state.nodes[id]
+    if (!node) return
+    dispatch({ type: 'UPDATE_NODE', payload: { id, updates: { hideStrikethrough: !node.hideStrikethrough } } })
+  }, [state.nodes, dispatch])
+
+  const handleResize = useCallback((id: string, width: number, height: number) => {
+    dispatch({ type: 'UPDATE_NODE', payload: { id, updates: { width, height } } })
+  }, [dispatch])
 
   // ── Right-click context menu ───────────────────────────────────────
 
@@ -437,6 +453,7 @@ export default function FloatingCanvas() {
                   onDelete={handleDelete}
                   onDuplicate={handleDuplicate}
                   onToggleComplete={handleToggleComplete}
+                  onResize={handleResize}
                   onDragStart={() => setIsDraggingNode(true)}
                   onDragEnd={() => setIsDraggingNode(false)}
                   phaseOffset={nodePhase(nodeId)}
@@ -445,6 +462,7 @@ export default function FloatingCanvas() {
                       ? getSubtree(state, nodeId).length - 1
                       : 0
                   }
+                  enableAnimations={prefs.animations}
                 />
               </motion.div>
             )
@@ -666,6 +684,8 @@ export default function FloatingCanvas() {
         onDelete={handleDelete}
         onToggleComplete={handleToggleComplete}
         onToggleExpand={handleToggleExpand}
+        onToggleCheckboxVisibility={handleToggleCheckboxVisibility}
+        onToggleStrikethrough={handleToggleStrikethrough}
         onStartConnect={(id: string) => {
           setConnectingFromId(id)
           setContextMenu(null)

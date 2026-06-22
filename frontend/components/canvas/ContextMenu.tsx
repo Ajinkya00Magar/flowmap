@@ -4,7 +4,7 @@ import React, { useCallback, useEffect, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import {
   Plus, Copy, Trash2, Check, ChevronRight,
-  ChevronDown, Edit3, ExternalLink
+  ChevronDown, Edit3, ExternalLink, EyeOff, Eye, Strikethrough, Type
 } from 'lucide-react'
 import type { RoadmapNode } from '@/types/roadmap'
 import { NODE_COLOR_MAP } from '@/types/roadmap'
@@ -26,6 +26,8 @@ interface ContextMenuProps {
   onDelete: (id: string) => void
   onToggleComplete: (id: string) => void
   onToggleExpand: (id: string) => void
+  onToggleCheckboxVisibility: (id: string) => void
+  onToggleStrikethrough: (id: string) => void
   onStartConnect: (id: string) => void
 }
 
@@ -49,6 +51,8 @@ export default function ContextMenu({
   onDelete,
   onToggleComplete,
   onToggleExpand,
+  onToggleCheckboxVisibility,
+  onToggleStrikethrough,
   onStartConnect,
 }: ContextMenuProps) {
   const ref = useRef<HTMLDivElement>(null)
@@ -92,6 +96,16 @@ export default function ContextMenu({
       icon: node.completed ? <Check size={13} /> : <Check size={13} />,
       label: node.completed ? 'Mark incomplete' : 'Mark complete',
       action: () => { onToggleComplete(node.id); onClose() },
+    },
+    {
+      icon: node.hideStrikethrough ? <Strikethrough size={13} /> : <Type size={13} />,
+      label: node.hideStrikethrough ? 'Cut text (strikethrough)' : 'Uncut text (remove strikethrough)',
+      action: () => { onToggleStrikethrough(node.id); onClose() },
+    },
+    {
+      icon: node.hideCheckbox ? <Eye size={13} /> : <EyeOff size={13} />,
+      label: node.hideCheckbox ? 'Show checkbox' : 'Hide checkbox',
+      action: () => { onToggleCheckboxVisibility(node.id); onClose() },
     },
     ...(node.childIds.length > 0 ? [{
       icon: node.isExpanded ? <ChevronDown size={13} /> : <ChevronRight size={13} />,

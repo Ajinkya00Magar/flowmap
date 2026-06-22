@@ -60,6 +60,10 @@ export interface RoadmapNode {
   isExpanded: boolean
   isRoot: boolean           // top-level category node
   completed: boolean
+  width?: number
+  height?: number
+  hideCheckbox?: boolean
+  hideStrikethrough?: boolean
 
   // Timestamps (ready for Supabase migration)
   createdAt: string
@@ -161,6 +165,13 @@ export type RoadmapAction =
 
 // ─── Context ───────────────────────────────────────────────────────────────
 
+export interface UserPreferences {
+  animations: boolean
+  particles: boolean
+  autoSave: boolean
+  compactNodes: boolean
+}
+
 export interface RoadmapContextValue {
   state: RoadmapState
   dispatch: React.Dispatch<RoadmapAction>
@@ -196,6 +207,8 @@ export interface RoadmapContextValue {
   currentRoadmapRole: 'owner' | 'editor' | 'viewer'
   canEditCurrentRoadmap: boolean
   isLoadingWorkspace: boolean
+  prefs: UserPreferences
+  updatePref: (key: keyof UserPreferences, val: boolean) => void
 }
 
 // ─── Node Color Map (for styling) ─────────────────────────────────────────

@@ -76,8 +76,10 @@ interface RoadmapNodeProps {
   onToggleComplete: (id: string) => void
   onDragStart?: () => void
   onDragEnd?: () => void
+  onResize?: (id: string, width: number, height: number) => void
   phaseOffset: number
   hiddenDescendantCount?: number
+  enableAnimations?: boolean
 }
 
 export default function RoadmapNode({
@@ -94,12 +96,14 @@ export default function RoadmapNode({
   onOpenEditor,
   onDragStart,
   onDragEnd,
+  onResize,
   phaseOffset,
   hiddenDescendantCount = 0,
+  enableAnimations = true,
 }: RoadmapNodeProps) {
   const colorMap = NODE_COLOR_MAP[node.color] ?? NODE_COLOR_MAP.indigo
-  const w = node.isRoot ? ROOT_W : CHILD_W
-  const h = node.isRoot ? ROOT_H : CHILD_H
+  let w = node.width ?? (node.isRoot ? ROOT_W : CHILD_W)
+  let h = node.height ?? (node.isRoot ? ROOT_H : CHILD_H)
 
   const controls = useAnimationControls()
   const isDraggingRef = useRef(false)
@@ -108,9 +112,12 @@ export default function RoadmapNode({
   const [showActions, setShowActions] = useState(false)
   const [ripple, setRipple] = useState<{ x: number; y: number } | null>(null)
   const nodeRef = useRef<HTMLDivElement>(null)
+  const isResizingRef = useRef(false)
 
   // Floating idle animation
   useEffect(() => {
+    if (!enableAnimations) return
+
     const kf = getFloatKeyframes(phaseOffset)
     let mounted = true
 
@@ -129,7 +136,7 @@ export default function RoadmapNode({
       mounted = false
       clearTimeout(timeout)
     }
-  }, [controls, phaseOffset])
+  }, [controls, phaseOffset, enableAnimations])
 
   // Stop float while dragging
   const stopFloat = useCallback(() => {
@@ -138,8 +145,10 @@ export default function RoadmapNode({
   }, [controls])
 
   const resumeFloat = useCallback(() => {
-    controls.start(getFloatKeyframes(phaseOffset))
-  }, [controls, phaseOffset])
+    if (enableAnimations) {
+      controls.start(getFloatKeyframes(phaseOffset))
+    }
+  }, [controls, phaseOffset, enableAnimations])
   // ── Ripple effect ──────────────────────────────────────────────────
 
   const triggerRipple = useCallback(() => {
@@ -155,6 +164,7 @@ export default function RoadmapNode({
   const handleMouseDown = useCallback((e: React.MouseEvent) => {
     if (e.button !== 0) return
     if ((e.target as HTMLElement).closest('[data-action]')) return
+    if ((e.target as HTMLElement).closest('[data-resize]')) return
 
     e.stopPropagation()
 
@@ -223,6 +233,42 @@ export default function RoadmapNode({
     window.addEventListener('mouseup', handleMouseUp)
   }, [node, scale, onMove, onSelect, stopFloat, resumeFloat, triggerRipple, isSelected, onDragStart, onDragEnd])
 
+  // ── Resize handlers ────────────────────────────────────────────────
+  const handleResizeMouseDown = useCallback((e: React.MouseEvent) => {
+    e.stopPropagation()
+    e.preventDefault()
+    
+    isResizingRef.current = true
+    stopFloat()
+    if (!isSelected) {
+      onSelect(node.id)
+    }
+
+    const startX = e.clientX
+    const startY = e.clientY
+    const startW = w
+    const startH = h
+
+    const handleMouseMove = (moveEvent: MouseEvent) => {
+      const dx = (moveEvent.clientX - startX) / scale
+      const dy = (moveEvent.clientY - startY) / scale
+      
+      const newW = Math.max(80, startW + dx) // Minimum width 80
+      const newH = Math.max(30, startH + dy) // Minimum height 30
+      
+      onResize?.(node.id, newW, newH)
+    }
+
+    const handleMouseUp = () => {
+      isResizingRef.current = false
+      resumeFloat()
+      window.removeEventListener('mousemove', handleMouseMove)
+      window.removeEventListener('mouseup', handleMouseUp)
+    }
+
+    window.addEventListener('mousemove', handleMouseMove)
+    window.addEventListener('mouseup', handleMouseUp)
+  }, [w, h, scale, onResize, node.id, isSelected, onSelect, stopFloat, resumeFloat])
 
   // ── Glow intensity based on progress ──────────────────────────────
 
@@ -323,9 +369,9 @@ export default function RoadmapNode({
           transition: 'border-color 0.2s, box-shadow 0.2s, background 0.2s',
           userSelect: 'none',
         }}
-        whileHover={{ scale: 1.04 }}
-        whileTap={{ scale: 0.97 }}
-        transition={{ type: 'spring', stiffness: 400, damping: 25 }}
+        whileHover={{ scale: enableAnimations ? 1.04 : 1 }}
+        whileTap={{ scale: enableAnimations ? 0.97 : 1 }}
+        transition={enableAnimations ? { type: 'spring', stiffness: 400, damping: 25 } : { duration: 0.1 }}
       >
         {/* Inner shimmer line */}
         <div style={{
@@ -366,27 +412,29 @@ export default function RoadmapNode({
           zIndex: 1,
         }}>
           {/* Completion checkbox */}
-          <motion.button
-            data-action="complete"
-            onClick={(e) => { e.stopPropagation(); onToggleComplete(node.id) }}
-            style={{
-              width: 18,
-              height: 18,
-              borderRadius: 4,
-              border: `1.5px solid ${node.completed ? colorMap.progress : 'rgba(255,255,255,0.2)'}`,
-              background: node.completed ? colorMap.progress : 'rgba(255,255,255,0.04)',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              cursor: 'pointer',
-              flexShrink: 0,
-              transition: 'all 0.2s',
-            }}
-            whileHover={{ scale: 1.15 }}
-            whileTap={{ scale: 0.9 }}
-          >
-            {node.completed && <Check size={10} color="white" strokeWidth={3} />}
-          </motion.button>
+          {!node.hideCheckbox && (
+            <motion.button
+              data-action="complete"
+              onClick={(e) => { e.stopPropagation(); onToggleComplete(node.id) }}
+              style={{
+                width: 18,
+                height: 18,
+                borderRadius: 4,
+                border: `1.5px solid ${node.completed ? colorMap.progress : 'rgba(255,255,255,0.2)'}`,
+                background: node.completed ? colorMap.progress : 'rgba(255,255,255,0.04)',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                cursor: 'pointer',
+                flexShrink: 0,
+                transition: 'all 0.2s',
+              }}
+              whileHover={{ scale: 1.15 }}
+              whileTap={{ scale: 0.9 }}
+            >
+              {node.completed && <Check size={10} color="white" strokeWidth={3} />}
+            </motion.button>
+          )}
 
           {/* Title */}
           <span style={{
@@ -397,7 +445,7 @@ export default function RoadmapNode({
               ? colorMap.text
               : 'rgba(255,255,255,0.88)',
             letterSpacing: node.isRoot ? '-0.01em' : '0',
-            textDecoration: node.completed ? 'line-through' : 'none',
+            textDecoration: (node.completed && !node.hideStrikethrough) ? 'line-through' : 'none',
             whiteSpace: 'nowrap',
             overflow: 'hidden',
             textOverflow: 'ellipsis',
@@ -467,6 +515,34 @@ export default function RoadmapNode({
               animate={{ width: `${node.progress}%` }}
               transition={{ duration: 0.8, ease: 'easeOut' }}
             />
+          </div>
+        )}
+
+        {/* Resize Handle */}
+        {(isSelected || isHovered) && (
+          <div
+            data-resize="true"
+            onMouseDown={handleResizeMouseDown}
+            style={{
+              position: 'absolute',
+              bottom: 0,
+              right: 0,
+              width: 16,
+              height: 16,
+              cursor: 'nwse-resize',
+              zIndex: 10,
+            }}
+          >
+            <div style={{
+              position: 'absolute',
+              bottom: 5,
+              right: 5,
+              width: 6,
+              height: 6,
+              borderRight: `2px solid ${colorMap.text}`,
+              borderBottom: `2px solid ${colorMap.text}`,
+              opacity: 0.5,
+            }} />
           </div>
         )}
       </motion.div>
