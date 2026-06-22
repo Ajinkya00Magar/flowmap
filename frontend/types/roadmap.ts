@@ -158,6 +158,7 @@ export type RoadmapAction =
   | { type: 'MOVE_NODES'; payload: { ids: string[]; delta: { dx: number; dy: number } } }
   | { type: 'TOGGLE_EXPAND'; payload: string }
   | { type: 'TOGGLE_COMPLETE'; payload: string }
+  | { type: 'TOGGLE_SUBTASK'; payload: { nodeId: string; taskId: string } }
   | { type: 'UPDATE_PROGRESS'; payload: { id: string; progress: number } }
   | { type: 'REPARENT_NODE'; payload: { id: string; newParentId: string | null } }
   | { type: 'RESET_TO_DEFAULT' }

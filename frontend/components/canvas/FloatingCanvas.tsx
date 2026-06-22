@@ -27,7 +27,8 @@ export default function FloatingCanvas() {
   const [contextMenu, setContextMenu] = useState<ContextMenuState | null>(null)
   const [connectingFromId, setConnectingFromId] = useState<string | null>(null)
   const [isDraggingNode, setIsDraggingNode] = useState(false)
-  const [viewportSize, setViewportSize] = useState({ w: window?.innerWidth ?? 1200, h: window?.innerHeight ?? 800 })
+  const [isResizingNode, setIsResizingNode] = useState(false)
+  const [viewportSize, setViewportSize] = useState({ w: typeof window !== 'undefined' ? window.innerWidth : 1200, h: typeof window !== 'undefined' ? window.innerHeight : 800 })
 
   const {
     transform,
@@ -192,15 +193,8 @@ export default function FloatingCanvas() {
   }, [dispatch])
 
   const handleToggleSubtask = useCallback((nodeId: string, taskId: string) => {
-    const node = state.nodes[nodeId]
-    if (!node) return
-
-    const childTasks = node.childTasks.map(task =>
-      task.id === taskId ? { ...task, completed: !task.completed } : task
-    )
-
-    dispatch({ type: 'UPDATE_NODE', payload: { id: nodeId, updates: { childTasks } } })
-  }, [state.nodes, dispatch])
+    dispatch({ type: 'TOGGLE_SUBTASK', payload: { nodeId, taskId } })
+  }, [dispatch])
 
   const handleToggleCheckboxVisibility = useCallback((id: string) => {
     const node = state.nodes[id]
@@ -454,6 +448,8 @@ export default function FloatingCanvas() {
                   onDuplicate={handleDuplicate}
                   onToggleComplete={handleToggleComplete}
                   onResize={handleResize}
+                  onResizeStart={() => setIsResizingNode(true)}
+                  onResizeEnd={() => setIsResizingNode(false)}
                   onDragStart={() => setIsDraggingNode(true)}
                   onDragEnd={() => setIsDraggingNode(false)}
                   phaseOffset={nodePhase(nodeId)}
@@ -470,21 +466,39 @@ export default function FloatingCanvas() {
         </AnimatePresence>
       </div>
 
-      {state.selectedNodeId && !editingNode && !isDraggingNode && (() => {
+      {state.selectedNodeId && !editingNode && !isDraggingNode && !isResizingNode && (() => {
         const selected = state.nodes[state.selectedNodeId]
         if (!selected) return null
-        const previewLeft = selected.position.x * transform.scale + transform.x + 200
-        const previewTop = selected.position.y * transform.scale + transform.y
+        
+        let previewLeft = selected.position.x * transform.scale + transform.x + (selected.width ? selected.width * transform.scale + 20 : 200)
+        let previewTop = selected.position.y * transform.scale + transform.y
+        let previewBottom = viewportSize.h - previewTop - (selected.height ? selected.height * transform.scale : 64)
+        
+        // Clamp horizontal to viewport. If it goes off the right edge, place it to the left of the node.
+        if (previewLeft + 340 > viewportSize.w - 20) {
+          previewLeft = selected.position.x * transform.scale + transform.x - 360
+        }
+        if (previewLeft < 20) previewLeft = 20
+        
+        // Anchor vertically depending on which half of the screen it's in, so it expands towards the empty space.
+        const isBottomHalf = previewTop > viewportSize.h / 2
+        const verticalStyle = isBottomHalf
+          ? { bottom: Math.max(20, previewBottom), maxHeight: `calc(100vh - ${Math.max(20, previewBottom)}px - 20px)` }
+          : { top: Math.max(20, previewTop), maxHeight: `calc(100vh - ${Math.max(20, previewTop)}px - 20px)` }
 
         return (
           <div
+            onMouseDown={e => e.stopPropagation()}
+            onClick={e => e.stopPropagation()}
+            onDoubleClick={e => e.stopPropagation()}
             style={{
               position: 'absolute',
               left: previewLeft,
-              top: previewTop,
+              ...verticalStyle,
               zIndex: 120,
               minWidth: 320,
               maxWidth: 340,
+              overflowY: 'auto',
               background: 'rgba(8,13,24,0.96)',
               border: '1px solid rgba(255,255,255,0.08)',
               borderRadius: 18,
@@ -548,11 +562,15 @@ export default function FloatingCanvas() {
                           borderRadius: 12,
                           cursor: 'pointer',
                         }}
+                        onClick={(e) => {
+                          e.preventDefault() // prevent native toggle so React state controls it fully
+                          handleToggleSubtask(selected.id, task.id)
+                        }}
                       >
                         <input
                           type="checkbox"
                           checked={task.completed}
-                          onChange={() => handleToggleSubtask(selected.id, task.id)}
+                          readOnly
                           style={{ width: 16, height: 16, accentColor: '#8B5CF6' }}
                         />
                         <span style={{

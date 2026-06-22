@@ -79,6 +79,31 @@ function roadmapReducer(state: RoadmapState, action: RoadmapAction): RoadmapStat
     case 'TOGGLE_COMPLETE':
       return toggleCompleteInState(state, action.payload)
 
+    case 'TOGGLE_SUBTASK': {
+      const { nodeId, taskId } = action.payload
+      const node = state.nodes[nodeId]
+      if (!node) return state
+
+      const childTasks = node.childTasks.map(task =>
+        task.id === taskId ? { ...task, completed: !task.completed } : task
+      )
+
+      const completedCount = childTasks.filter(t => t.completed).length
+      const progress = childTasks.length > 0 ? Math.round((completedCount / childTasks.length) * 100) : node.progress
+
+      let next = updateNodeInState(state, nodeId, {
+        childTasks,
+        progress,
+        status: progress === 100 ? 'completed' : progress > 0 ? 'in_progress' : 'not_started',
+        completed: progress === 100,
+      })
+
+      if (node.parentId) {
+        next = recalculateProgress(next, node.parentId)
+      }
+      return next
+    }
+
     case 'UPDATE_PROGRESS': {
       let next = updateNodeInState(state, action.payload.id, {
         progress: action.payload.progress,
@@ -767,7 +792,7 @@ export function RoadmapProvider({ children }: { children: React.ReactNode }) {
 
     const writeActions = new Set([
       'ADD_NODE', 'DELETE_NODE', 'DUPLICATE_NODE', 'TOGGLE_COMPLETE',
-      'UPDATE_PROGRESS', 'REPARENT_NODE', 'IMPORT_STATE', 'RESET_TO_DEFAULT',
+      'UPDATE_PROGRESS', 'REPARENT_NODE', 'IMPORT_STATE', 'RESET_TO_DEFAULT', 'TOGGLE_SUBTASK'
     ])
 
     if (!canEdit && writeActions.has(action.type)) {
@@ -777,7 +802,7 @@ export function RoadmapProvider({ children }: { children: React.ReactNode }) {
 
     const historyActions = new Set([
       'ADD_NODE', 'DELETE_NODE', 'DUPLICATE_NODE', 'TOGGLE_COMPLETE',
-      'UPDATE_PROGRESS', 'REPARENT_NODE', 'IMPORT_STATE',
+      'UPDATE_PROGRESS', 'REPARENT_NODE', 'IMPORT_STATE', 'TOGGLE_SUBTASK'
     ])
 
     const shouldSnapshot = historyActions.has(action.type)

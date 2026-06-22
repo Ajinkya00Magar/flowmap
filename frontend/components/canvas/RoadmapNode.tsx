@@ -77,6 +77,8 @@ interface RoadmapNodeProps {
   onDragStart?: () => void
   onDragEnd?: () => void
   onResize?: (id: string, width: number, height: number) => void
+  onResizeStart?: () => void
+  onResizeEnd?: () => void
   phaseOffset: number
   hiddenDescendantCount?: number
   enableAnimations?: boolean
@@ -97,6 +99,8 @@ export default function RoadmapNode({
   onDragStart,
   onDragEnd,
   onResize,
+  onResizeStart,
+  onResizeEnd,
   phaseOffset,
   hiddenDescendantCount = 0,
   enableAnimations = true,
@@ -239,6 +243,7 @@ export default function RoadmapNode({
     e.preventDefault()
     
     isResizingRef.current = true
+    onResizeStart?.()
     stopFloat()
     if (!isSelected) {
       onSelect(node.id)
@@ -261,6 +266,7 @@ export default function RoadmapNode({
 
     const handleMouseUp = () => {
       isResizingRef.current = false
+      onResizeEnd?.()
       resumeFloat()
       window.removeEventListener('mousemove', handleMouseMove)
       window.removeEventListener('mouseup', handleMouseUp)
@@ -496,15 +502,16 @@ export default function RoadmapNode({
         </div>
 
         {/* Progress bar at bottom */}
-        {node.progress > 0 && (
-          <div style={{
-            position: 'absolute',
-            bottom: 0,
-            left: 0,
-            right: 0,
-            height: 2,
-            background: 'rgba(255,255,255,0.06)',
-          }}>
+        <div style={{
+          position: 'absolute',
+          bottom: 0,
+          left: 0,
+          right: 0,
+          height: 3,
+          background: 'rgba(255,255,255,0.08)',
+          zIndex: 10,
+        }}>
+          {node.progress > 0 && (
             <motion.div
               style={{
                 height: '100%',
@@ -515,8 +522,8 @@ export default function RoadmapNode({
               animate={{ width: `${node.progress}%` }}
               transition={{ duration: 0.8, ease: 'easeOut' }}
             />
-          </div>
-        )}
+          )}
+        </div>
 
         {/* Resize Handle */}
         {(isSelected || isHovered) && (
