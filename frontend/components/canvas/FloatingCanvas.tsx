@@ -43,12 +43,17 @@ export default function FloatingCanvas() {
     setTransform,
   } = useCanvas()
 
-  // Track viewport size for minimap
+  // Track viewport size for minimap and preview positioning
   useEffect(() => {
-    const update = () => setViewportSize({ w: window.innerWidth, h: window.innerHeight })
-    window.addEventListener('resize', update)
-    return () => window.removeEventListener('resize', update)
-  }, [])
+    if (!containerRef.current) return
+    const observer = new ResizeObserver(entries => {
+      for (const entry of entries) {
+        setViewportSize({ w: entry.contentRect.width, h: entry.contentRect.height })
+      }
+    })
+    observer.observe(containerRef.current)
+    return () => observer.disconnect()
+  }, [containerRef])
 
   // Fit on mount or when switching roadmaps
   const lastFittedRoadmapRef = useRef<string | null>(null)
@@ -137,17 +142,7 @@ export default function FloatingCanvas() {
     setContextMenu(null)
   }, [dispatch, editingNode, closeNodeEditor, connectingFromId, state.nodes])
 
-  const handleDeselect = useCallback((e: React.MouseEvent) => {
-    if ((e.target as HTMLElement).closest('[data-node]')) return
-    if (Date.now() - lastLassoTimeRef.current < 200) return
-    if (connectingFromId) {
-      setConnectingFromId(null)
-      setContextMenu(null)
-      return
-    }
-    dispatch({ type: 'SELECT_NODE', payload: null })
-    setContextMenu(null)
-  }, [dispatch, connectingFromId])
+
 
   const handleMove = useCallback((id: string, position: { x: number; y: number }, delta?: { dx: number; dy: number }) => {
     const node = state.nodes[id]
@@ -333,17 +328,22 @@ export default function FloatingCanvas() {
       window.addEventListener('mousemove', handleMouseMove)
       window.addEventListener('mouseup', handleMouseUp)
     } else {
+      if (connectingFromId) {
+        setConnectingFromId(null)
+        setContextMenu(null)
+        return
+      }
+      setContextMenu(null)
       dispatch({ type: 'SELECT_NODE', payload: null })
       startPan(e)
     }
-  }, [startPan, screenToCanvas, state.nodes, dispatch])
+  }, [startPan, screenToCanvas, state.nodes, dispatch, connectingFromId])
 
   return (
     <div
       ref={containerRef}
       className="canvas-root canvas-cursor"
       onMouseDown={startCanvasInteraction}
-      onClick={handleDeselect}
       onDoubleClick={handleDoubleClick}
       onContextMenu={handleContextMenu}
       style={{ position: 'relative', width: '100%', height: '100%', overflow: 'hidden' }}
@@ -470,22 +470,6 @@ export default function FloatingCanvas() {
         const selected = state.nodes[state.selectedNodeId]
         if (!selected) return null
         
-        let previewLeft = selected.position.x * transform.scale + transform.x + (selected.width ? selected.width * transform.scale + 20 : 200)
-        let previewTop = selected.position.y * transform.scale + transform.y
-        let previewBottom = viewportSize.h - previewTop - (selected.height ? selected.height * transform.scale : 64)
-        
-        // Clamp horizontal to viewport. If it goes off the right edge, place it to the left of the node.
-        if (previewLeft + 340 > viewportSize.w - 20) {
-          previewLeft = selected.position.x * transform.scale + transform.x - 360
-        }
-        if (previewLeft < 20) previewLeft = 20
-        
-        // Anchor vertically depending on which half of the screen it's in, so it expands towards the empty space.
-        const isBottomHalf = previewTop > viewportSize.h / 2
-        const verticalStyle = isBottomHalf
-          ? { bottom: Math.max(20, previewBottom), maxHeight: `calc(100vh - ${Math.max(20, previewBottom)}px - 20px)` }
-          : { top: Math.max(20, previewTop), maxHeight: `calc(100vh - ${Math.max(20, previewTop)}px - 20px)` }
-
         return (
           <div
             onMouseDown={e => e.stopPropagation()}
@@ -493,11 +477,13 @@ export default function FloatingCanvas() {
             onDoubleClick={e => e.stopPropagation()}
             style={{
               position: 'absolute',
-              left: previewLeft,
-              ...verticalStyle,
+              top: '50%',
+              left: '50%',
+              transform: 'translate(-50%, -50%)',
               zIndex: 120,
               minWidth: 320,
               maxWidth: 340,
+              maxHeight: 'calc(100% - 40px)',
               overflowY: 'auto',
               background: 'rgba(8,13,24,0.96)',
               border: '1px solid rgba(255,255,255,0.08)',
