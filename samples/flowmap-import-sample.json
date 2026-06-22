@@ -1,0 +1,113 @@
+{
+  "nodes": {
+    "node-1": {
+      "id": "node-1",
+      "title": "Learn React",
+      "description": "Understand the basics of React including components, state, and props.",
+      "parentId": null,
+      "childIds": [
+        "node-2",
+        "node-3"
+      ],
+      "position": {
+        "x": 100,
+        "y": 100
+      },
+      "color": "indigo",
+      "priority": "high",
+      "status": "in_progress",
+      "progress": 50,
+      "deadline": "2026-07-01T00:00:00.000Z",
+      "estimatedHours": 20,
+      "notes": "React documentation is a great place to start.",
+      "resources": [
+        {
+          "id": "res-1",
+          "title": "React Official Docs",
+          "url": "https://react.dev",
+          "type": "article"
+        }
+      ],
+      "prerequisites": [],
+      "childTasks": [
+        {
+          "id": "task-1",
+          "title": "Read the quick start guide",
+          "completed": true
+        },
+        {
+          "id": "task-2",
+          "title": "Build a tic-tac-toe game",
+          "completed": false
+        }
+      ],
+      "isExpanded": true,
+      "isRoot": true,
+      "completed": false,
+      "createdAt": "2026-06-22T18:34:00.000Z",
+      "updatedAt": "2026-06-22T18:34:00.000Z"
+    },
+    "node-2": {
+      "id": "node-2",
+      "title": "JSX",
+      "description": "Learn JSX syntax",
+      "parentId": "node-1",
+      "childIds": [],
+      "position": {
+        "x": 150,
+        "y": 200
+      },
+      "color": "violet",
+      "priority": "medium",
+      "status": "completed",
+      "progress": 100,
+      "deadline": null,
+      "estimatedHours": 2,
+      "notes": "",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [],
+      "isExpanded": false,
+      "isRoot": false,
+      "completed": true,
+      "createdAt": "2026-06-22T18:34:00.000Z",
+      "updatedAt": "2026-06-22T18:34:00.000Z"
+    },
+    "node-3": {
+      "id": "node-3",
+      "title": "Components",
+      "description": "Understand functional components",
+      "parentId": "node-1",
+      "childIds": [],
+      "position": {
+        "x": 250,
+        "y": 200
+      },
+      "color": "emerald",
+      "priority": "high",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 5,
+      "notes": "",
+      "resources": [],
+      "prerequisites": [
+        "node-2"
+      ],
+      "childTasks": [],
+      "isExpanded": false,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-22T18:34:00.000Z",
+      "updatedAt": "2026-06-22T18:34:00.000Z"
+    }
+  },
+  "rootIds": [
+    "node-1"
+  ],
+  "selectedNodeId": null,
+  "selectedNodeIds": [],
+  "version": 1,
+  "lastSaved": "2026-06-22T18:34:00.000Z",
+  "layout": "default"
+}
