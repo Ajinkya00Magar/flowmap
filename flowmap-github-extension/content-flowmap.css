@@ -1,0 +1,15 @@
+/* Only hide elements if the body has our embed class */
+.flowmap-extension-embed aside {
+  display: none !important;
+}
+
+/* Target the TopBar which is the first child of the main content area */
+.flowmap-extension-embed aside + div > div:first-child {
+  display: none !important;
+}
+
+/* Ensure the main container doesn't have extra padding/margins */
+.flowmap-extension-embed {
+  overflow: hidden !important;
+  background: transparent !important;
+}
