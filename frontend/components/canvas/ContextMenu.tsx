@@ -215,7 +215,11 @@ export default function ContextMenu({
                   <div style={{ height: 1, background: 'rgba(255,255,255,0.06)', margin: '4px 0' }} />
                 )}
                 <motion.button
-                  onClick={item.action}
+                  onPointerDown={(e) => {
+                    e.stopPropagation();
+                    e.preventDefault();
+                    item.action();
+                  }}
                   style={{
                     width: '100%',
                     display: 'flex',
