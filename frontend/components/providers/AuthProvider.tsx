@@ -148,7 +148,14 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 
   const signUp = async (email: string, password: string) => {
     try {
-      const { data, error } = await supabase.auth.signUp({ email, password })
+      const redirectTo = typeof window !== 'undefined' ? `${window.location.origin}/auth` : undefined
+      const { data, error } = await supabase.auth.signUp({
+        email,
+        password,
+        options: {
+          emailRedirectTo: redirectTo
+        }
+      })
       // Safety net: if a session was established but the email is not confirmed, sign out immediately
       if (data?.session && !data.user?.email_confirmed_at) {
         await supabase.auth.signOut()
