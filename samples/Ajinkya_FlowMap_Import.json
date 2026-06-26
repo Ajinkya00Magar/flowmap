@@ -1,0 +1,1704 @@
+{
+  "layout": "Multi-Island Workspace Layout",
+  "nodes": {
+    "root": {
+      "id": "root",
+      "title": "Ajinkya",
+      "description": "Completed Project Tasks",
+      "parentId": null,
+      "childIds": [
+        "ai",
+        "network",
+        "copilot",
+        "dashboard",
+        "pipeline",
+        "infra",
+        "reliability",
+        "docs"
+      ],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "violet",
+      "priority": "high",
+      "status": "completed",
+      "progress": 100,
+      "deadline": null,
+      "estimatedHours": 250,
+      "notes": "Owner: Ajinkya",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [],
+      "isExpanded": true,
+      "isRoot": true,
+      "completed": true,
+      "createdAt": "2026-06-26T06:14:05.033310+00:00",
+      "updatedAt": "2026-06-26T06:14:05.033310+00:00"
+    },
+    "ai_1": {
+      "id": "ai_1",
+      "title": "Predictive Analytics Engine Implemented",
+      "description": "Predictive Analytics Engine Implemented",
+      "parentId": "ai",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "emerald",
+      "priority": "high",
+      "status": "completed",
+      "progress": 100,
+      "deadline": null,
+      "estimatedHours": 4,
+      "notes": "Owner: Ajinkya\nPredictive Analytics Engine Implemented",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": true,
+      "createdAt": "2026-06-26T06:14:05.033310+00:00",
+      "updatedAt": "2026-06-26T06:14:05.033310+00:00"
+    },
+    "ai_2": {
+      "id": "ai_2",
+      "title": "Time-Series Forecasting Pipeline Integrated",
+      "description": "Time-Series Forecasting Pipeline Integrated",
+      "parentId": "ai",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "emerald",
+      "priority": "high",
+      "status": "completed",
+      "progress": 100,
+      "deadline": null,
+      "estimatedHours": 4,
+      "notes": "Owner: Ajinkya\nTime-Series Forecasting Pipeline Integrated",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": true,
+      "createdAt": "2026-06-26T06:14:05.033310+00:00",
+      "updatedAt": "2026-06-26T06:14:05.033310+00:00"
+    },
+    "ai_3": {
+      "id": "ai_3",
+      "title": "Anomaly Detection Engine Developed",
+      "description": "Anomaly Detection Engine Developed",
+      "parentId": "ai",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "emerald",
+      "priority": "high",
+      "status": "completed",
+      "progress": 100,
+      "deadline": null,
+      "estimatedHours": 4,
+      "notes": "Owner: Ajinkya\nAnomaly Detection Engine Developed",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": true,
+      "createdAt": "2026-06-26T06:14:05.033310+00:00",
+      "updatedAt": "2026-06-26T06:14:05.033310+00:00"
+    },
+    "ai_4": {
+      "id": "ai_4",
+      "title": "Failure Classification Model Implemented",
+      "description": "Failure Classification Model Implemented",
+      "parentId": "ai",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "emerald",
+      "priority": "high",
+      "status": "completed",
+      "progress": 100,
+      "deadline": null,
+      "estimatedHours": 4,
+      "notes": "Owner: Ajinkya\nFailure Classification Model Implemented",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": true,
+      "createdAt": "2026-06-26T06:14:05.033310+00:00",
+      "updatedAt": "2026-06-26T06:14:05.033310+00:00"
+    },
+    "ai_5": {
+      "id": "ai_5",
+      "title": "Risk Scoring Engine Developed",
+      "description": "Risk Scoring Engine Developed",
+      "parentId": "ai",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "emerald",
+      "priority": "high",
+      "status": "completed",
+      "progress": 100,
+      "deadline": null,
+      "estimatedHours": 4,
+      "notes": "Owner: Ajinkya\nRisk Scoring Engine Developed",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": true,
+      "createdAt": "2026-06-26T06:14:05.033310+00:00",
+      "updatedAt": "2026-06-26T06:14:05.033310+00:00"
+    },
+    "ai_6": {
+      "id": "ai_6",
+      "title": "Prediction Pipeline Stabilized",
+      "description": "Prediction Pipeline Stabilized",
+      "parentId": "ai",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "emerald",
+      "priority": "high",
+      "status": "completed",
+      "progress": 100,
+      "deadline": null,
+      "estimatedHours": 4,
+      "notes": "Owner: Ajinkya\nPrediction Pipeline Stabilized",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": true,
+      "createdAt": "2026-06-26T06:14:05.033310+00:00",
+      "updatedAt": "2026-06-26T06:14:05.033310+00:00"
+    },
+    "ai": {
+      "id": "ai",
+      "title": "AI & Predictive Intelligence",
+      "description": "Forecasting, anomaly detection and prediction engine",
+      "parentId": "root",
+      "childIds": [
+        "ai_1",
+        "ai_2",
+        "ai_3",
+        "ai_4",
+        "ai_5",
+        "ai_6"
+      ],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "emerald",
+      "priority": "high",
+      "status": "completed",
+      "progress": 100,
+      "deadline": null,
+      "estimatedHours": 24,
+      "notes": "Owner: Ajinkya\nForecasting, anomaly detection and prediction engine",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [
+        {
+          "id": "ai_1_chk",
+          "title": "Predictive Analytics Engine Implemented",
+          "completed": true
+        },
+        {
+          "id": "ai_2_chk",
+          "title": "Time-Series Forecasting Pipeline Integrated",
+          "completed": true
+        },
+        {
+          "id": "ai_3_chk",
+          "title": "Anomaly Detection Engine Developed",
+          "completed": true
+        },
+        {
+          "id": "ai_4_chk",
+          "title": "Failure Classification Model Implemented",
+          "completed": true
+        },
+        {
+          "id": "ai_5_chk",
+          "title": "Risk Scoring Engine Developed",
+          "completed": true
+        },
+        {
+          "id": "ai_6_chk",
+          "title": "Prediction Pipeline Stabilized",
+          "completed": true
+        }
+      ],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": true,
+      "createdAt": "2026-06-26T06:14:05.033310+00:00",
+      "updatedAt": "2026-06-26T06:14:05.033310+00:00"
+    },
+    "network_1": {
+      "id": "network_1",
+      "title": "Simulated MPLS/SD-WAN Network Built",
+      "description": "Simulated MPLS/SD-WAN Network Built",
+      "parentId": "network",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "blue",
+      "priority": "high",
+      "status": "completed",
+      "progress": 100,
+      "deadline": null,
+      "estimatedHours": 4,
+      "notes": "Owner: Ajinkya\nSimulated MPLS/SD-WAN Network Built",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": true,
+      "createdAt": "2026-06-26T06:14:05.033310+00:00",
+      "updatedAt": "2026-06-26T06:14:05.033310+00:00"
+    },
+    "network_2": {
+      "id": "network_2",
+      "title": "Network Topology Simulator Developed",
+      "description": "Network Topology Simulator Developed",
+      "parentId": "network",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "blue",
+      "priority": "high",
+      "status": "completed",
+      "progress": 100,
+      "deadline": null,
+      "estimatedHours": 4,
+      "notes": "Owner: Ajinkya\nNetwork Topology Simulator Developed",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": true,
+      "createdAt": "2026-06-26T06:14:05.033310+00:00",
+      "updatedAt": "2026-06-26T06:14:05.033310+00:00"
+    },
+    "network_3": {
+      "id": "network_3",
+      "title": "Digital Twin Visualization Implemented",
+      "description": "Digital Twin Visualization Implemented",
+      "parentId": "network",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "blue",
+      "priority": "high",
+      "status": "completed",
+      "progress": 100,
+      "deadline": null,
+      "estimatedHours": 4,
+      "notes": "Owner: Ajinkya\nDigital Twin Visualization Implemented",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": true,
+      "createdAt": "2026-06-26T06:14:05.033310+00:00",
+      "updatedAt": "2026-06-26T06:14:05.033310+00:00"
+    },
+    "network_4": {
+      "id": "network_4",
+      "title": "Fault Injection Framework Integrated",
+      "description": "Fault Injection Framework Integrated",
+      "parentId": "network",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "blue",
+      "priority": "high",
+      "status": "completed",
+      "progress": 100,
+      "deadline": null,
+      "estimatedHours": 4,
+      "notes": "Owner: Ajinkya\nFault Injection Framework Integrated",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": true,
+      "createdAt": "2026-06-26T06:14:05.033310+00:00",
+      "updatedAt": "2026-06-26T06:14:05.033310+00:00"
+    },
+    "network_5": {
+      "id": "network_5",
+      "title": "Blast Radius Analysis Engine Developed",
+      "description": "Blast Radius Analysis Engine Developed",
+      "parentId": "network",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "blue",
+      "priority": "high",
+      "status": "completed",
+      "progress": 100,
+      "deadline": null,
+      "estimatedHours": 4,
+      "notes": "Owner: Ajinkya\nBlast Radius Analysis Engine Developed",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": true,
+      "createdAt": "2026-06-26T06:14:05.033310+00:00",
+      "updatedAt": "2026-06-26T06:14:05.033310+00:00"
+    },
+    "network_6": {
+      "id": "network_6",
+      "title": "What-If Simulation Engine Implemented",
+      "description": "What-If Simulation Engine Implemented",
+      "parentId": "network",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "blue",
+      "priority": "high",
+      "status": "completed",
+      "progress": 100,
+      "deadline": null,
+      "estimatedHours": 4,
+      "notes": "Owner: Ajinkya\nWhat-If Simulation Engine Implemented",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": true,
+      "createdAt": "2026-06-26T06:14:05.033310+00:00",
+      "updatedAt": "2026-06-26T06:14:05.033310+00:00"
+    },
+    "network_7": {
+      "id": "network_7",
+      "title": "Recovery Action Ranking System Added",
+      "description": "Recovery Action Ranking System Added",
+      "parentId": "network",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "blue",
+      "priority": "high",
+      "status": "completed",
+      "progress": 100,
+      "deadline": null,
+      "estimatedHours": 4,
+      "notes": "Owner: Ajinkya\nRecovery Action Ranking System Added",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": true,
+      "createdAt": "2026-06-26T06:14:05.033310+00:00",
+      "updatedAt": "2026-06-26T06:14:05.033310+00:00"
+    },
+    "network": {
+      "id": "network",
+      "title": "Network Simulation & Digital Twin",
+      "description": "Simulation, topology and decision intelligence",
+      "parentId": "root",
+      "childIds": [
+        "network_1",
+        "network_2",
+        "network_3",
+        "network_4",
+        "network_5",
+        "network_6",
+        "network_7"
+      ],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "blue",
+      "priority": "high",
+      "status": "completed",
+      "progress": 100,
+      "deadline": null,
+      "estimatedHours": 28,
+      "notes": "Owner: Ajinkya\nSimulation, topology and decision intelligence",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [
+        {
+          "id": "network_1_chk",
+          "title": "Simulated MPLS/SD-WAN Network Built",
+          "completed": true
+        },
+        {
+          "id": "network_2_chk",
+          "title": "Network Topology Simulator Developed",
+          "completed": true
+        },
+        {
+          "id": "network_3_chk",
+          "title": "Digital Twin Visualization Implemented",
+          "completed": true
+        },
+        {
+          "id": "network_4_chk",
+          "title": "Fault Injection Framework Integrated",
+          "completed": true
+        },
+        {
+          "id": "network_5_chk",
+          "title": "Blast Radius Analysis Engine Developed",
+          "completed": true
+        },
+        {
+          "id": "network_6_chk",
+          "title": "What-If Simulation Engine Implemented",
+          "completed": true
+        },
+        {
+          "id": "network_7_chk",
+          "title": "Recovery Action Ranking System Added",
+          "completed": true
+        }
+      ],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": true,
+      "createdAt": "2026-06-26T06:14:05.033310+00:00",
+      "updatedAt": "2026-06-26T06:14:05.033310+00:00"
+    },
+    "copilot_1": {
+      "id": "copilot_1",
+      "title": "Local RAG Knowledge Base Integrated",
+      "description": "Local RAG Knowledge Base Integrated",
+      "parentId": "copilot",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "violet",
+      "priority": "high",
+      "status": "completed",
+      "progress": 100,
+      "deadline": null,
+      "estimatedHours": 4,
+      "notes": "Owner: Ajinkya\nLocal RAG Knowledge Base Integrated",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": true,
+      "createdAt": "2026-06-26T06:14:05.033310+00:00",
+      "updatedAt": "2026-06-26T06:14:05.033310+00:00"
+    },
+    "copilot_2": {
+      "id": "copilot_2",
+      "title": "Offline AI Copilot Implemented",
+      "description": "Offline AI Copilot Implemented",
+      "parentId": "copilot",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "violet",
+      "priority": "high",
+      "status": "completed",
+      "progress": 100,
+      "deadline": null,
+      "estimatedHours": 4,
+      "notes": "Owner: Ajinkya\nOffline AI Copilot Implemented",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": true,
+      "createdAt": "2026-06-26T06:14:05.033310+00:00",
+      "updatedAt": "2026-06-26T06:14:05.033310+00:00"
+    },
+    "copilot_3": {
+      "id": "copilot_3",
+      "title": "LLM Streaming Response Pipeline Added",
+      "description": "LLM Streaming Response Pipeline Added",
+      "parentId": "copilot",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "violet",
+      "priority": "high",
+      "status": "completed",
+      "progress": 100,
+      "deadline": null,
+      "estimatedHours": 4,
+      "notes": "Owner: Ajinkya\nLLM Streaming Response Pipeline Added",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": true,
+      "createdAt": "2026-06-26T06:14:05.033310+00:00",
+      "updatedAt": "2026-06-26T06:14:05.033310+00:00"
+    },
+    "copilot_4": {
+      "id": "copilot_4",
+      "title": "Backend API Services Integrated",
+      "description": "Backend API Services Integrated",
+      "parentId": "copilot",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "violet",
+      "priority": "high",
+      "status": "completed",
+      "progress": 100,
+      "deadline": null,
+      "estimatedHours": 4,
+      "notes": "Owner: Ajinkya\nBackend API Services Integrated",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": true,
+      "createdAt": "2026-06-26T06:14:05.033310+00:00",
+      "updatedAt": "2026-06-26T06:14:05.033310+00:00"
+    },
+    "copilot": {
+      "id": "copilot",
+      "title": "AI Copilot & Knowledge System",
+      "description": "Offline AI stack",
+      "parentId": "root",
+      "childIds": [
+        "copilot_1",
+        "copilot_2",
+        "copilot_3",
+        "copilot_4"
+      ],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "violet",
+      "priority": "high",
+      "status": "completed",
+      "progress": 100,
+      "deadline": null,
+      "estimatedHours": 16,
+      "notes": "Owner: Ajinkya\nOffline AI stack",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [
+        {
+          "id": "copilot_1_chk",
+          "title": "Local RAG Knowledge Base Integrated",
+          "completed": true
+        },
+        {
+          "id": "copilot_2_chk",
+          "title": "Offline AI Copilot Implemented",
+          "completed": true
+        },
+        {
+          "id": "copilot_3_chk",
+          "title": "LLM Streaming Response Pipeline Added",
+          "completed": true
+        },
+        {
+          "id": "copilot_4_chk",
+          "title": "Backend API Services Integrated",
+          "completed": true
+        }
+      ],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": true,
+      "createdAt": "2026-06-26T06:14:05.033310+00:00",
+      "updatedAt": "2026-06-26T06:14:05.033310+00:00"
+    },
+    "dashboard_1": {
+      "id": "dashboard_1",
+      "title": "Mission Control Dashboard Developed",
+      "description": "Mission Control Dashboard Developed",
+      "parentId": "dashboard",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "indigo",
+      "priority": "high",
+      "status": "completed",
+      "progress": 100,
+      "deadline": null,
+      "estimatedHours": 4,
+      "notes": "Owner: Ajinkya\nMission Control Dashboard Developed",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": true,
+      "createdAt": "2026-06-26T06:14:05.033310+00:00",
+      "updatedAt": "2026-06-26T06:14:05.033310+00:00"
+    },
+    "dashboard_2": {
+      "id": "dashboard_2",
+      "title": "Interactive Network Graph Implemented",
+      "description": "Interactive Network Graph Implemented",
+      "parentId": "dashboard",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "indigo",
+      "priority": "high",
+      "status": "completed",
+      "progress": 100,
+      "deadline": null,
+      "estimatedHours": 4,
+      "notes": "Owner: Ajinkya\nInteractive Network Graph Implemented",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": true,
+      "createdAt": "2026-06-26T06:14:05.033310+00:00",
+      "updatedAt": "2026-06-26T06:14:05.033310+00:00"
+    },
+    "dashboard_3": {
+      "id": "dashboard_3",
+      "title": "Real-Time Metrics Visualization Added",
+      "description": "Real-Time Metrics Visualization Added",
+      "parentId": "dashboard",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "indigo",
+      "priority": "high",
+      "status": "completed",
+      "progress": 100,
+      "deadline": null,
+      "estimatedHours": 4,
+      "notes": "Owner: Ajinkya\nReal-Time Metrics Visualization Added",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": true,
+      "createdAt": "2026-06-26T06:14:05.033310+00:00",
+      "updatedAt": "2026-06-26T06:14:05.033310+00:00"
+    },
+    "dashboard_4": {
+      "id": "dashboard_4",
+      "title": "Live Alert & Incident Monitoring Integrated",
+      "description": "Live Alert & Incident Monitoring Integrated",
+      "parentId": "dashboard",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "indigo",
+      "priority": "high",
+      "status": "completed",
+      "progress": 100,
+      "deadline": null,
+      "estimatedHours": 4,
+      "notes": "Owner: Ajinkya\nLive Alert & Incident Monitoring Integrated",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": true,
+      "createdAt": "2026-06-26T06:14:05.033310+00:00",
+      "updatedAt": "2026-06-26T06:14:05.033310+00:00"
+    },
+    "dashboard_5": {
+      "id": "dashboard_5",
+      "title": "Modern 3D Landing Experience Developed",
+      "description": "Modern 3D Landing Experience Developed",
+      "parentId": "dashboard",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "indigo",
+      "priority": "high",
+      "status": "completed",
+      "progress": 100,
+      "deadline": null,
+      "estimatedHours": 4,
+      "notes": "Owner: Ajinkya\nModern 3D Landing Experience Developed",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": true,
+      "createdAt": "2026-06-26T06:14:05.033310+00:00",
+      "updatedAt": "2026-06-26T06:14:05.033310+00:00"
+    },
+    "dashboard_6": {
+      "id": "dashboard_6",
+      "title": "Custom Design System Implemented",
+      "description": "Custom Design System Implemented",
+      "parentId": "dashboard",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "indigo",
+      "priority": "high",
+      "status": "completed",
+      "progress": 100,
+      "deadline": null,
+      "estimatedHours": 4,
+      "notes": "Owner: Ajinkya\nCustom Design System Implemented",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": true,
+      "createdAt": "2026-06-26T06:14:05.033310+00:00",
+      "updatedAt": "2026-06-26T06:14:05.033310+00:00"
+    },
+    "dashboard_7": {
+      "id": "dashboard_7",
+      "title": "Production Dashboard UI Completed",
+      "description": "Production Dashboard UI Completed",
+      "parentId": "dashboard",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "indigo",
+      "priority": "high",
+      "status": "completed",
+      "progress": 100,
+      "deadline": null,
+      "estimatedHours": 4,
+      "notes": "Owner: Ajinkya\nProduction Dashboard UI Completed",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": true,
+      "createdAt": "2026-06-26T06:14:05.033310+00:00",
+      "updatedAt": "2026-06-26T06:14:05.033310+00:00"
+    },
+    "dashboard_8": {
+      "id": "dashboard_8",
+      "title": "React Three Fiber Visualization Integrated",
+      "description": "React Three Fiber Visualization Integrated",
+      "parentId": "dashboard",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "indigo",
+      "priority": "high",
+      "status": "completed",
+      "progress": 100,
+      "deadline": null,
+      "estimatedHours": 4,
+      "notes": "Owner: Ajinkya\nReact Three Fiber Visualization Integrated",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": true,
+      "createdAt": "2026-06-26T06:14:05.033310+00:00",
+      "updatedAt": "2026-06-26T06:14:05.033310+00:00"
+    },
+    "dashboard_9": {
+      "id": "dashboard_9",
+      "title": "Live UTC Mission Clock Added",
+      "description": "Live UTC Mission Clock Added",
+      "parentId": "dashboard",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "indigo",
+      "priority": "high",
+      "status": "completed",
+      "progress": 100,
+      "deadline": null,
+      "estimatedHours": 4,
+      "notes": "Owner: Ajinkya\nLive UTC Mission Clock Added",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": true,
+      "createdAt": "2026-06-26T06:14:05.033310+00:00",
+      "updatedAt": "2026-06-26T06:14:05.033310+00:00"
+    },
+    "dashboard": {
+      "id": "dashboard",
+      "title": "Dashboard & User Experience",
+      "description": "Mission Control interface",
+      "parentId": "root",
+      "childIds": [
+        "dashboard_1",
+        "dashboard_2",
+        "dashboard_3",
+        "dashboard_4",
+        "dashboard_5",
+        "dashboard_6",
+        "dashboard_7",
+        "dashboard_8",
+        "dashboard_9"
+      ],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "indigo",
+      "priority": "high",
+      "status": "completed",
+      "progress": 100,
+      "deadline": null,
+      "estimatedHours": 36,
+      "notes": "Owner: Ajinkya\nMission Control interface",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [
+        {
+          "id": "dashboard_1_chk",
+          "title": "Mission Control Dashboard Developed",
+          "completed": true
+        },
+        {
+          "id": "dashboard_2_chk",
+          "title": "Interactive Network Graph Implemented",
+          "completed": true
+        },
+        {
+          "id": "dashboard_3_chk",
+          "title": "Real-Time Metrics Visualization Added",
+          "completed": true
+        },
+        {
+          "id": "dashboard_4_chk",
+          "title": "Live Alert & Incident Monitoring Integrated",
+          "completed": true
+        },
+        {
+          "id": "dashboard_5_chk",
+          "title": "Modern 3D Landing Experience Developed",
+          "completed": true
+        },
+        {
+          "id": "dashboard_6_chk",
+          "title": "Custom Design System Implemented",
+          "completed": true
+        },
+        {
+          "id": "dashboard_7_chk",
+          "title": "Production Dashboard UI Completed",
+          "completed": true
+        },
+        {
+          "id": "dashboard_8_chk",
+          "title": "React Three Fiber Visualization Integrated",
+          "completed": true
+        },
+        {
+          "id": "dashboard_9_chk",
+          "title": "Live UTC Mission Clock Added",
+          "completed": true
+        }
+      ],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": true,
+      "createdAt": "2026-06-26T06:14:05.033310+00:00",
+      "updatedAt": "2026-06-26T06:14:05.033310+00:00"
+    },
+    "pipeline_1": {
+      "id": "pipeline_1",
+      "title": "Telemetry Pipeline Implemented",
+      "description": "Telemetry Pipeline Implemented",
+      "parentId": "pipeline",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "cyan",
+      "priority": "high",
+      "status": "completed",
+      "progress": 100,
+      "deadline": null,
+      "estimatedHours": 4,
+      "notes": "Owner: Ajinkya\nTelemetry Pipeline Implemented",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": true,
+      "createdAt": "2026-06-26T06:14:05.033310+00:00",
+      "updatedAt": "2026-06-26T06:14:05.033310+00:00"
+    },
+    "pipeline_2": {
+      "id": "pipeline_2",
+      "title": "Real-Time WebSocket Communication Enabled",
+      "description": "Real-Time WebSocket Communication Enabled",
+      "parentId": "pipeline",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "cyan",
+      "priority": "high",
+      "status": "completed",
+      "progress": 100,
+      "deadline": null,
+      "estimatedHours": 4,
+      "notes": "Owner: Ajinkya\nReal-Time WebSocket Communication Enabled",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": true,
+      "createdAt": "2026-06-26T06:14:05.033310+00:00",
+      "updatedAt": "2026-06-26T06:14:05.033310+00:00"
+    },
+    "pipeline_3": {
+      "id": "pipeline_3",
+      "title": "API Query Preloading Implemented",
+      "description": "API Query Preloading Implemented",
+      "parentId": "pipeline",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "cyan",
+      "priority": "high",
+      "status": "completed",
+      "progress": 100,
+      "deadline": null,
+      "estimatedHours": 4,
+      "notes": "Owner: Ajinkya\nAPI Query Preloading Implemented",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": true,
+      "createdAt": "2026-06-26T06:14:05.033310+00:00",
+      "updatedAt": "2026-06-26T06:14:05.033310+00:00"
+    },
+    "pipeline_4": {
+      "id": "pipeline_4",
+      "title": "Background Dashboard Loading Optimized",
+      "description": "Background Dashboard Loading Optimized",
+      "parentId": "pipeline",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "cyan",
+      "priority": "high",
+      "status": "completed",
+      "progress": 100,
+      "deadline": null,
+      "estimatedHours": 4,
+      "notes": "Owner: Ajinkya\nBackground Dashboard Loading Optimized",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": true,
+      "createdAt": "2026-06-26T06:14:05.033310+00:00",
+      "updatedAt": "2026-06-26T06:14:05.033310+00:00"
+    },
+    "pipeline": {
+      "id": "pipeline",
+      "title": "Data Pipeline & Communication",
+      "description": "Telemetry & communication",
+      "parentId": "root",
+      "childIds": [
+        "pipeline_1",
+        "pipeline_2",
+        "pipeline_3",
+        "pipeline_4"
+      ],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "cyan",
+      "priority": "high",
+      "status": "completed",
+      "progress": 100,
+      "deadline": null,
+      "estimatedHours": 16,
+      "notes": "Owner: Ajinkya\nTelemetry & communication",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [
+        {
+          "id": "pipeline_1_chk",
+          "title": "Telemetry Pipeline Implemented",
+          "completed": true
+        },
+        {
+          "id": "pipeline_2_chk",
+          "title": "Real-Time WebSocket Communication Enabled",
+          "completed": true
+        },
+        {
+          "id": "pipeline_3_chk",
+          "title": "API Query Preloading Implemented",
+          "completed": true
+        },
+        {
+          "id": "pipeline_4_chk",
+          "title": "Background Dashboard Loading Optimized",
+          "completed": true
+        }
+      ],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": true,
+      "createdAt": "2026-06-26T06:14:05.033310+00:00",
+      "updatedAt": "2026-06-26T06:14:05.033310+00:00"
+    },
+    "infra_1": {
+      "id": "infra_1",
+      "title": "Dockerized Multi-Service Architecture Configured",
+      "description": "Dockerized Multi-Service Architecture Configured",
+      "parentId": "infra",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "amber",
+      "priority": "high",
+      "status": "completed",
+      "progress": 100,
+      "deadline": null,
+      "estimatedHours": 4,
+      "notes": "Owner: Ajinkya\nDockerized Multi-Service Architecture Configured",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": true,
+      "createdAt": "2026-06-26T06:14:05.033310+00:00",
+      "updatedAt": "2026-06-26T06:14:05.033310+00:00"
+    },
+    "infra_2": {
+      "id": "infra_2",
+      "title": "Air-Gapped Deployment Support Implemented",
+      "description": "Air-Gapped Deployment Support Implemented",
+      "parentId": "infra",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "amber",
+      "priority": "high",
+      "status": "completed",
+      "progress": 100,
+      "deadline": null,
+      "estimatedHours": 4,
+      "notes": "Owner: Ajinkya\nAir-Gapped Deployment Support Implemented",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": true,
+      "createdAt": "2026-06-26T06:14:05.033310+00:00",
+      "updatedAt": "2026-06-26T06:14:05.033310+00:00"
+    },
+    "infra_3": {
+      "id": "infra_3",
+      "title": "Offline Build Compatibility Achieved",
+      "description": "Offline Build Compatibility Achieved",
+      "parentId": "infra",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "amber",
+      "priority": "high",
+      "status": "completed",
+      "progress": 100,
+      "deadline": null,
+      "estimatedHours": 4,
+      "notes": "Owner: Ajinkya\nOffline Build Compatibility Achieved",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": true,
+      "createdAt": "2026-06-26T06:14:05.033310+00:00",
+      "updatedAt": "2026-06-26T06:14:05.033310+00:00"
+    },
+    "infra_4": {
+      "id": "infra_4",
+      "title": "Production Build Pipeline Configured",
+      "description": "Production Build Pipeline Configured",
+      "parentId": "infra",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "amber",
+      "priority": "high",
+      "status": "completed",
+      "progress": 100,
+      "deadline": null,
+      "estimatedHours": 4,
+      "notes": "Owner: Ajinkya\nProduction Build Pipeline Configured",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": true,
+      "createdAt": "2026-06-26T06:14:05.033310+00:00",
+      "updatedAt": "2026-06-26T06:14:05.033310+00:00"
+    },
+    "infra_5": {
+      "id": "infra_5",
+      "title": "Dependency & Build System Optimized",
+      "description": "Dependency & Build System Optimized",
+      "parentId": "infra",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "amber",
+      "priority": "high",
+      "status": "completed",
+      "progress": 100,
+      "deadline": null,
+      "estimatedHours": 4,
+      "notes": "Owner: Ajinkya\nDependency & Build System Optimized",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": true,
+      "createdAt": "2026-06-26T06:14:05.033310+00:00",
+      "updatedAt": "2026-06-26T06:14:05.033310+00:00"
+    },
+    "infra": {
+      "id": "infra",
+      "title": "Infrastructure & Deployment",
+      "description": "Deployment",
+      "parentId": "root",
+      "childIds": [
+        "infra_1",
+        "infra_2",
+        "infra_3",
+        "infra_4",
+        "infra_5"
+      ],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "amber",
+      "priority": "high",
+      "status": "completed",
+      "progress": 100,
+      "deadline": null,
+      "estimatedHours": 20,
+      "notes": "Owner: Ajinkya\nDeployment",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [
+        {
+          "id": "infra_1_chk",
+          "title": "Dockerized Multi-Service Architecture Configured",
+          "completed": true
+        },
+        {
+          "id": "infra_2_chk",
+          "title": "Air-Gapped Deployment Support Implemented",
+          "completed": true
+        },
+        {
+          "id": "infra_3_chk",
+          "title": "Offline Build Compatibility Achieved",
+          "completed": true
+        },
+        {
+          "id": "infra_4_chk",
+          "title": "Production Build Pipeline Configured",
+          "completed": true
+        },
+        {
+          "id": "infra_5_chk",
+          "title": "Dependency & Build System Optimized",
+          "completed": true
+        }
+      ],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": true,
+      "createdAt": "2026-06-26T06:14:05.033310+00:00",
+      "updatedAt": "2026-06-26T06:14:05.033310+00:00"
+    },
+    "reliability_1": {
+      "id": "reliability_1",
+      "title": "Error Recovery Framework Implemented",
+      "description": "Error Recovery Framework Implemented",
+      "parentId": "reliability",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "rose",
+      "priority": "high",
+      "status": "completed",
+      "progress": 100,
+      "deadline": null,
+      "estimatedHours": 4,
+      "notes": "Owner: Ajinkya\nError Recovery Framework Implemented",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": true,
+      "createdAt": "2026-06-26T06:14:05.033310+00:00",
+      "updatedAt": "2026-06-26T06:14:05.033310+00:00"
+    },
+    "reliability_2": {
+      "id": "reliability_2",
+      "title": "Crash Recovery Mechanism Added",
+      "description": "Crash Recovery Mechanism Added",
+      "parentId": "reliability",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "rose",
+      "priority": "high",
+      "status": "completed",
+      "progress": 100,
+      "deadline": null,
+      "estimatedHours": 4,
+      "notes": "Owner: Ajinkya\nCrash Recovery Mechanism Added",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": true,
+      "createdAt": "2026-06-26T06:14:05.033310+00:00",
+      "updatedAt": "2026-06-26T06:14:05.033310+00:00"
+    },
+    "reliability_3": {
+      "id": "reliability_3",
+      "title": "Runtime Stability Improvements Completed",
+      "description": "Runtime Stability Improvements Completed",
+      "parentId": "reliability",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "rose",
+      "priority": "high",
+      "status": "completed",
+      "progress": 100,
+      "deadline": null,
+      "estimatedHours": 4,
+      "notes": "Owner: Ajinkya\nRuntime Stability Improvements Completed",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": true,
+      "createdAt": "2026-06-26T06:14:05.033310+00:00",
+      "updatedAt": "2026-06-26T06:14:05.033310+00:00"
+    },
+    "reliability_4": {
+      "id": "reliability_4",
+      "title": "Component Architecture Refactored",
+      "description": "Component Architecture Refactored",
+      "parentId": "reliability",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "rose",
+      "priority": "high",
+      "status": "completed",
+      "progress": 100,
+      "deadline": null,
+      "estimatedHours": 4,
+      "notes": "Owner: Ajinkya\nComponent Architecture Refactored",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": true,
+      "createdAt": "2026-06-26T06:14:05.033310+00:00",
+      "updatedAt": "2026-06-26T06:14:05.033310+00:00"
+    },
+    "reliability_5": {
+      "id": "reliability_5",
+      "title": "Project Structure Optimized",
+      "description": "Project Structure Optimized",
+      "parentId": "reliability",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "rose",
+      "priority": "high",
+      "status": "completed",
+      "progress": 100,
+      "deadline": null,
+      "estimatedHours": 4,
+      "notes": "Owner: Ajinkya\nProject Structure Optimized",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": true,
+      "createdAt": "2026-06-26T06:14:05.033310+00:00",
+      "updatedAt": "2026-06-26T06:14:05.033310+00:00"
+    },
+    "reliability": {
+      "id": "reliability",
+      "title": "Reliability & Performance",
+      "description": "Reliability",
+      "parentId": "root",
+      "childIds": [
+        "reliability_1",
+        "reliability_2",
+        "reliability_3",
+        "reliability_4",
+        "reliability_5"
+      ],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "rose",
+      "priority": "high",
+      "status": "completed",
+      "progress": 100,
+      "deadline": null,
+      "estimatedHours": 20,
+      "notes": "Owner: Ajinkya\nReliability",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [
+        {
+          "id": "reliability_1_chk",
+          "title": "Error Recovery Framework Implemented",
+          "completed": true
+        },
+        {
+          "id": "reliability_2_chk",
+          "title": "Crash Recovery Mechanism Added",
+          "completed": true
+        },
+        {
+          "id": "reliability_3_chk",
+          "title": "Runtime Stability Improvements Completed",
+          "completed": true
+        },
+        {
+          "id": "reliability_4_chk",
+          "title": "Component Architecture Refactored",
+          "completed": true
+        },
+        {
+          "id": "reliability_5_chk",
+          "title": "Project Structure Optimized",
+          "completed": true
+        }
+      ],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": true,
+      "createdAt": "2026-06-26T06:14:05.033310+00:00",
+      "updatedAt": "2026-06-26T06:14:05.033310+00:00"
+    },
+    "docs_1": {
+      "id": "docs_1",
+      "title": "System Architecture Documented",
+      "description": "System Architecture Documented",
+      "parentId": "docs",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "teal",
+      "priority": "high",
+      "status": "completed",
+      "progress": 100,
+      "deadline": null,
+      "estimatedHours": 4,
+      "notes": "Owner: Ajinkya\nSystem Architecture Documented",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": true,
+      "createdAt": "2026-06-26T06:14:05.033310+00:00",
+      "updatedAt": "2026-06-26T06:14:05.033310+00:00"
+    },
+    "docs_2": {
+      "id": "docs_2",
+      "title": "Deployment Guide Prepared",
+      "description": "Deployment Guide Prepared",
+      "parentId": "docs",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "teal",
+      "priority": "high",
+      "status": "completed",
+      "progress": 100,
+      "deadline": null,
+      "estimatedHours": 4,
+      "notes": "Owner: Ajinkya\nDeployment Guide Prepared",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": true,
+      "createdAt": "2026-06-26T06:14:05.033310+00:00",
+      "updatedAt": "2026-06-26T06:14:05.033310+00:00"
+    },
+    "docs_3": {
+      "id": "docs_3",
+      "title": "Implementation Milestones Recorded",
+      "description": "Implementation Milestones Recorded",
+      "parentId": "docs",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "teal",
+      "priority": "high",
+      "status": "completed",
+      "progress": 100,
+      "deadline": null,
+      "estimatedHours": 4,
+      "notes": "Owner: Ajinkya\nImplementation Milestones Recorded",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": true,
+      "createdAt": "2026-06-26T06:14:05.033310+00:00",
+      "updatedAt": "2026-06-26T06:14:05.033310+00:00"
+    },
+    "docs_4": {
+      "id": "docs_4",
+      "title": "Technical Documentation Completed",
+      "description": "Technical Documentation Completed",
+      "parentId": "docs",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "teal",
+      "priority": "high",
+      "status": "completed",
+      "progress": 100,
+      "deadline": null,
+      "estimatedHours": 4,
+      "notes": "Owner: Ajinkya\nTechnical Documentation Completed",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": true,
+      "createdAt": "2026-06-26T06:14:05.033310+00:00",
+      "updatedAt": "2026-06-26T06:14:05.033310+00:00"
+    },
+    "docs_5": {
+      "id": "docs_5",
+      "title": "Project Completion Report Prepared",
+      "description": "Project Completion Report Prepared",
+      "parentId": "docs",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "teal",
+      "priority": "high",
+      "status": "completed",
+      "progress": 100,
+      "deadline": null,
+      "estimatedHours": 4,
+      "notes": "Owner: Ajinkya\nProject Completion Report Prepared",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": true,
+      "createdAt": "2026-06-26T06:14:05.033310+00:00",
+      "updatedAt": "2026-06-26T06:14:05.033310+00:00"
+    },
+    "docs": {
+      "id": "docs",
+      "title": "Documentation & Project Management",
+      "description": "Documentation",
+      "parentId": "root",
+      "childIds": [
+        "docs_1",
+        "docs_2",
+        "docs_3",
+        "docs_4",
+        "docs_5"
+      ],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "teal",
+      "priority": "high",
+      "status": "completed",
+      "progress": 100,
+      "deadline": null,
+      "estimatedHours": 20,
+      "notes": "Owner: Ajinkya\nDocumentation",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [
+        {
+          "id": "docs_1_chk",
+          "title": "System Architecture Documented",
+          "completed": true
+        },
+        {
+          "id": "docs_2_chk",
+          "title": "Deployment Guide Prepared",
+          "completed": true
+        },
+        {
+          "id": "docs_3_chk",
+          "title": "Implementation Milestones Recorded",
+          "completed": true
+        },
+        {
+          "id": "docs_4_chk",
+          "title": "Technical Documentation Completed",
+          "completed": true
+        },
+        {
+          "id": "docs_5_chk",
+          "title": "Project Completion Report Prepared",
+          "completed": true
+        }
+      ],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": true,
+      "createdAt": "2026-06-26T06:14:05.033310+00:00",
+      "updatedAt": "2026-06-26T06:14:05.033310+00:00"
+    }
+  }
+}

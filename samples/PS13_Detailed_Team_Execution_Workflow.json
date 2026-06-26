@@ -1,0 +1,172 @@
+{
+  "layout": "Workflow Pipeline Layout",
+  "nodes": {
+    "root": {
+      "id": "root",
+      "title": "PS13 Team Execution Workflow",
+      "description": "PS13 Team Execution Workflow",
+      "parentId": null,
+      "childIds": [
+        "planning",
+        "development",
+        "integration",
+        "validation",
+        "submission"
+      ],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "indigo",
+      "priority": "high",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 8,
+      "notes": "",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [],
+      "isExpanded": true,
+      "isRoot": true,
+      "completed": false,
+      "createdAt": "2026-06-22T13:20:51.566656+00:00",
+      "updatedAt": "2026-06-22T13:20:51.566656+00:00"
+    },
+    "planning": {
+      "id": "planning",
+      "title": "Planning",
+      "description": "Planning",
+      "parentId": "root",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "indigo",
+      "priority": "high",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 8,
+      "notes": "",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-22T13:20:51.566656+00:00",
+      "updatedAt": "2026-06-22T13:20:51.566656+00:00"
+    },
+    "development": {
+      "id": "development",
+      "title": "Development",
+      "description": "Development",
+      "parentId": "root",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "indigo",
+      "priority": "high",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 8,
+      "notes": "",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-22T13:20:51.566656+00:00",
+      "updatedAt": "2026-06-22T13:20:51.566656+00:00"
+    },
+    "integration": {
+      "id": "integration",
+      "title": "Integration",
+      "description": "Integration",
+      "parentId": "root",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "indigo",
+      "priority": "high",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 8,
+      "notes": "",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-22T13:20:51.566656+00:00",
+      "updatedAt": "2026-06-22T13:20:51.566656+00:00"
+    },
+    "validation": {
+      "id": "validation",
+      "title": "Validation",
+      "description": "Validation",
+      "parentId": "root",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "indigo",
+      "priority": "high",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 8,
+      "notes": "",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-22T13:20:51.566656+00:00",
+      "updatedAt": "2026-06-22T13:20:51.566656+00:00"
+    },
+    "submission": {
+      "id": "submission",
+      "title": "Submission",
+      "description": "Submission",
+      "parentId": "root",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "indigo",
+      "priority": "high",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 8,
+      "notes": "",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-22T13:20:51.566656+00:00",
+      "updatedAt": "2026-06-22T13:20:51.566656+00:00"
+    }
+  },
+  "rootIds": [
+    "root"
+  ],
+  "version": 1,
+  "lastSaved": "2026-06-22T13:20:51.566656+00:00"
+}

@@ -11,13 +11,8 @@
   "content_scripts": [
     {
       "matches": ["*://github.com/*"],
-      "js": ["content-github.js"]
-    },
-    {
-      "matches": ["<all_urls>"],
-      "js": ["content-flowmap.js"],
-      "css": ["content-flowmap.css"],
-      "all_frames": true
+      "js": ["content-github.js"],
+      "run_at": "document_idle"
     }
   ]
 }

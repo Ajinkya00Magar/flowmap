@@ -78,8 +78,27 @@ function openFlowmapOverlay() {
       document.body.removeChild(overlay);
     });
 
+    const openBtn = document.createElement('button');
+    openBtn.textContent = 'Open App in New Tab';
+    openBtn.style.position = 'absolute';
+    openBtn.style.top = '20px';
+    openBtn.style.right = '270px';
+    openBtn.style.padding = '8px 16px';
+    openBtn.style.backgroundColor = '#6366F1';
+    openBtn.style.color = 'white';
+    openBtn.style.border = 'none';
+    openBtn.style.borderRadius = '6px';
+    openBtn.style.cursor = 'pointer';
+    openBtn.style.fontWeight = 'bold';
+    openBtn.style.zIndex = '99999999';
+    
+    openBtn.addEventListener('click', () => {
+      window.open(baseUrl, '_blank');
+    });
+
     const iframe = document.createElement('iframe');
     iframe.src = iframeSrc;
+    iframe.allow = "clipboard-read; clipboard-write";
     iframe.style.width = '90vw';
     iframe.style.height = '85vh';
     iframe.style.border = '1px solid rgba(255,255,255,0.1)';
@@ -88,6 +107,7 @@ function openFlowmapOverlay() {
     iframe.style.backgroundColor = '#050810';
 
     overlay.appendChild(closeBtn);
+    overlay.appendChild(openBtn);
     overlay.appendChild(iframe);
     
     document.body.appendChild(overlay);

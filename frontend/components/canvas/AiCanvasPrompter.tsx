@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { Sparkles, Send, X, Loader2 } from 'lucide-react'
 import { useRoadmapContext } from '@/components/providers/RoadmapProvider'
 import { useToast } from '@/components/providers/ToastProvider'
-import { stateToTextOutline, mergeAIOutlineToState } from '@/lib/roadmapGenerator'
+import { applyLayout } from '@/lib/layoutEngine'
 
 export default function AiCanvasPrompter() {
   const { state, dispatch } = useRoadmapContext()
@@ -21,22 +21,34 @@ export default function AiCanvasPrompter() {
     setIsGenerating(true)
     
     try {
-      const currentOutline = stateToTextOutline(state)
-      
       const res = await fetch('/api/edit-flowmap', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ prompt, currentRoadmapOutline: currentOutline }),
+        body: JSON.stringify({ prompt, currentState: state }),
       })
 
       if (!res.ok) {
-        throw new Error('Failed to modify roadmap')
+        const errorText = await res.text()
+        throw new Error(errorText || 'Failed to modify roadmap')
       }
 
       const data = await res.json()
-      
-      // Parse the new text outline and merge it with the existing state
-      const nextState = mergeAIOutlineToState(state, data.text)
+      const updatedState = data.updatedState
+
+      if (!updatedState || !updatedState.nodes) {
+        throw new Error('Invalid response from AI')
+      }
+
+      const layoutName = updatedState.layout || state.layout || 'Classic Top-Down Tree'
+      const laidOutNodes = applyLayout(updatedState.nodes, layoutName)
+
+      const nextState = {
+        ...state,
+        ...updatedState,
+        nodes: laidOutNodes,
+        version: state.version + 1,
+        lastSaved: new Date().toISOString()
+      }
       
       dispatch({ type: 'SET_STATE', payload: nextState })
       setPrompt('')
@@ -56,7 +68,7 @@ export default function AiCanvasPrompter() {
       className="no-canvas-pan"
       style={{
       position: 'absolute',
-      bottom: 40,
+      bottom: 24,
       left: '50%',
       transform: 'translateX(-50%)',
       zIndex: 200,

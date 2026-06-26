@@ -796,7 +796,7 @@ export function RoadmapProvider({ children }: { children: React.ReactNode }) {
 
     const writeActions = new Set([
       'ADD_NODE', 'DELETE_NODE', 'DUPLICATE_NODE', 'TOGGLE_COMPLETE',
-      'UPDATE_PROGRESS', 'REPARENT_NODE', 'IMPORT_STATE', 'RESET_TO_DEFAULT', 'TOGGLE_SUBTASK'
+      'UPDATE_PROGRESS', 'REPARENT_NODE', 'IMPORT_STATE', 'RESET_TO_DEFAULT', 'TOGGLE_SUBTASK', 'SET_STATE'
     ])
 
     if (!canEdit && writeActions.has(action.type)) {
@@ -806,7 +806,7 @@ export function RoadmapProvider({ children }: { children: React.ReactNode }) {
 
     const historyActions = new Set([
       'ADD_NODE', 'DELETE_NODE', 'DUPLICATE_NODE', 'TOGGLE_COMPLETE',
-      'UPDATE_PROGRESS', 'REPARENT_NODE', 'IMPORT_STATE', 'TOGGLE_SUBTASK'
+      'UPDATE_PROGRESS', 'REPARENT_NODE', 'IMPORT_STATE', 'TOGGLE_SUBTASK', 'SET_STATE'
     ])
 
     const shouldSnapshot = historyActions.has(action.type)

@@ -736,7 +736,7 @@ export default function FloatingCanvas() {
           transition={{ delay: 3 }}
           style={{
             position: 'absolute',
-            bottom: 24,
+            bottom: 80,
             left: '50%',
             transform: 'translateX(-50%)',
             fontSize: 11,
@@ -745,6 +745,7 @@ export default function FloatingCanvas() {
             letterSpacing: '0.04em',
             userSelect: 'none',
             whiteSpace: 'nowrap',
+            zIndex: 5,
           }}
         >
           Double-click to add · Right-click node for options · Scroll to zoom · Cmd+K to search

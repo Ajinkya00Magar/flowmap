@@ -1,0 +1,2528 @@
+{
+  "nodes": {
+    "root": {
+      "id": "root",
+      "title": "PS13 Master Plan",
+      "description": "Master workspace for Air-Gapped Predictive Copilot",
+      "parentId": null,
+      "childIds": [
+        "arch",
+        "team",
+        "roadmap",
+        "demo",
+        "eval",
+        "innov"
+      ],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "violet",
+      "priority": "high",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 8,
+      "notes": "Master workspace for Air-Gapped Predictive Copilot",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [],
+      "isExpanded": true,
+      "isRoot": true,
+      "completed": false,
+      "createdAt": "2026-06-21T13:52:15.979086+00:00",
+      "updatedAt": "2026-06-21T13:52:15.979086+00:00"
+    },
+    "arch": {
+      "id": "arch",
+      "title": "Project Architecture",
+      "description": "Core implementation workflow",
+      "parentId": "root",
+      "childIds": [
+        "sim"
+      ],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "blue",
+      "priority": "medium",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 8,
+      "notes": "Core implementation workflow",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [
+        {
+          "id": "arch_1",
+          "title": "Plan",
+          "completed": false
+        },
+        {
+          "id": "arch_2",
+          "title": "Implement",
+          "completed": false
+        },
+        {
+          "id": "arch_3",
+          "title": "Review",
+          "completed": false
+        }
+      ],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T13:52:15.979086+00:00",
+      "updatedAt": "2026-06-21T13:52:15.979086+00:00"
+    },
+    "team": {
+      "id": "team",
+      "title": "Team Ownership",
+      "description": "Responsibility matrix",
+      "parentId": "root",
+      "childIds": [
+        "ajinkya",
+        "rushda",
+        "siddhi",
+        "sanmit"
+      ],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "amber",
+      "priority": "medium",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 8,
+      "notes": "Responsibility matrix",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [
+        {
+          "id": "team_1",
+          "title": "Plan",
+          "completed": false
+        },
+        {
+          "id": "team_2",
+          "title": "Implement",
+          "completed": false
+        },
+        {
+          "id": "team_3",
+          "title": "Review",
+          "completed": false
+        }
+      ],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T13:52:15.979086+00:00",
+      "updatedAt": "2026-06-21T13:52:15.979086+00:00"
+    },
+    "roadmap": {
+      "id": "roadmap",
+      "title": "8 Day Execution Plan",
+      "description": "Timeline and milestones",
+      "parentId": "root",
+      "childIds": [
+        "day1",
+        "day2",
+        "day3",
+        "day4",
+        "day5",
+        "day6",
+        "day7",
+        "day8"
+      ],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "emerald",
+      "priority": "medium",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 8,
+      "notes": "Timeline and milestones",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [
+        {
+          "id": "roadmap_1",
+          "title": "Plan",
+          "completed": false
+        },
+        {
+          "id": "roadmap_2",
+          "title": "Implement",
+          "completed": false
+        },
+        {
+          "id": "roadmap_3",
+          "title": "Review",
+          "completed": false
+        }
+      ],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T13:52:15.979086+00:00",
+      "updatedAt": "2026-06-21T13:52:15.979086+00:00"
+    },
+    "demo": {
+      "id": "demo",
+      "title": "Demo Scenarios",
+      "description": "Validation flows",
+      "parentId": "root",
+      "childIds": [
+        "congestion",
+        "bgp_flap",
+        "tunnel_failure",
+        "policy_drift"
+      ],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "rose",
+      "priority": "medium",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 8,
+      "notes": "Validation flows",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [
+        {
+          "id": "demo_1",
+          "title": "Plan",
+          "completed": false
+        },
+        {
+          "id": "demo_2",
+          "title": "Implement",
+          "completed": false
+        },
+        {
+          "id": "demo_3",
+          "title": "Review",
+          "completed": false
+        }
+      ],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T13:52:15.979086+00:00",
+      "updatedAt": "2026-06-21T13:52:15.979086+00:00"
+    },
+    "eval": {
+      "id": "eval",
+      "title": "Judging Criteria",
+      "description": "Scoring alignment",
+      "parentId": "root",
+      "childIds": [
+        "technical_merit",
+        "copilot_effectiveness",
+        "security",
+        "documentation"
+      ],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "cyan",
+      "priority": "medium",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 8,
+      "notes": "Scoring alignment",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [
+        {
+          "id": "eval_1",
+          "title": "Plan",
+          "completed": false
+        },
+        {
+          "id": "eval_2",
+          "title": "Implement",
+          "completed": false
+        },
+        {
+          "id": "eval_3",
+          "title": "Review",
+          "completed": false
+        }
+      ],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T13:52:15.979086+00:00",
+      "updatedAt": "2026-06-21T13:52:15.979086+00:00"
+    },
+    "innov": {
+      "id": "innov",
+      "title": "Innovation Layer",
+      "description": "Winning differentiators",
+      "parentId": "root",
+      "childIds": [
+        "blast_radius_prediction",
+        "counterfactual_simulation",
+        "risk_reduction_score",
+        "explainable_ai",
+        "air-gapped_proof"
+      ],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "indigo",
+      "priority": "medium",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 8,
+      "notes": "Winning differentiators",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [
+        {
+          "id": "innov_1",
+          "title": "Plan",
+          "completed": false
+        },
+        {
+          "id": "innov_2",
+          "title": "Implement",
+          "completed": false
+        },
+        {
+          "id": "innov_3",
+          "title": "Review",
+          "completed": false
+        }
+      ],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T13:52:15.979086+00:00",
+      "updatedAt": "2026-06-21T13:52:15.979086+00:00"
+    },
+    "sim": {
+      "id": "sim",
+      "title": "Network Digital Twin",
+      "description": "Network Digital Twin",
+      "parentId": "arch",
+      "childIds": [
+        "tele",
+        "sim_0",
+        "sim_1",
+        "sim_2",
+        "sim_3",
+        "sim_4"
+      ],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "blue",
+      "priority": "medium",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 8,
+      "notes": "Network Digital Twin",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [
+        {
+          "id": "sim_1",
+          "title": "Design",
+          "completed": false
+        },
+        {
+          "id": "sim_2",
+          "title": "Build",
+          "completed": false
+        },
+        {
+          "id": "sim_3",
+          "title": "Test",
+          "completed": false
+        },
+        {
+          "id": "sim_4",
+          "title": "Document",
+          "completed": false
+        }
+      ],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T13:52:15.979086+00:00",
+      "updatedAt": "2026-06-21T13:52:15.979086+00:00"
+    },
+    "tele": {
+      "id": "tele",
+      "title": "Telemetry Pipeline",
+      "description": "Telemetry Pipeline",
+      "parentId": "sim",
+      "childIds": [
+        "feat",
+        "tele_0",
+        "tele_1",
+        "tele_2",
+        "tele_3"
+      ],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "blue",
+      "priority": "medium",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 8,
+      "notes": "Telemetry Pipeline",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [
+        {
+          "id": "tele_1",
+          "title": "Design",
+          "completed": false
+        },
+        {
+          "id": "tele_2",
+          "title": "Build",
+          "completed": false
+        },
+        {
+          "id": "tele_3",
+          "title": "Test",
+          "completed": false
+        },
+        {
+          "id": "tele_4",
+          "title": "Document",
+          "completed": false
+        }
+      ],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T13:52:15.979086+00:00",
+      "updatedAt": "2026-06-21T13:52:15.979086+00:00"
+    },
+    "feat": {
+      "id": "feat",
+      "title": "Feature Engineering",
+      "description": "Feature Engineering",
+      "parentId": "tele",
+      "childIds": [
+        "pred"
+      ],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "blue",
+      "priority": "medium",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 8,
+      "notes": "Feature Engineering",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [
+        {
+          "id": "feat_1",
+          "title": "Design",
+          "completed": false
+        },
+        {
+          "id": "feat_2",
+          "title": "Build",
+          "completed": false
+        },
+        {
+          "id": "feat_3",
+          "title": "Test",
+          "completed": false
+        },
+        {
+          "id": "feat_4",
+          "title": "Document",
+          "completed": false
+        }
+      ],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T13:52:15.979086+00:00",
+      "updatedAt": "2026-06-21T13:52:15.979086+00:00"
+    },
+    "pred": {
+      "id": "pred",
+      "title": "Predictive Analytics",
+      "description": "Predictive Analytics",
+      "parentId": "feat",
+      "childIds": [
+        "graph",
+        "pred_0",
+        "pred_1",
+        "pred_2",
+        "pred_3"
+      ],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "blue",
+      "priority": "medium",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 8,
+      "notes": "Predictive Analytics",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [
+        {
+          "id": "pred_1",
+          "title": "Design",
+          "completed": false
+        },
+        {
+          "id": "pred_2",
+          "title": "Build",
+          "completed": false
+        },
+        {
+          "id": "pred_3",
+          "title": "Test",
+          "completed": false
+        },
+        {
+          "id": "pred_4",
+          "title": "Document",
+          "completed": false
+        }
+      ],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T13:52:15.979086+00:00",
+      "updatedAt": "2026-06-21T13:52:15.979086+00:00"
+    },
+    "graph": {
+      "id": "graph",
+      "title": "Graph Correlation",
+      "description": "Graph Correlation",
+      "parentId": "pred",
+      "childIds": [
+        "rag",
+        "graph_0",
+        "graph_1",
+        "graph_2"
+      ],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "blue",
+      "priority": "medium",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 8,
+      "notes": "Graph Correlation",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [
+        {
+          "id": "graph_1",
+          "title": "Design",
+          "completed": false
+        },
+        {
+          "id": "graph_2",
+          "title": "Build",
+          "completed": false
+        },
+        {
+          "id": "graph_3",
+          "title": "Test",
+          "completed": false
+        },
+        {
+          "id": "graph_4",
+          "title": "Document",
+          "completed": false
+        }
+      ],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T13:52:15.979086+00:00",
+      "updatedAt": "2026-06-21T13:52:15.979086+00:00"
+    },
+    "rag": {
+      "id": "rag",
+      "title": "Offline Knowledge Base",
+      "description": "Offline Knowledge Base",
+      "parentId": "graph",
+      "childIds": [
+        "llm",
+        "rag_0",
+        "rag_1",
+        "rag_2"
+      ],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "blue",
+      "priority": "medium",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 8,
+      "notes": "Offline Knowledge Base",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [
+        {
+          "id": "rag_1",
+          "title": "Design",
+          "completed": false
+        },
+        {
+          "id": "rag_2",
+          "title": "Build",
+          "completed": false
+        },
+        {
+          "id": "rag_3",
+          "title": "Test",
+          "completed": false
+        },
+        {
+          "id": "rag_4",
+          "title": "Document",
+          "completed": false
+        }
+      ],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T13:52:15.979086+00:00",
+      "updatedAt": "2026-06-21T13:52:15.979086+00:00"
+    },
+    "llm": {
+      "id": "llm",
+      "title": "Offline AI NOC Copilot",
+      "description": "Offline AI NOC Copilot",
+      "parentId": "rag",
+      "childIds": [
+        "action",
+        "llm_0",
+        "llm_1",
+        "llm_2"
+      ],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "blue",
+      "priority": "medium",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 8,
+      "notes": "Offline AI NOC Copilot",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [
+        {
+          "id": "llm_1",
+          "title": "Design",
+          "completed": false
+        },
+        {
+          "id": "llm_2",
+          "title": "Build",
+          "completed": false
+        },
+        {
+          "id": "llm_3",
+          "title": "Test",
+          "completed": false
+        },
+        {
+          "id": "llm_4",
+          "title": "Document",
+          "completed": false
+        }
+      ],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T13:52:15.979086+00:00",
+      "updatedAt": "2026-06-21T13:52:15.979086+00:00"
+    },
+    "action": {
+      "id": "action",
+      "title": "Decision Intelligence",
+      "description": "Decision Intelligence",
+      "parentId": "llm",
+      "childIds": [
+        "dash",
+        "action_0",
+        "action_1",
+        "action_2"
+      ],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "blue",
+      "priority": "medium",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 8,
+      "notes": "Decision Intelligence",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [
+        {
+          "id": "action_1",
+          "title": "Design",
+          "completed": false
+        },
+        {
+          "id": "action_2",
+          "title": "Build",
+          "completed": false
+        },
+        {
+          "id": "action_3",
+          "title": "Test",
+          "completed": false
+        },
+        {
+          "id": "action_4",
+          "title": "Document",
+          "completed": false
+        }
+      ],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T13:52:15.979086+00:00",
+      "updatedAt": "2026-06-21T13:52:15.979086+00:00"
+    },
+    "dash": {
+      "id": "dash",
+      "title": "Operator Dashboard",
+      "description": "Operator Dashboard",
+      "parentId": "action",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "blue",
+      "priority": "medium",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 8,
+      "notes": "Operator Dashboard",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [
+        {
+          "id": "dash_1",
+          "title": "Design",
+          "completed": false
+        },
+        {
+          "id": "dash_2",
+          "title": "Build",
+          "completed": false
+        },
+        {
+          "id": "dash_3",
+          "title": "Test",
+          "completed": false
+        },
+        {
+          "id": "dash_4",
+          "title": "Document",
+          "completed": false
+        }
+      ],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T13:52:15.979086+00:00",
+      "updatedAt": "2026-06-21T13:52:15.979086+00:00"
+    },
+    "sim_0": {
+      "id": "sim_0",
+      "title": "MPLS",
+      "description": "MPLS",
+      "parentId": "sim",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "teal",
+      "priority": "medium",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 8,
+      "notes": "MPLS",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T13:52:15.979086+00:00",
+      "updatedAt": "2026-06-21T13:52:15.979086+00:00"
+    },
+    "sim_1": {
+      "id": "sim_1",
+      "title": "SD-WAN",
+      "description": "SD-WAN",
+      "parentId": "sim",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "teal",
+      "priority": "medium",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 8,
+      "notes": "SD-WAN",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T13:52:15.979086+00:00",
+      "updatedAt": "2026-06-21T13:52:15.979086+00:00"
+    },
+    "sim_2": {
+      "id": "sim_2",
+      "title": "BGP",
+      "description": "BGP",
+      "parentId": "sim",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "teal",
+      "priority": "medium",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 8,
+      "notes": "BGP",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T13:52:15.979086+00:00",
+      "updatedAt": "2026-06-21T13:52:15.979086+00:00"
+    },
+    "sim_3": {
+      "id": "sim_3",
+      "title": "OSPF",
+      "description": "OSPF",
+      "parentId": "sim",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "teal",
+      "priority": "medium",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 8,
+      "notes": "OSPF",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T13:52:15.979086+00:00",
+      "updatedAt": "2026-06-21T13:52:15.979086+00:00"
+    },
+    "sim_4": {
+      "id": "sim_4",
+      "title": "Fault Injection",
+      "description": "Fault Injection",
+      "parentId": "sim",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "teal",
+      "priority": "medium",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 8,
+      "notes": "Fault Injection",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T13:52:15.979086+00:00",
+      "updatedAt": "2026-06-21T13:52:15.979086+00:00"
+    },
+    "tele_0": {
+      "id": "tele_0",
+      "title": "SNMP",
+      "description": "SNMP",
+      "parentId": "tele",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "teal",
+      "priority": "medium",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 8,
+      "notes": "SNMP",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T13:52:15.979086+00:00",
+      "updatedAt": "2026-06-21T13:52:15.979086+00:00"
+    },
+    "tele_1": {
+      "id": "tele_1",
+      "title": "Syslog",
+      "description": "Syslog",
+      "parentId": "tele",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "teal",
+      "priority": "medium",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 8,
+      "notes": "Syslog",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T13:52:15.979086+00:00",
+      "updatedAt": "2026-06-21T13:52:15.979086+00:00"
+    },
+    "tele_2": {
+      "id": "tele_2",
+      "title": "NetFlow",
+      "description": "NetFlow",
+      "parentId": "tele",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "teal",
+      "priority": "medium",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 8,
+      "notes": "NetFlow",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T13:52:15.979086+00:00",
+      "updatedAt": "2026-06-21T13:52:15.979086+00:00"
+    },
+    "tele_3": {
+      "id": "tele_3",
+      "title": "Tunnel Metrics",
+      "description": "Tunnel Metrics",
+      "parentId": "tele",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "teal",
+      "priority": "medium",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 8,
+      "notes": "Tunnel Metrics",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T13:52:15.979086+00:00",
+      "updatedAt": "2026-06-21T13:52:15.979086+00:00"
+    },
+    "pred_0": {
+      "id": "pred_0",
+      "title": "Isolation Forest",
+      "description": "Isolation Forest",
+      "parentId": "pred",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "teal",
+      "priority": "medium",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 8,
+      "notes": "Isolation Forest",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T13:52:15.979086+00:00",
+      "updatedAt": "2026-06-21T13:52:15.979086+00:00"
+    },
+    "pred_1": {
+      "id": "pred_1",
+      "title": "XGBoost",
+      "description": "XGBoost",
+      "parentId": "pred",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "teal",
+      "priority": "medium",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 8,
+      "notes": "XGBoost",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T13:52:15.979086+00:00",
+      "updatedAt": "2026-06-21T13:52:15.979086+00:00"
+    },
+    "pred_2": {
+      "id": "pred_2",
+      "title": "Prophet",
+      "description": "Prophet",
+      "parentId": "pred",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "teal",
+      "priority": "medium",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 8,
+      "notes": "Prophet",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T13:52:15.979086+00:00",
+      "updatedAt": "2026-06-21T13:52:15.979086+00:00"
+    },
+    "pred_3": {
+      "id": "pred_3",
+      "title": "Time-To-Impact",
+      "description": "Time-To-Impact",
+      "parentId": "pred",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "teal",
+      "priority": "medium",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 8,
+      "notes": "Time-To-Impact",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T13:52:15.979086+00:00",
+      "updatedAt": "2026-06-21T13:52:15.979086+00:00"
+    },
+    "graph_0": {
+      "id": "graph_0",
+      "title": "Topology Graph",
+      "description": "Topology Graph",
+      "parentId": "graph",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "teal",
+      "priority": "medium",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 8,
+      "notes": "Topology Graph",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T13:52:15.979086+00:00",
+      "updatedAt": "2026-06-21T13:52:15.979086+00:00"
+    },
+    "graph_1": {
+      "id": "graph_1",
+      "title": "Blast Radius",
+      "description": "Blast Radius",
+      "parentId": "graph",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "teal",
+      "priority": "medium",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 8,
+      "notes": "Blast Radius",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T13:52:15.979086+00:00",
+      "updatedAt": "2026-06-21T13:52:15.979086+00:00"
+    },
+    "graph_2": {
+      "id": "graph_2",
+      "title": "Impact Analysis",
+      "description": "Impact Analysis",
+      "parentId": "graph",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "teal",
+      "priority": "medium",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 8,
+      "notes": "Impact Analysis",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T13:52:15.979086+00:00",
+      "updatedAt": "2026-06-21T13:52:15.979086+00:00"
+    },
+    "rag_0": {
+      "id": "rag_0",
+      "title": "Runbooks",
+      "description": "Runbooks",
+      "parentId": "rag",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "teal",
+      "priority": "medium",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 8,
+      "notes": "Runbooks",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T13:52:15.979086+00:00",
+      "updatedAt": "2026-06-21T13:52:15.979086+00:00"
+    },
+    "rag_1": {
+      "id": "rag_1",
+      "title": "Incident History",
+      "description": "Incident History",
+      "parentId": "rag",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "teal",
+      "priority": "medium",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 8,
+      "notes": "Incident History",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T13:52:15.979086+00:00",
+      "updatedAt": "2026-06-21T13:52:15.979086+00:00"
+    },
+    "rag_2": {
+      "id": "rag_2",
+      "title": "Topology Docs",
+      "description": "Topology Docs",
+      "parentId": "rag",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "teal",
+      "priority": "medium",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 8,
+      "notes": "Topology Docs",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T13:52:15.979086+00:00",
+      "updatedAt": "2026-06-21T13:52:15.979086+00:00"
+    },
+    "llm_0": {
+      "id": "llm_0",
+      "title": "Mistral",
+      "description": "Mistral",
+      "parentId": "llm",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "teal",
+      "priority": "medium",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 8,
+      "notes": "Mistral",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T13:52:15.979086+00:00",
+      "updatedAt": "2026-06-21T13:52:15.979086+00:00"
+    },
+    "llm_1": {
+      "id": "llm_1",
+      "title": "Ollama",
+      "description": "Ollama",
+      "parentId": "llm",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "teal",
+      "priority": "medium",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 8,
+      "notes": "Ollama",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T13:52:15.979086+00:00",
+      "updatedAt": "2026-06-21T13:52:15.979086+00:00"
+    },
+    "llm_2": {
+      "id": "llm_2",
+      "title": "RAG Queries",
+      "description": "RAG Queries",
+      "parentId": "llm",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "teal",
+      "priority": "medium",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 8,
+      "notes": "RAG Queries",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T13:52:15.979086+00:00",
+      "updatedAt": "2026-06-21T13:52:15.979086+00:00"
+    },
+    "action_0": {
+      "id": "action_0",
+      "title": "Counterfactual Simulation",
+      "description": "Counterfactual Simulation",
+      "parentId": "action",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "teal",
+      "priority": "medium",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 8,
+      "notes": "Counterfactual Simulation",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T13:52:15.979086+00:00",
+      "updatedAt": "2026-06-21T13:52:15.979086+00:00"
+    },
+    "action_1": {
+      "id": "action_1",
+      "title": "Action Ranking",
+      "description": "Action Ranking",
+      "parentId": "action",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "teal",
+      "priority": "medium",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 8,
+      "notes": "Action Ranking",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T13:52:15.979086+00:00",
+      "updatedAt": "2026-06-21T13:52:15.979086+00:00"
+    },
+    "action_2": {
+      "id": "action_2",
+      "title": "Risk Reduction",
+      "description": "Risk Reduction",
+      "parentId": "action",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "teal",
+      "priority": "medium",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 8,
+      "notes": "Risk Reduction",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T13:52:15.979086+00:00",
+      "updatedAt": "2026-06-21T13:52:15.979086+00:00"
+    },
+    "ajinkya": {
+      "id": "ajinkya",
+      "title": "Ajinkya",
+      "description": "Ajinkya responsibilities",
+      "parentId": "team",
+      "childIds": [
+        "ajinkya_0",
+        "ajinkya_1",
+        "ajinkya_2",
+        "ajinkya_3"
+      ],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "amber",
+      "priority": "medium",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 8,
+      "notes": "Ajinkya responsibilities",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T13:52:15.979086+00:00",
+      "updatedAt": "2026-06-21T13:52:15.979086+00:00"
+    },
+    "ajinkya_0": {
+      "id": "ajinkya_0",
+      "title": "Architecture",
+      "description": "Architecture",
+      "parentId": "ajinkya",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "amber",
+      "priority": "medium",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 8,
+      "notes": "Architecture",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T13:52:15.979086+00:00",
+      "updatedAt": "2026-06-21T13:52:15.979086+00:00"
+    },
+    "ajinkya_1": {
+      "id": "ajinkya_1",
+      "title": "Integration",
+      "description": "Integration",
+      "parentId": "ajinkya",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "amber",
+      "priority": "medium",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 8,
+      "notes": "Integration",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T13:52:15.979086+00:00",
+      "updatedAt": "2026-06-21T13:52:15.979086+00:00"
+    },
+    "ajinkya_2": {
+      "id": "ajinkya_2",
+      "title": "Dashboard",
+      "description": "Dashboard",
+      "parentId": "ajinkya",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "amber",
+      "priority": "medium",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 8,
+      "notes": "Dashboard",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T13:52:15.979086+00:00",
+      "updatedAt": "2026-06-21T13:52:15.979086+00:00"
+    },
+    "ajinkya_3": {
+      "id": "ajinkya_3",
+      "title": "Final Demo",
+      "description": "Final Demo",
+      "parentId": "ajinkya",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "amber",
+      "priority": "medium",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 8,
+      "notes": "Final Demo",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T13:52:15.979086+00:00",
+      "updatedAt": "2026-06-21T13:52:15.979086+00:00"
+    },
+    "rushda": {
+      "id": "rushda",
+      "title": "Rushda",
+      "description": "Rushda responsibilities",
+      "parentId": "team",
+      "childIds": [
+        "rushda_0",
+        "rushda_1",
+        "rushda_2",
+        "rushda_3"
+      ],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "amber",
+      "priority": "medium",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 8,
+      "notes": "Rushda responsibilities",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T13:52:15.979086+00:00",
+      "updatedAt": "2026-06-21T13:52:15.979086+00:00"
+    },
+    "rushda_0": {
+      "id": "rushda_0",
+      "title": "Dataset",
+      "description": "Dataset",
+      "parentId": "rushda",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "amber",
+      "priority": "medium",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 8,
+      "notes": "Dataset",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T13:52:15.979086+00:00",
+      "updatedAt": "2026-06-21T13:52:15.979086+00:00"
+    },
+    "rushda_1": {
+      "id": "rushda_1",
+      "title": "Feature Engineering",
+      "description": "Feature Engineering",
+      "parentId": "rushda",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "amber",
+      "priority": "medium",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 8,
+      "notes": "Feature Engineering",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T13:52:15.979086+00:00",
+      "updatedAt": "2026-06-21T13:52:15.979086+00:00"
+    },
+    "rushda_2": {
+      "id": "rushda_2",
+      "title": "Model Training",
+      "description": "Model Training",
+      "parentId": "rushda",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "amber",
+      "priority": "medium",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 8,
+      "notes": "Model Training",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T13:52:15.979086+00:00",
+      "updatedAt": "2026-06-21T13:52:15.979086+00:00"
+    },
+    "rushda_3": {
+      "id": "rushda_3",
+      "title": "Evaluation",
+      "description": "Evaluation",
+      "parentId": "rushda",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "amber",
+      "priority": "medium",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 8,
+      "notes": "Evaluation",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T13:52:15.979086+00:00",
+      "updatedAt": "2026-06-21T13:52:15.979086+00:00"
+    },
+    "siddhi": {
+      "id": "siddhi",
+      "title": "Siddhi",
+      "description": "Siddhi responsibilities",
+      "parentId": "team",
+      "childIds": [
+        "siddhi_0",
+        "siddhi_1",
+        "siddhi_2",
+        "siddhi_3"
+      ],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "amber",
+      "priority": "medium",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 8,
+      "notes": "Siddhi responsibilities",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T13:52:15.979086+00:00",
+      "updatedAt": "2026-06-21T13:52:15.979086+00:00"
+    },
+    "siddhi_0": {
+      "id": "siddhi_0",
+      "title": "RAG",
+      "description": "RAG",
+      "parentId": "siddhi",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "amber",
+      "priority": "medium",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 8,
+      "notes": "RAG",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T13:52:15.979086+00:00",
+      "updatedAt": "2026-06-21T13:52:15.979086+00:00"
+    },
+    "siddhi_1": {
+      "id": "siddhi_1",
+      "title": "Runbooks",
+      "description": "Runbooks",
+      "parentId": "siddhi",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "amber",
+      "priority": "medium",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 8,
+      "notes": "Runbooks",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T13:52:15.979086+00:00",
+      "updatedAt": "2026-06-21T13:52:15.979086+00:00"
+    },
+    "siddhi_2": {
+      "id": "siddhi_2",
+      "title": "Copilot",
+      "description": "Copilot",
+      "parentId": "siddhi",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "amber",
+      "priority": "medium",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 8,
+      "notes": "Copilot",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T13:52:15.979086+00:00",
+      "updatedAt": "2026-06-21T13:52:15.979086+00:00"
+    },
+    "siddhi_3": {
+      "id": "siddhi_3",
+      "title": "Documentation",
+      "description": "Documentation",
+      "parentId": "siddhi",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "amber",
+      "priority": "medium",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 8,
+      "notes": "Documentation",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T13:52:15.979086+00:00",
+      "updatedAt": "2026-06-21T13:52:15.979086+00:00"
+    },
+    "sanmit": {
+      "id": "sanmit",
+      "title": "Sanmit",
+      "description": "Sanmit responsibilities",
+      "parentId": "team",
+      "childIds": [
+        "sanmit_0",
+        "sanmit_1",
+        "sanmit_2",
+        "sanmit_3"
+      ],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "amber",
+      "priority": "medium",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 8,
+      "notes": "Sanmit responsibilities",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T13:52:15.979086+00:00",
+      "updatedAt": "2026-06-21T13:52:15.979086+00:00"
+    },
+    "sanmit_0": {
+      "id": "sanmit_0",
+      "title": "Simulation",
+      "description": "Simulation",
+      "parentId": "sanmit",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "amber",
+      "priority": "medium",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 8,
+      "notes": "Simulation",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T13:52:15.979086+00:00",
+      "updatedAt": "2026-06-21T13:52:15.979086+00:00"
+    },
+    "sanmit_1": {
+      "id": "sanmit_1",
+      "title": "Telemetry",
+      "description": "Telemetry",
+      "parentId": "sanmit",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "amber",
+      "priority": "medium",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 8,
+      "notes": "Telemetry",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T13:52:15.979086+00:00",
+      "updatedAt": "2026-06-21T13:52:15.979086+00:00"
+    },
+    "sanmit_2": {
+      "id": "sanmit_2",
+      "title": "Fault Injection",
+      "description": "Fault Injection",
+      "parentId": "sanmit",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "amber",
+      "priority": "medium",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 8,
+      "notes": "Fault Injection",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T13:52:15.979086+00:00",
+      "updatedAt": "2026-06-21T13:52:15.979086+00:00"
+    },
+    "sanmit_3": {
+      "id": "sanmit_3",
+      "title": "Visualization",
+      "description": "Visualization",
+      "parentId": "sanmit",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "amber",
+      "priority": "medium",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 8,
+      "notes": "Visualization",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T13:52:15.979086+00:00",
+      "updatedAt": "2026-06-21T13:52:15.979086+00:00"
+    },
+    "day1": {
+      "id": "day1",
+      "title": "Day 1",
+      "description": "Milestone for Day 1",
+      "parentId": "roadmap",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "emerald",
+      "priority": "medium",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 8,
+      "notes": "Milestone for Day 1",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T13:52:15.979086+00:00",
+      "updatedAt": "2026-06-21T13:52:15.979086+00:00"
+    },
+    "day2": {
+      "id": "day2",
+      "title": "Day 2",
+      "description": "Milestone for Day 2",
+      "parentId": "roadmap",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "emerald",
+      "priority": "medium",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 8,
+      "notes": "Milestone for Day 2",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T13:52:15.979086+00:00",
+      "updatedAt": "2026-06-21T13:52:15.979086+00:00"
+    },
+    "day3": {
+      "id": "day3",
+      "title": "Day 3",
+      "description": "Milestone for Day 3",
+      "parentId": "roadmap",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "emerald",
+      "priority": "medium",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 8,
+      "notes": "Milestone for Day 3",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T13:52:15.979086+00:00",
+      "updatedAt": "2026-06-21T13:52:15.979086+00:00"
+    },
+    "day4": {
+      "id": "day4",
+      "title": "Day 4",
+      "description": "Milestone for Day 4",
+      "parentId": "roadmap",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "emerald",
+      "priority": "medium",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 8,
+      "notes": "Milestone for Day 4",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T13:52:15.979086+00:00",
+      "updatedAt": "2026-06-21T13:52:15.979086+00:00"
+    },
+    "day5": {
+      "id": "day5",
+      "title": "Day 5",
+      "description": "Milestone for Day 5",
+      "parentId": "roadmap",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "emerald",
+      "priority": "medium",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 8,
+      "notes": "Milestone for Day 5",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T13:52:15.979086+00:00",
+      "updatedAt": "2026-06-21T13:52:15.979086+00:00"
+    },
+    "day6": {
+      "id": "day6",
+      "title": "Day 6",
+      "description": "Milestone for Day 6",
+      "parentId": "roadmap",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "emerald",
+      "priority": "medium",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 8,
+      "notes": "Milestone for Day 6",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T13:52:15.979086+00:00",
+      "updatedAt": "2026-06-21T13:52:15.979086+00:00"
+    },
+    "day7": {
+      "id": "day7",
+      "title": "Day 7",
+      "description": "Milestone for Day 7",
+      "parentId": "roadmap",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "emerald",
+      "priority": "medium",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 8,
+      "notes": "Milestone for Day 7",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T13:52:15.979086+00:00",
+      "updatedAt": "2026-06-21T13:52:15.979086+00:00"
+    },
+    "day8": {
+      "id": "day8",
+      "title": "Day 8",
+      "description": "Milestone for Day 8",
+      "parentId": "roadmap",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "emerald",
+      "priority": "medium",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 8,
+      "notes": "Milestone for Day 8",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T13:52:15.979086+00:00",
+      "updatedAt": "2026-06-21T13:52:15.979086+00:00"
+    },
+    "congestion": {
+      "id": "congestion",
+      "title": "Congestion",
+      "description": "Congestion",
+      "parentId": "demo",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "rose",
+      "priority": "medium",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 8,
+      "notes": "Congestion",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T13:52:15.979086+00:00",
+      "updatedAt": "2026-06-21T13:52:15.979086+00:00"
+    },
+    "bgp_flap": {
+      "id": "bgp_flap",
+      "title": "BGP Flap",
+      "description": "BGP Flap",
+      "parentId": "demo",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "rose",
+      "priority": "medium",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 8,
+      "notes": "BGP Flap",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T13:52:15.979086+00:00",
+      "updatedAt": "2026-06-21T13:52:15.979086+00:00"
+    },
+    "tunnel_failure": {
+      "id": "tunnel_failure",
+      "title": "Tunnel Failure",
+      "description": "Tunnel Failure",
+      "parentId": "demo",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "rose",
+      "priority": "medium",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 8,
+      "notes": "Tunnel Failure",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T13:52:15.979086+00:00",
+      "updatedAt": "2026-06-21T13:52:15.979086+00:00"
+    },
+    "policy_drift": {
+      "id": "policy_drift",
+      "title": "Policy Drift",
+      "description": "Policy Drift",
+      "parentId": "demo",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "rose",
+      "priority": "medium",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 8,
+      "notes": "Policy Drift",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T13:52:15.979086+00:00",
+      "updatedAt": "2026-06-21T13:52:15.979086+00:00"
+    },
+    "technical_merit": {
+      "id": "technical_merit",
+      "title": "Technical Merit",
+      "description": "Technical Merit",
+      "parentId": "eval",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "cyan",
+      "priority": "medium",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 8,
+      "notes": "Technical Merit",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T13:52:15.979086+00:00",
+      "updatedAt": "2026-06-21T13:52:15.979086+00:00"
+    },
+    "copilot_effectiveness": {
+      "id": "copilot_effectiveness",
+      "title": "Copilot Effectiveness",
+      "description": "Copilot Effectiveness",
+      "parentId": "eval",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "cyan",
+      "priority": "medium",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 8,
+      "notes": "Copilot Effectiveness",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T13:52:15.979086+00:00",
+      "updatedAt": "2026-06-21T13:52:15.979086+00:00"
+    },
+    "security": {
+      "id": "security",
+      "title": "Security",
+      "description": "Security",
+      "parentId": "eval",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "cyan",
+      "priority": "medium",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 8,
+      "notes": "Security",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T13:52:15.979086+00:00",
+      "updatedAt": "2026-06-21T13:52:15.979086+00:00"
+    },
+    "documentation": {
+      "id": "documentation",
+      "title": "Documentation",
+      "description": "Documentation",
+      "parentId": "eval",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "cyan",
+      "priority": "medium",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 8,
+      "notes": "Documentation",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T13:52:15.979086+00:00",
+      "updatedAt": "2026-06-21T13:52:15.979086+00:00"
+    },
+    "blast_radius_prediction": {
+      "id": "blast_radius_prediction",
+      "title": "Blast Radius Prediction",
+      "description": "Blast Radius Prediction",
+      "parentId": "innov",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "indigo",
+      "priority": "medium",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 8,
+      "notes": "Blast Radius Prediction",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T13:52:15.979086+00:00",
+      "updatedAt": "2026-06-21T13:52:15.979086+00:00"
+    },
+    "counterfactual_simulation": {
+      "id": "counterfactual_simulation",
+      "title": "Counterfactual Simulation",
+      "description": "Counterfactual Simulation",
+      "parentId": "innov",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "indigo",
+      "priority": "medium",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 8,
+      "notes": "Counterfactual Simulation",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T13:52:15.979086+00:00",
+      "updatedAt": "2026-06-21T13:52:15.979086+00:00"
+    },
+    "risk_reduction_score": {
+      "id": "risk_reduction_score",
+      "title": "Risk Reduction Score",
+      "description": "Risk Reduction Score",
+      "parentId": "innov",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "indigo",
+      "priority": "medium",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 8,
+      "notes": "Risk Reduction Score",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T13:52:15.979086+00:00",
+      "updatedAt": "2026-06-21T13:52:15.979086+00:00"
+    },
+    "explainable_ai": {
+      "id": "explainable_ai",
+      "title": "Explainable AI",
+      "description": "Explainable AI",
+      "parentId": "innov",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "indigo",
+      "priority": "medium",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 8,
+      "notes": "Explainable AI",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T13:52:15.979086+00:00",
+      "updatedAt": "2026-06-21T13:52:15.979086+00:00"
+    },
+    "air-gapped_proof": {
+      "id": "air-gapped_proof",
+      "title": "Air-Gapped Proof",
+      "description": "Air-Gapped Proof",
+      "parentId": "innov",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "indigo",
+      "priority": "medium",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 8,
+      "notes": "Air-Gapped Proof",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T13:52:15.979086+00:00",
+      "updatedAt": "2026-06-21T13:52:15.979086+00:00"
+    }
+  },
+  "rootIds": [
+    "root"
+  ],
+  "selectedNodeId": null,
+  "selectedNodeIds": [],
+  "version": 1,
+  "lastSaved": "2026-06-21T13:52:15.979086+00:00"
+}

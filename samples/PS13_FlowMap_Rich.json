@@ -1,0 +1,599 @@
+{
+  "nodes": {
+    "root": {
+      "id": "root",
+      "title": "Air-Gapped Predictive Copilot",
+      "description": "End-to-end offline AI NOC platform for predicting MPLS/SD-WAN failures, explaining causes, and recommending actions.",
+      "parentId": null,
+      "childIds": [
+        "network"
+      ],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "violet",
+      "priority": "high",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 20,
+      "notes": "End-to-end offline AI NOC platform for predicting MPLS/SD-WAN failures, explaining causes, and recommending actions.",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [],
+      "isExpanded": true,
+      "isRoot": true,
+      "completed": false,
+      "createdAt": "2026-06-20T23:49:57.362727+00:00",
+      "updatedAt": "2026-06-20T23:49:57.362727+00:00"
+    },
+    "network": {
+      "id": "network",
+      "title": "Network Simulation",
+      "description": "Build enterprise MPLS and SD-WAN lab environment.",
+      "parentId": "root",
+      "childIds": [
+        "telemetry"
+      ],
+      "position": {
+        "x": -1400,
+        "y": 0
+      },
+      "color": "blue",
+      "priority": "high",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 20,
+      "notes": "Build enterprise MPLS and SD-WAN lab environment.",
+      "resources": [
+        {
+          "id": "r1",
+          "title": "EVE-NG",
+          "url": "https://www.eve-ng.net",
+          "type": "tool"
+        },
+        {
+          "id": "r2",
+          "title": "Containerlab",
+          "url": "https://containerlab.dev",
+          "type": "tool"
+        }
+      ],
+      "prerequisites": [],
+      "childTasks": [
+        {
+          "id": "network-t1",
+          "title": "Design MPLS topology",
+          "completed": false
+        },
+        {
+          "id": "network-t2",
+          "title": "Configure BGP and OSPF",
+          "completed": false
+        },
+        {
+          "id": "network-t3",
+          "title": "Create SD-WAN overlay",
+          "completed": false
+        },
+        {
+          "id": "network-t4",
+          "title": "Validate connectivity",
+          "completed": false
+        }
+      ],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-20T23:49:57.362727+00:00",
+      "updatedAt": "2026-06-20T23:49:57.362727+00:00"
+    },
+    "telemetry": {
+      "id": "telemetry",
+      "title": "Telemetry Collection",
+      "description": "Collect operational metrics from all network devices.",
+      "parentId": "network",
+      "childIds": [
+        "data"
+      ],
+      "position": {
+        "x": -1050,
+        "y": 0
+      },
+      "color": "cyan",
+      "priority": "high",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 20,
+      "notes": "Collect operational metrics from all network devices.",
+      "resources": [
+        {
+          "id": "r3",
+          "title": "Prometheus",
+          "url": "https://prometheus.io",
+          "type": "tool"
+        },
+        {
+          "id": "r4",
+          "title": "Telegraf",
+          "url": "https://www.influxdata.com/time-series-platform/telegraf/",
+          "type": "tool"
+        }
+      ],
+      "prerequisites": [],
+      "childTasks": [
+        {
+          "id": "telemetry-t1",
+          "title": "Configure SNMP",
+          "completed": false
+        },
+        {
+          "id": "telemetry-t2",
+          "title": "Collect Syslog",
+          "completed": false
+        },
+        {
+          "id": "telemetry-t3",
+          "title": "Enable NetFlow",
+          "completed": false
+        },
+        {
+          "id": "telemetry-t4",
+          "title": "Store telemetry",
+          "completed": false
+        }
+      ],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-20T23:49:57.362727+00:00",
+      "updatedAt": "2026-06-20T23:49:57.362727+00:00"
+    },
+    "data": {
+      "id": "data",
+      "title": "Data Processing",
+      "description": "Normalize and transform raw telemetry into ML-ready datasets.",
+      "parentId": "telemetry",
+      "childIds": [
+        "ai"
+      ],
+      "position": {
+        "x": -700,
+        "y": 0
+      },
+      "color": "teal",
+      "priority": "high",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 20,
+      "notes": "Normalize and transform raw telemetry into ML-ready datasets.",
+      "resources": [
+        {
+          "id": "r5",
+          "title": "Pandas",
+          "url": "https://pandas.pydata.org",
+          "type": "tool"
+        }
+      ],
+      "prerequisites": [],
+      "childTasks": [
+        {
+          "id": "data-t1",
+          "title": "Clean telemetry",
+          "completed": false
+        },
+        {
+          "id": "data-t2",
+          "title": "Generate labels",
+          "completed": false
+        },
+        {
+          "id": "data-t3",
+          "title": "Build features",
+          "completed": false
+        },
+        {
+          "id": "data-t4",
+          "title": "Create datasets",
+          "completed": false
+        }
+      ],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-20T23:49:57.362727+00:00",
+      "updatedAt": "2026-06-20T23:49:57.362727+00:00"
+    },
+    "ai": {
+      "id": "ai",
+      "title": "Predictive Analytics",
+      "description": "Train models to predict failures before SLA impact.",
+      "parentId": "data",
+      "childIds": [
+        "graph"
+      ],
+      "position": {
+        "x": -350,
+        "y": 0
+      },
+      "color": "emerald",
+      "priority": "high",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 20,
+      "notes": "Train models to predict failures before SLA impact.",
+      "resources": [
+        {
+          "id": "r6",
+          "title": "PyTorch",
+          "url": "https://pytorch.org",
+          "type": "tool"
+        },
+        {
+          "id": "r7",
+          "title": "XGBoost",
+          "url": "https://xgboost.readthedocs.io",
+          "type": "tool"
+        }
+      ],
+      "prerequisites": [],
+      "childTasks": [
+        {
+          "id": "ai-t1",
+          "title": "Train LSTM",
+          "completed": false
+        },
+        {
+          "id": "ai-t2",
+          "title": "Train Prophet",
+          "completed": false
+        },
+        {
+          "id": "ai-t3",
+          "title": "Build anomaly detector",
+          "completed": false
+        },
+        {
+          "id": "ai-t4",
+          "title": "Estimate time-to-impact",
+          "completed": false
+        }
+      ],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-20T23:49:57.362727+00:00",
+      "updatedAt": "2026-06-20T23:49:57.362727+00:00"
+    },
+    "graph": {
+      "id": "graph",
+      "title": "Graph Correlation",
+      "description": "Correlate events and determine root cause and blast radius.",
+      "parentId": "ai",
+      "childIds": [
+        "kb"
+      ],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "rose",
+      "priority": "high",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 20,
+      "notes": "Correlate events and determine root cause and blast radius.",
+      "resources": [
+        {
+          "id": "r8",
+          "title": "NetworkX",
+          "url": "https://networkx.org",
+          "type": "tool"
+        }
+      ],
+      "prerequisites": [],
+      "childTasks": [
+        {
+          "id": "graph-t1",
+          "title": "Build topology graph",
+          "completed": false
+        },
+        {
+          "id": "graph-t2",
+          "title": "Map dependencies",
+          "completed": false
+        },
+        {
+          "id": "graph-t3",
+          "title": "Correlate alerts",
+          "completed": false
+        },
+        {
+          "id": "graph-t4",
+          "title": "Calculate impact",
+          "completed": false
+        }
+      ],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-20T23:49:57.362727+00:00",
+      "updatedAt": "2026-06-20T23:49:57.362727+00:00"
+    },
+    "kb": {
+      "id": "kb",
+      "title": "Offline Knowledge Base",
+      "description": "Store runbooks, topology, incidents and configurations.",
+      "parentId": "graph",
+      "childIds": [
+        "llm"
+      ],
+      "position": {
+        "x": 350,
+        "y": 0
+      },
+      "color": "indigo",
+      "priority": "high",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 20,
+      "notes": "Store runbooks, topology, incidents and configurations.",
+      "resources": [
+        {
+          "id": "r9",
+          "title": "ChromaDB",
+          "url": "https://www.trychroma.com",
+          "type": "tool"
+        }
+      ],
+      "prerequisites": [],
+      "childTasks": [
+        {
+          "id": "kb-t1",
+          "title": "Collect runbooks",
+          "completed": false
+        },
+        {
+          "id": "kb-t2",
+          "title": "Index incidents",
+          "completed": false
+        },
+        {
+          "id": "kb-t3",
+          "title": "Store topology",
+          "completed": false
+        },
+        {
+          "id": "kb-t4",
+          "title": "Build vector store",
+          "completed": false
+        }
+      ],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-20T23:49:57.362727+00:00",
+      "updatedAt": "2026-06-20T23:49:57.362727+00:00"
+    },
+    "llm": {
+      "id": "llm",
+      "title": "Offline LLM Copilot",
+      "description": "Provide natural language explanations and recommendations.",
+      "parentId": "kb",
+      "childIds": [
+        "auto"
+      ],
+      "position": {
+        "x": 700,
+        "y": 0
+      },
+      "color": "violet",
+      "priority": "high",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 20,
+      "notes": "Provide natural language explanations and recommendations.",
+      "resources": [
+        {
+          "id": "r10",
+          "title": "Ollama",
+          "url": "https://ollama.com",
+          "type": "tool"
+        },
+        {
+          "id": "r11",
+          "title": "Mistral",
+          "url": "https://mistral.ai",
+          "type": "other"
+        }
+      ],
+      "prerequisites": [],
+      "childTasks": [
+        {
+          "id": "llm-t1",
+          "title": "Quantize model",
+          "completed": false
+        },
+        {
+          "id": "llm-t2",
+          "title": "Build RAG",
+          "completed": false
+        },
+        {
+          "id": "llm-t3",
+          "title": "Create prompts",
+          "completed": false
+        },
+        {
+          "id": "llm-t4",
+          "title": "Answer operator queries",
+          "completed": false
+        }
+      ],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-20T23:49:57.362727+00:00",
+      "updatedAt": "2026-06-20T23:49:57.362727+00:00"
+    },
+    "auto": {
+      "id": "auto",
+      "title": "Workflow Automation",
+      "description": "Automate prioritization and remediation workflows.",
+      "parentId": "llm",
+      "childIds": [
+        "dash"
+      ],
+      "position": {
+        "x": 1050,
+        "y": 0
+      },
+      "color": "amber",
+      "priority": "high",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 20,
+      "notes": "Automate prioritization and remediation workflows.",
+      "resources": [
+        {
+          "id": "r12",
+          "title": "Apache Kafka",
+          "url": "https://kafka.apache.org",
+          "type": "tool"
+        }
+      ],
+      "prerequisites": [],
+      "childTasks": [
+        {
+          "id": "auto-t1",
+          "title": "Rank alerts",
+          "completed": false
+        },
+        {
+          "id": "auto-t2",
+          "title": "Suggest playbooks",
+          "completed": false
+        },
+        {
+          "id": "auto-t3",
+          "title": "Generate summaries",
+          "completed": false
+        }
+      ],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-20T23:49:57.362727+00:00",
+      "updatedAt": "2026-06-20T23:49:57.362727+00:00"
+    },
+    "dash": {
+      "id": "dash",
+      "title": "Operator Dashboard",
+      "description": "Visualize risks, predictions and recommendations.",
+      "parentId": "auto",
+      "childIds": [
+        "out"
+      ],
+      "position": {
+        "x": 1400,
+        "y": 0
+      },
+      "color": "cyan",
+      "priority": "high",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 20,
+      "notes": "Visualize risks, predictions and recommendations.",
+      "resources": [
+        {
+          "id": "r13",
+          "title": "Grafana",
+          "url": "https://grafana.com",
+          "type": "tool"
+        }
+      ],
+      "prerequisites": [],
+      "childTasks": [
+        {
+          "id": "dash-t1",
+          "title": "Build risk heatmap",
+          "completed": false
+        },
+        {
+          "id": "dash-t2",
+          "title": "Display predictions",
+          "completed": false
+        },
+        {
+          "id": "dash-t3",
+          "title": "Create copilot UI",
+          "completed": false
+        }
+      ],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-20T23:49:57.362727+00:00",
+      "updatedAt": "2026-06-20T23:49:57.362727+00:00"
+    },
+    "out": {
+      "id": "out",
+      "title": "Outcomes",
+      "description": "Answer what will fail, why, when, and what action to take.",
+      "parentId": "dash",
+      "childIds": [],
+      "position": {
+        "x": 1750,
+        "y": 0
+      },
+      "color": "emerald",
+      "priority": "high",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 20,
+      "notes": "Answer what will fail, why, when, and what action to take.",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [
+        {
+          "id": "out-t1",
+          "title": "Measure lead time",
+          "completed": false
+        },
+        {
+          "id": "out-t2",
+          "title": "Validate predictions",
+          "completed": false
+        },
+        {
+          "id": "out-t3",
+          "title": "Evaluate copilot quality",
+          "completed": false
+        }
+      ],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-20T23:49:57.362727+00:00",
+      "updatedAt": "2026-06-20T23:49:57.362727+00:00"
+    }
+  },
+  "rootIds": [
+    "root"
+  ],
+  "selectedNodeId": null,
+  "selectedNodeIds": [],
+  "version": 1,
+  "lastSaved": "2026-06-20T23:49:57.362727+00:00"
+}

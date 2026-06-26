@@ -1,0 +1,59 @@
+{
+  "layout": "Workflow Pipeline Layout",
+  "rootIds": ["team-flow"],
+  "version": 1,
+  "nodes": {
+    "team-flow": {
+      "id": "team-flow",
+      "title": "TEAM EXECUTION FLOW",
+      "description": "PS13 sequential execution pipeline",
+      "parentId": null,
+      "childIds": ["ajinkya"],
+      "isRoot": true
+    },
+
+    "ajinkya": {
+      "id": "ajinkya",
+      "title": "Ajinkya — Network Sim",
+      "description": "Network Simulation",
+      "parentId": "team-flow",
+      "childIds": ["sanmit"]
+    },
+
+    "sanmit": {
+      "id": "sanmit",
+      "title": "Sanmit — Telemetry",
+      "description": "Telemetry Pipeline",
+      "parentId": "ajinkya",
+      "childIds": ["rushda"],
+      "prerequisites": ["ajinkya"]
+    },
+
+    "rushda": {
+      "id": "rushda",
+      "title": "Rushda — Predictive Analytics",
+      "description": "GraphSAGE + ADWIN + Conformal",
+      "parentId": "sanmit",
+      "childIds": ["siddhi"],
+      "prerequisites": ["sanmit"]
+    },
+
+    "siddhi": {
+      "id": "siddhi",
+      "title": "Siddhi — LLM + Dashboard",
+      "description": "Mistral + RAG + Dashboard",
+      "parentId": "rushda",
+      "childIds": ["ps13"],
+      "prerequisites": ["rushda"]
+    },
+
+    "ps13": {
+      "id": "ps13",
+      "title": "Integrated PS13 System",
+      "description": "Air-Gapped Predictive Copilot for Secure MPLS Operations",
+      "parentId": "siddhi",
+      "childIds": [],
+      "prerequisites": ["siddhi"]
+    }
+  }
+}

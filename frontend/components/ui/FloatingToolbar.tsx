@@ -41,12 +41,11 @@ export default function FloatingToolbar() {
     <div style={{
       position: 'absolute',
       bottom: 24,
-      left: '50%',
-      transform: 'translateX(-50%)',
+      left: 84,
       zIndex: 90,
       display: 'flex',
       flexDirection: 'column',
-      alignItems: 'center',
+      alignItems: 'flex-start',
       gap: 8,
     }}>
       <AnimatePresence>

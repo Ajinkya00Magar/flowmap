@@ -1,0 +1,4903 @@
+{
+  "layout": "Multi-Island Workspace Layout",
+  "nodes": {
+    "root": {
+      "id": "root",
+      "title": "PS13 Engineering Execution Blueprint",
+      "description": "Air-Gapped Predictive Copilot for Secure MPLS Operations",
+      "parentId": null,
+      "childIds": [
+        "network",
+        "telemetry",
+        "dataset",
+        "analytics",
+        "graph",
+        "copilot",
+        "decision",
+        "dashboard",
+        "demo",
+        "team",
+        "roadmap",
+        "evaluation"
+      ],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "violet",
+      "priority": "high",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 40,
+      "notes": "Owner: Team\nAir-Gapped Predictive Copilot for Secure MPLS Operations",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [],
+      "isExpanded": true,
+      "isRoot": true,
+      "completed": false,
+      "createdAt": "2026-06-21T14:30:28.962806+00:00",
+      "updatedAt": "2026-06-21T14:30:28.962806+00:00"
+    },
+    "network": {
+      "id": "network",
+      "title": "Network Digital Twin",
+      "description": "Build MPLS+SDWAN simulation",
+      "parentId": "root",
+      "childIds": [
+        "net_mpls_underlay",
+        "net_sd-wan_overlay",
+        "net_bgp_routing",
+        "net_ospf_routing",
+        "net_traffic_generator",
+        "net_fault_injection"
+      ],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "blue",
+      "priority": "high",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 20,
+      "notes": "Owner: Sanmit\nBuild MPLS+SDWAN simulation",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T14:30:28.962806+00:00",
+      "updatedAt": "2026-06-21T14:30:28.962806+00:00"
+    },
+    "telemetry": {
+      "id": "telemetry",
+      "title": "Telemetry Pipeline",
+      "description": "Collect all operational metrics",
+      "parentId": "root",
+      "childIds": [
+        "tel_snmp",
+        "tel_syslog",
+        "tel_netflow",
+        "tel_tunnel_metrics",
+        "tel_prometheus"
+      ],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "cyan",
+      "priority": "high",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 20,
+      "notes": "Owner: Sanmit\nCollect all operational metrics",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T14:30:28.962806+00:00",
+      "updatedAt": "2026-06-21T14:30:28.962806+00:00"
+    },
+    "dataset": {
+      "id": "dataset",
+      "title": "Dataset Engineering",
+      "description": "Generate labelled datasets",
+      "parentId": "root",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "teal",
+      "priority": "high",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 20,
+      "notes": "Owner: Rushda\nGenerate labelled datasets",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T14:30:28.962806+00:00",
+      "updatedAt": "2026-06-21T14:30:28.962806+00:00"
+    },
+    "analytics": {
+      "id": "analytics",
+      "title": "Predictive Analytics",
+      "description": "Forecast failures before impact",
+      "parentId": "root",
+      "childIds": [
+        "an_isolation_forest",
+        "an_xgboost",
+        "an_prophet",
+        "an_risk_scoring",
+        "an_time_to_impact"
+      ],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "emerald",
+      "priority": "high",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 20,
+      "notes": "Owner: Rushda\nForecast failures before impact",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T14:30:28.962806+00:00",
+      "updatedAt": "2026-06-21T14:30:28.962806+00:00"
+    },
+    "graph": {
+      "id": "graph",
+      "title": "Graph Intelligence",
+      "description": "Topology awareness and blast radius",
+      "parentId": "root",
+      "childIds": [
+        "graph_topology_graph",
+        "graph_blast_radius",
+        "graph_dependency_graph",
+        "graph_impact_estimation"
+      ],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "rose",
+      "priority": "high",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 20,
+      "notes": "Owner: Ajinkya\nTopology awareness and blast radius",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T14:30:28.962806+00:00",
+      "updatedAt": "2026-06-21T14:30:28.962806+00:00"
+    },
+    "copilot": {
+      "id": "copilot",
+      "title": "Offline AI Copilot",
+      "description": "Mistral + RAG stack",
+      "parentId": "root",
+      "childIds": [
+        "cop_mistral_7b",
+        "cop_ollama",
+        "cop_chromadb",
+        "cop_runbooks",
+        "cop_rag_pipeline"
+      ],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "violet",
+      "priority": "high",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 20,
+      "notes": "Owner: Siddhi\nMistral + RAG stack",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T14:30:28.962806+00:00",
+      "updatedAt": "2026-06-21T14:30:28.962806+00:00"
+    },
+    "decision": {
+      "id": "decision",
+      "title": "Decision Intelligence",
+      "description": "Action recommendation engine",
+      "parentId": "root",
+      "childIds": [
+        "dec_counterfactual_simulation",
+        "dec_action_ranking",
+        "dec_risk_reduction_score",
+        "dec_recommendation_engine"
+      ],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "amber",
+      "priority": "high",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 20,
+      "notes": "Owner: Ajinkya\nAction recommendation engine",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T14:30:28.962806+00:00",
+      "updatedAt": "2026-06-21T14:30:28.962806+00:00"
+    },
+    "dashboard": {
+      "id": "dashboard",
+      "title": "NOC Dashboard",
+      "description": "Unified operator experience",
+      "parentId": "root",
+      "childIds": [
+        "dash_topology_view",
+        "dash_telemetry_view",
+        "dash_risk_heatmap",
+        "dash_copilot_chat",
+        "dash_scenario_console"
+      ],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "indigo",
+      "priority": "high",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 20,
+      "notes": "Owner: Ajinkya\nUnified operator experience",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T14:30:28.962806+00:00",
+      "updatedAt": "2026-06-21T14:30:28.962806+00:00"
+    },
+    "demo": {
+      "id": "demo",
+      "title": "Demo Scenarios",
+      "description": "Validation scenarios",
+      "parentId": "root",
+      "childIds": [
+        "demo_congestion_build_up",
+        "demo_bgp_route_flap",
+        "demo_tunnel_degradation",
+        "demo_policy_drift",
+        "demo_mpls_failure"
+      ],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "rose",
+      "priority": "high",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 20,
+      "notes": "Owner: Team\nValidation scenarios",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T14:30:28.962806+00:00",
+      "updatedAt": "2026-06-21T14:30:28.962806+00:00"
+    },
+    "team": {
+      "id": "team",
+      "title": "Team Ownership",
+      "description": "Work allocation",
+      "parentId": "root",
+      "childIds": [
+        "team_ajinkya",
+        "team_rushda",
+        "team_siddhi",
+        "team_sanmit"
+      ],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "amber",
+      "priority": "high",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 20,
+      "notes": "Owner: Team\nWork allocation",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T14:30:28.962806+00:00",
+      "updatedAt": "2026-06-21T14:30:28.962806+00:00"
+    },
+    "roadmap": {
+      "id": "roadmap",
+      "title": "8 Day Execution",
+      "description": "Execution plan",
+      "parentId": "root",
+      "childIds": [
+        "day_1",
+        "day_2",
+        "day_3",
+        "day_4",
+        "day_5",
+        "day_6",
+        "day_7",
+        "day_8"
+      ],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "emerald",
+      "priority": "high",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 20,
+      "notes": "Owner: Team\nExecution plan",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T14:30:28.962806+00:00",
+      "updatedAt": "2026-06-21T14:30:28.962806+00:00"
+    },
+    "evaluation": {
+      "id": "evaluation",
+      "title": "Evaluation Alignment",
+      "description": "Judging criteria mapping",
+      "parentId": "root",
+      "childIds": [
+        "eval_technical_merit",
+        "eval_copilot_effectiveness",
+        "eval_security_compliance",
+        "eval_documentation_quality"
+      ],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "cyan",
+      "priority": "high",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 20,
+      "notes": "Owner: Team\nJudging criteria mapping",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T14:30:28.962806+00:00",
+      "updatedAt": "2026-06-21T14:30:28.962806+00:00"
+    },
+    "net_mpls_underlay": {
+      "id": "net_mpls_underlay",
+      "title": "MPLS Underlay",
+      "description": "MPLS Underlay",
+      "parentId": "network",
+      "childIds": [
+        "net_mpls_underlay_Design_PE/P/",
+        "net_mpls_underlay_Configure_la",
+        "net_mpls_underlay_Validate_for",
+        "net_mpls_underlay_Create_hub-s"
+      ],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "blue",
+      "priority": "high",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 16,
+      "notes": "Owner: Sanmit\nMPLS Underlay",
+      "resources": [
+        {
+          "id": "r1",
+          "title": "Containerlab",
+          "url": "https://containerlab.dev",
+          "type": "tool"
+        }
+      ],
+      "prerequisites": [],
+      "childTasks": [
+        {
+          "id": "a52633f1-c736-48fc-a3b6-9706837265c4",
+          "title": "Design PE/P/CE topology",
+          "completed": false
+        },
+        {
+          "id": "787b827a-998e-48ce-b27d-5eb4cde8f48c",
+          "title": "Configure labels",
+          "completed": false
+        },
+        {
+          "id": "5fcaa360-4d43-48ad-ba47-9cd950391645",
+          "title": "Validate forwarding",
+          "completed": false
+        },
+        {
+          "id": "13810fbf-90e5-4134-a0f3-b9e105f57e81",
+          "title": "Create hub-spoke links",
+          "completed": false
+        }
+      ],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T14:30:28.962806+00:00",
+      "updatedAt": "2026-06-21T14:30:28.962806+00:00"
+    },
+    "net_mpls_underlay_Design_PE/P/": {
+      "id": "net_mpls_underlay_Design_PE/P/",
+      "title": "Design PE/P/CE topology",
+      "description": "Design PE/P/CE topology",
+      "parentId": "net_mpls_underlay",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "blue",
+      "priority": "high",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 4,
+      "notes": "Owner: Sanmit\nDesign PE/P/CE topology",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T14:30:28.962806+00:00",
+      "updatedAt": "2026-06-21T14:30:28.962806+00:00"
+    },
+    "net_mpls_underlay_Configure_la": {
+      "id": "net_mpls_underlay_Configure_la",
+      "title": "Configure labels",
+      "description": "Configure labels",
+      "parentId": "net_mpls_underlay",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "blue",
+      "priority": "high",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 4,
+      "notes": "Owner: Sanmit\nConfigure labels",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T14:30:28.962806+00:00",
+      "updatedAt": "2026-06-21T14:30:28.962806+00:00"
+    },
+    "net_mpls_underlay_Validate_for": {
+      "id": "net_mpls_underlay_Validate_for",
+      "title": "Validate forwarding",
+      "description": "Validate forwarding",
+      "parentId": "net_mpls_underlay",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "blue",
+      "priority": "high",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 4,
+      "notes": "Owner: Sanmit\nValidate forwarding",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T14:30:28.962806+00:00",
+      "updatedAt": "2026-06-21T14:30:28.962806+00:00"
+    },
+    "net_mpls_underlay_Create_hub-s": {
+      "id": "net_mpls_underlay_Create_hub-s",
+      "title": "Create hub-spoke links",
+      "description": "Create hub-spoke links",
+      "parentId": "net_mpls_underlay",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "blue",
+      "priority": "high",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 4,
+      "notes": "Owner: Sanmit\nCreate hub-spoke links",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T14:30:28.962806+00:00",
+      "updatedAt": "2026-06-21T14:30:28.962806+00:00"
+    },
+    "net_sd-wan_overlay": {
+      "id": "net_sd-wan_overlay",
+      "title": "SD-WAN Overlay",
+      "description": "SD-WAN Overlay",
+      "parentId": "network",
+      "childIds": [
+        "net_sd-wan_overlay_Create_IPSec",
+        "net_sd-wan_overlay_Path_policie",
+        "net_sd-wan_overlay_Tunnel_monit",
+        "net_sd-wan_overlay_Failover_tes"
+      ],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "blue",
+      "priority": "high",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 16,
+      "notes": "Owner: Sanmit\nSD-WAN Overlay",
+      "resources": [
+        {
+          "id": "r1",
+          "title": "Containerlab",
+          "url": "https://containerlab.dev",
+          "type": "tool"
+        }
+      ],
+      "prerequisites": [],
+      "childTasks": [
+        {
+          "id": "2bbc1352-c653-4cd8-91b3-c23ec561d849",
+          "title": "Create IPSec tunnels",
+          "completed": false
+        },
+        {
+          "id": "c4327b45-3bdf-4050-8f41-5222218b52e6",
+          "title": "Path policies",
+          "completed": false
+        },
+        {
+          "id": "bd294631-9036-49c6-9607-b34e5cbd1402",
+          "title": "Tunnel monitoring",
+          "completed": false
+        },
+        {
+          "id": "aac83821-67d4-4f38-9f40-e5e1f46fd7fd",
+          "title": "Failover testing",
+          "completed": false
+        }
+      ],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T14:30:28.962806+00:00",
+      "updatedAt": "2026-06-21T14:30:28.962806+00:00"
+    },
+    "net_sd-wan_overlay_Create_IPSec": {
+      "id": "net_sd-wan_overlay_Create_IPSec",
+      "title": "Create IPSec tunnels",
+      "description": "Create IPSec tunnels",
+      "parentId": "net_sd-wan_overlay",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "blue",
+      "priority": "high",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 4,
+      "notes": "Owner: Sanmit\nCreate IPSec tunnels",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T14:30:28.962806+00:00",
+      "updatedAt": "2026-06-21T14:30:28.962806+00:00"
+    },
+    "net_sd-wan_overlay_Path_policie": {
+      "id": "net_sd-wan_overlay_Path_policie",
+      "title": "Path policies",
+      "description": "Path policies",
+      "parentId": "net_sd-wan_overlay",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "blue",
+      "priority": "high",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 4,
+      "notes": "Owner: Sanmit\nPath policies",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T14:30:28.962806+00:00",
+      "updatedAt": "2026-06-21T14:30:28.962806+00:00"
+    },
+    "net_sd-wan_overlay_Tunnel_monit": {
+      "id": "net_sd-wan_overlay_Tunnel_monit",
+      "title": "Tunnel monitoring",
+      "description": "Tunnel monitoring",
+      "parentId": "net_sd-wan_overlay",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "blue",
+      "priority": "high",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 4,
+      "notes": "Owner: Sanmit\nTunnel monitoring",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T14:30:28.962806+00:00",
+      "updatedAt": "2026-06-21T14:30:28.962806+00:00"
+    },
+    "net_sd-wan_overlay_Failover_tes": {
+      "id": "net_sd-wan_overlay_Failover_tes",
+      "title": "Failover testing",
+      "description": "Failover testing",
+      "parentId": "net_sd-wan_overlay",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "blue",
+      "priority": "high",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 4,
+      "notes": "Owner: Sanmit\nFailover testing",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T14:30:28.962806+00:00",
+      "updatedAt": "2026-06-21T14:30:28.962806+00:00"
+    },
+    "net_bgp_routing": {
+      "id": "net_bgp_routing",
+      "title": "BGP Routing",
+      "description": "BGP Routing",
+      "parentId": "network",
+      "childIds": [
+        "net_bgp_routing_Configure_pe",
+        "net_bgp_routing_Route_advert",
+        "net_bgp_routing_Route_flap_t",
+        "net_bgp_routing_Convergence_"
+      ],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "blue",
+      "priority": "high",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 16,
+      "notes": "Owner: Sanmit\nBGP Routing",
+      "resources": [
+        {
+          "id": "r1",
+          "title": "Containerlab",
+          "url": "https://containerlab.dev",
+          "type": "tool"
+        }
+      ],
+      "prerequisites": [],
+      "childTasks": [
+        {
+          "id": "de317a8c-67d6-4b87-9c4b-42efee5fa336",
+          "title": "Configure peers",
+          "completed": false
+        },
+        {
+          "id": "d10b13a7-44ed-436c-952c-619be7d3197f",
+          "title": "Route advertisements",
+          "completed": false
+        },
+        {
+          "id": "19bb702a-3496-470a-8909-4e0cd936ce79",
+          "title": "Route flap testing",
+          "completed": false
+        },
+        {
+          "id": "7c648bb1-5d6f-4dd1-80ee-31c16efbc93b",
+          "title": "Convergence measurement",
+          "completed": false
+        }
+      ],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T14:30:28.962806+00:00",
+      "updatedAt": "2026-06-21T14:30:28.962806+00:00"
+    },
+    "net_bgp_routing_Configure_pe": {
+      "id": "net_bgp_routing_Configure_pe",
+      "title": "Configure peers",
+      "description": "Configure peers",
+      "parentId": "net_bgp_routing",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "blue",
+      "priority": "high",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 4,
+      "notes": "Owner: Sanmit\nConfigure peers",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T14:30:28.962806+00:00",
+      "updatedAt": "2026-06-21T14:30:28.962806+00:00"
+    },
+    "net_bgp_routing_Route_advert": {
+      "id": "net_bgp_routing_Route_advert",
+      "title": "Route advertisements",
+      "description": "Route advertisements",
+      "parentId": "net_bgp_routing",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "blue",
+      "priority": "high",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 4,
+      "notes": "Owner: Sanmit\nRoute advertisements",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T14:30:28.962806+00:00",
+      "updatedAt": "2026-06-21T14:30:28.962806+00:00"
+    },
+    "net_bgp_routing_Route_flap_t": {
+      "id": "net_bgp_routing_Route_flap_t",
+      "title": "Route flap testing",
+      "description": "Route flap testing",
+      "parentId": "net_bgp_routing",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "blue",
+      "priority": "high",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 4,
+      "notes": "Owner: Sanmit\nRoute flap testing",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T14:30:28.962806+00:00",
+      "updatedAt": "2026-06-21T14:30:28.962806+00:00"
+    },
+    "net_bgp_routing_Convergence_": {
+      "id": "net_bgp_routing_Convergence_",
+      "title": "Convergence measurement",
+      "description": "Convergence measurement",
+      "parentId": "net_bgp_routing",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "blue",
+      "priority": "high",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 4,
+      "notes": "Owner: Sanmit\nConvergence measurement",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T14:30:28.962806+00:00",
+      "updatedAt": "2026-06-21T14:30:28.962806+00:00"
+    },
+    "net_ospf_routing": {
+      "id": "net_ospf_routing",
+      "title": "OSPF Routing",
+      "description": "OSPF Routing",
+      "parentId": "network",
+      "childIds": [
+        "net_ospf_routing_Areas_design",
+        "net_ospf_routing_Adjacency_te",
+        "net_ospf_routing_LSA_validati",
+        "net_ospf_routing_Failure_reco"
+      ],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "blue",
+      "priority": "high",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 16,
+      "notes": "Owner: Sanmit\nOSPF Routing",
+      "resources": [
+        {
+          "id": "r1",
+          "title": "Containerlab",
+          "url": "https://containerlab.dev",
+          "type": "tool"
+        }
+      ],
+      "prerequisites": [],
+      "childTasks": [
+        {
+          "id": "e78baefc-9b69-4779-8e3a-c65671fd827d",
+          "title": "Areas design",
+          "completed": false
+        },
+        {
+          "id": "69f3f3f2-7022-4751-8709-03b75a4e5d34",
+          "title": "Adjacency testing",
+          "completed": false
+        },
+        {
+          "id": "0dac0cd6-1e26-4ede-aa24-1b628185dc82",
+          "title": "LSA validation",
+          "completed": false
+        },
+        {
+          "id": "5ed9d366-c698-4b3d-ae2d-8afec54acc65",
+          "title": "Failure recovery",
+          "completed": false
+        }
+      ],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T14:30:28.962806+00:00",
+      "updatedAt": "2026-06-21T14:30:28.962806+00:00"
+    },
+    "net_ospf_routing_Areas_design": {
+      "id": "net_ospf_routing_Areas_design",
+      "title": "Areas design",
+      "description": "Areas design",
+      "parentId": "net_ospf_routing",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "blue",
+      "priority": "high",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 4,
+      "notes": "Owner: Sanmit\nAreas design",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T14:30:28.962806+00:00",
+      "updatedAt": "2026-06-21T14:30:28.962806+00:00"
+    },
+    "net_ospf_routing_Adjacency_te": {
+      "id": "net_ospf_routing_Adjacency_te",
+      "title": "Adjacency testing",
+      "description": "Adjacency testing",
+      "parentId": "net_ospf_routing",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "blue",
+      "priority": "high",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 4,
+      "notes": "Owner: Sanmit\nAdjacency testing",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T14:30:28.962806+00:00",
+      "updatedAt": "2026-06-21T14:30:28.962806+00:00"
+    },
+    "net_ospf_routing_LSA_validati": {
+      "id": "net_ospf_routing_LSA_validati",
+      "title": "LSA validation",
+      "description": "LSA validation",
+      "parentId": "net_ospf_routing",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "blue",
+      "priority": "high",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 4,
+      "notes": "Owner: Sanmit\nLSA validation",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T14:30:28.962806+00:00",
+      "updatedAt": "2026-06-21T14:30:28.962806+00:00"
+    },
+    "net_ospf_routing_Failure_reco": {
+      "id": "net_ospf_routing_Failure_reco",
+      "title": "Failure recovery",
+      "description": "Failure recovery",
+      "parentId": "net_ospf_routing",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "blue",
+      "priority": "high",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 4,
+      "notes": "Owner: Sanmit\nFailure recovery",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T14:30:28.962806+00:00",
+      "updatedAt": "2026-06-21T14:30:28.962806+00:00"
+    },
+    "net_traffic_generator": {
+      "id": "net_traffic_generator",
+      "title": "Traffic Generator",
+      "description": "Traffic Generator",
+      "parentId": "network",
+      "childIds": [
+        "net_traffic_generator_ERP_traffic",
+        "net_traffic_generator_VoIP_traffic",
+        "net_traffic_generator_Video_traffi",
+        "net_traffic_generator_Synthetic_lo"
+      ],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "blue",
+      "priority": "high",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 16,
+      "notes": "Owner: Sanmit\nTraffic Generator",
+      "resources": [
+        {
+          "id": "r1",
+          "title": "Containerlab",
+          "url": "https://containerlab.dev",
+          "type": "tool"
+        }
+      ],
+      "prerequisites": [],
+      "childTasks": [
+        {
+          "id": "ba1378f4-56d9-4dff-9376-9e1806e3f630",
+          "title": "ERP traffic",
+          "completed": false
+        },
+        {
+          "id": "e47f0265-4b0b-4c15-b61f-4c326b67e55f",
+          "title": "VoIP traffic",
+          "completed": false
+        },
+        {
+          "id": "fc20d98b-fd55-4ae1-8320-518489319400",
+          "title": "Video traffic",
+          "completed": false
+        },
+        {
+          "id": "1ef7f9a3-37a3-4939-812b-c55663a63ecf",
+          "title": "Synthetic load",
+          "completed": false
+        }
+      ],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T14:30:28.962806+00:00",
+      "updatedAt": "2026-06-21T14:30:28.962806+00:00"
+    },
+    "net_traffic_generator_ERP_traffic": {
+      "id": "net_traffic_generator_ERP_traffic",
+      "title": "ERP traffic",
+      "description": "ERP traffic",
+      "parentId": "net_traffic_generator",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "blue",
+      "priority": "high",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 4,
+      "notes": "Owner: Sanmit\nERP traffic",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T14:30:28.962806+00:00",
+      "updatedAt": "2026-06-21T14:30:28.962806+00:00"
+    },
+    "net_traffic_generator_VoIP_traffic": {
+      "id": "net_traffic_generator_VoIP_traffic",
+      "title": "VoIP traffic",
+      "description": "VoIP traffic",
+      "parentId": "net_traffic_generator",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "blue",
+      "priority": "high",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 4,
+      "notes": "Owner: Sanmit\nVoIP traffic",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T14:30:28.962806+00:00",
+      "updatedAt": "2026-06-21T14:30:28.962806+00:00"
+    },
+    "net_traffic_generator_Video_traffi": {
+      "id": "net_traffic_generator_Video_traffi",
+      "title": "Video traffic",
+      "description": "Video traffic",
+      "parentId": "net_traffic_generator",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "blue",
+      "priority": "high",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 4,
+      "notes": "Owner: Sanmit\nVideo traffic",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T14:30:28.962806+00:00",
+      "updatedAt": "2026-06-21T14:30:28.962806+00:00"
+    },
+    "net_traffic_generator_Synthetic_lo": {
+      "id": "net_traffic_generator_Synthetic_lo",
+      "title": "Synthetic load",
+      "description": "Synthetic load",
+      "parentId": "net_traffic_generator",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "blue",
+      "priority": "high",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 4,
+      "notes": "Owner: Sanmit\nSynthetic load",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T14:30:28.962806+00:00",
+      "updatedAt": "2026-06-21T14:30:28.962806+00:00"
+    },
+    "net_fault_injection": {
+      "id": "net_fault_injection",
+      "title": "Fault Injection",
+      "description": "Fault Injection",
+      "parentId": "network",
+      "childIds": [
+        "net_fault_injection_Congestion",
+        "net_fault_injection_Link_failure",
+        "net_fault_injection_Route_flap",
+        "net_fault_injection_Policy_drift"
+      ],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "blue",
+      "priority": "high",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 16,
+      "notes": "Owner: Sanmit\nFault Injection",
+      "resources": [
+        {
+          "id": "r1",
+          "title": "Containerlab",
+          "url": "https://containerlab.dev",
+          "type": "tool"
+        }
+      ],
+      "prerequisites": [],
+      "childTasks": [
+        {
+          "id": "acb1cd16-d25b-4647-9a20-065275bb3cf1",
+          "title": "Congestion",
+          "completed": false
+        },
+        {
+          "id": "ff7bd5a9-2138-4c37-970f-28dc4fe0c9da",
+          "title": "Link failure",
+          "completed": false
+        },
+        {
+          "id": "d0dc1e5b-7ee8-405d-8213-80c877b7d72e",
+          "title": "Route flap",
+          "completed": false
+        },
+        {
+          "id": "42574f9e-9991-42bb-bee5-f0415ca7da98",
+          "title": "Policy drift",
+          "completed": false
+        }
+      ],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T14:30:28.962806+00:00",
+      "updatedAt": "2026-06-21T14:30:28.962806+00:00"
+    },
+    "net_fault_injection_Congestion": {
+      "id": "net_fault_injection_Congestion",
+      "title": "Congestion",
+      "description": "Congestion",
+      "parentId": "net_fault_injection",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "blue",
+      "priority": "high",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 4,
+      "notes": "Owner: Sanmit\nCongestion",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T14:30:28.962806+00:00",
+      "updatedAt": "2026-06-21T14:30:28.962806+00:00"
+    },
+    "net_fault_injection_Link_failure": {
+      "id": "net_fault_injection_Link_failure",
+      "title": "Link failure",
+      "description": "Link failure",
+      "parentId": "net_fault_injection",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "blue",
+      "priority": "high",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 4,
+      "notes": "Owner: Sanmit\nLink failure",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T14:30:28.962806+00:00",
+      "updatedAt": "2026-06-21T14:30:28.962806+00:00"
+    },
+    "net_fault_injection_Route_flap": {
+      "id": "net_fault_injection_Route_flap",
+      "title": "Route flap",
+      "description": "Route flap",
+      "parentId": "net_fault_injection",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "blue",
+      "priority": "high",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 4,
+      "notes": "Owner: Sanmit\nRoute flap",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T14:30:28.962806+00:00",
+      "updatedAt": "2026-06-21T14:30:28.962806+00:00"
+    },
+    "net_fault_injection_Policy_drift": {
+      "id": "net_fault_injection_Policy_drift",
+      "title": "Policy drift",
+      "description": "Policy drift",
+      "parentId": "net_fault_injection",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "blue",
+      "priority": "high",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 4,
+      "notes": "Owner: Sanmit\nPolicy drift",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T14:30:28.962806+00:00",
+      "updatedAt": "2026-06-21T14:30:28.962806+00:00"
+    },
+    "tel_snmp": {
+      "id": "tel_snmp",
+      "title": "SNMP",
+      "description": "SNMP",
+      "parentId": "telemetry",
+      "childIds": [
+        "tel_snmp_Interface_utilization",
+        "tel_snmp_Error_counters",
+        "tel_snmp_Bandwidth_metrics"
+      ],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "cyan",
+      "priority": "high",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 12,
+      "notes": "Owner: Sanmit\nSNMP",
+      "resources": [
+        {
+          "id": "r1",
+          "title": "Containerlab",
+          "url": "https://containerlab.dev",
+          "type": "tool"
+        },
+        {
+          "id": "r2",
+          "title": "Prometheus",
+          "url": "https://prometheus.io",
+          "type": "tool"
+        }
+      ],
+      "prerequisites": [],
+      "childTasks": [
+        {
+          "id": "a7e8b284-e625-4a3b-a927-dfe37eac0c0f",
+          "title": "Interface utilization",
+          "completed": false
+        },
+        {
+          "id": "bd7bc824-303d-4913-9d29-f59f9eb13fc4",
+          "title": "Error counters",
+          "completed": false
+        },
+        {
+          "id": "b9c97ade-b336-4be9-8549-bf42a5ddd747",
+          "title": "Bandwidth metrics",
+          "completed": false
+        }
+      ],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T14:30:28.962806+00:00",
+      "updatedAt": "2026-06-21T14:30:28.962806+00:00"
+    },
+    "tel_snmp_Interface_utilization": {
+      "id": "tel_snmp_Interface_utilization",
+      "title": "Interface utilization",
+      "description": "Interface utilization",
+      "parentId": "tel_snmp",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "cyan",
+      "priority": "high",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 3,
+      "notes": "Owner: Sanmit\nInterface utilization",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T14:30:28.962806+00:00",
+      "updatedAt": "2026-06-21T14:30:28.962806+00:00"
+    },
+    "tel_snmp_Error_counters": {
+      "id": "tel_snmp_Error_counters",
+      "title": "Error counters",
+      "description": "Error counters",
+      "parentId": "tel_snmp",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "cyan",
+      "priority": "high",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 3,
+      "notes": "Owner: Sanmit\nError counters",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T14:30:28.962806+00:00",
+      "updatedAt": "2026-06-21T14:30:28.962806+00:00"
+    },
+    "tel_snmp_Bandwidth_metrics": {
+      "id": "tel_snmp_Bandwidth_metrics",
+      "title": "Bandwidth metrics",
+      "description": "Bandwidth metrics",
+      "parentId": "tel_snmp",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "cyan",
+      "priority": "high",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 3,
+      "notes": "Owner: Sanmit\nBandwidth metrics",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T14:30:28.962806+00:00",
+      "updatedAt": "2026-06-21T14:30:28.962806+00:00"
+    },
+    "tel_syslog": {
+      "id": "tel_syslog",
+      "title": "Syslog",
+      "description": "Syslog",
+      "parentId": "telemetry",
+      "childIds": [
+        "tel_syslog_Parse_events",
+        "tel_syslog_Store_events",
+        "tel_syslog_Correlation_tags"
+      ],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "cyan",
+      "priority": "high",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 12,
+      "notes": "Owner: Sanmit\nSyslog",
+      "resources": [
+        {
+          "id": "r1",
+          "title": "Containerlab",
+          "url": "https://containerlab.dev",
+          "type": "tool"
+        },
+        {
+          "id": "r2",
+          "title": "Prometheus",
+          "url": "https://prometheus.io",
+          "type": "tool"
+        }
+      ],
+      "prerequisites": [],
+      "childTasks": [
+        {
+          "id": "50fcec69-6307-43e3-a061-5ccca0ee92c7",
+          "title": "Parse events",
+          "completed": false
+        },
+        {
+          "id": "8e214985-a7a7-484d-a152-5741d792439b",
+          "title": "Store events",
+          "completed": false
+        },
+        {
+          "id": "bc48c30f-064b-4d14-afb3-b6c9665e0394",
+          "title": "Correlation tags",
+          "completed": false
+        }
+      ],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T14:30:28.962806+00:00",
+      "updatedAt": "2026-06-21T14:30:28.962806+00:00"
+    },
+    "tel_syslog_Parse_events": {
+      "id": "tel_syslog_Parse_events",
+      "title": "Parse events",
+      "description": "Parse events",
+      "parentId": "tel_syslog",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "cyan",
+      "priority": "high",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 3,
+      "notes": "Owner: Sanmit\nParse events",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T14:30:28.962806+00:00",
+      "updatedAt": "2026-06-21T14:30:28.962806+00:00"
+    },
+    "tel_syslog_Store_events": {
+      "id": "tel_syslog_Store_events",
+      "title": "Store events",
+      "description": "Store events",
+      "parentId": "tel_syslog",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "cyan",
+      "priority": "high",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 3,
+      "notes": "Owner: Sanmit\nStore events",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T14:30:28.962806+00:00",
+      "updatedAt": "2026-06-21T14:30:28.962806+00:00"
+    },
+    "tel_syslog_Correlation_tags": {
+      "id": "tel_syslog_Correlation_tags",
+      "title": "Correlation tags",
+      "description": "Correlation tags",
+      "parentId": "tel_syslog",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "cyan",
+      "priority": "high",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 3,
+      "notes": "Owner: Sanmit\nCorrelation tags",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T14:30:28.962806+00:00",
+      "updatedAt": "2026-06-21T14:30:28.962806+00:00"
+    },
+    "tel_netflow": {
+      "id": "tel_netflow",
+      "title": "NetFlow",
+      "description": "NetFlow",
+      "parentId": "telemetry",
+      "childIds": [
+        "tel_netflow_Flow_export",
+        "tel_netflow_Traffic_analysis",
+        "tel_netflow_Top_talkers"
+      ],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "cyan",
+      "priority": "high",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 12,
+      "notes": "Owner: Sanmit\nNetFlow",
+      "resources": [
+        {
+          "id": "r1",
+          "title": "Containerlab",
+          "url": "https://containerlab.dev",
+          "type": "tool"
+        },
+        {
+          "id": "r2",
+          "title": "Prometheus",
+          "url": "https://prometheus.io",
+          "type": "tool"
+        }
+      ],
+      "prerequisites": [],
+      "childTasks": [
+        {
+          "id": "c26a2c5b-5ed5-4d79-8a2c-e06c028041fc",
+          "title": "Flow export",
+          "completed": false
+        },
+        {
+          "id": "cd3f5bce-aa3b-47dc-bed0-03e5e833f2fe",
+          "title": "Traffic analysis",
+          "completed": false
+        },
+        {
+          "id": "33bd4f65-bacf-4604-abc0-84bba2f1645e",
+          "title": "Top talkers",
+          "completed": false
+        }
+      ],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T14:30:28.962806+00:00",
+      "updatedAt": "2026-06-21T14:30:28.962806+00:00"
+    },
+    "tel_netflow_Flow_export": {
+      "id": "tel_netflow_Flow_export",
+      "title": "Flow export",
+      "description": "Flow export",
+      "parentId": "tel_netflow",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "cyan",
+      "priority": "high",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 3,
+      "notes": "Owner: Sanmit\nFlow export",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T14:30:28.962806+00:00",
+      "updatedAt": "2026-06-21T14:30:28.962806+00:00"
+    },
+    "tel_netflow_Traffic_analysis": {
+      "id": "tel_netflow_Traffic_analysis",
+      "title": "Traffic analysis",
+      "description": "Traffic analysis",
+      "parentId": "tel_netflow",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "cyan",
+      "priority": "high",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 3,
+      "notes": "Owner: Sanmit\nTraffic analysis",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T14:30:28.962806+00:00",
+      "updatedAt": "2026-06-21T14:30:28.962806+00:00"
+    },
+    "tel_netflow_Top_talkers": {
+      "id": "tel_netflow_Top_talkers",
+      "title": "Top talkers",
+      "description": "Top talkers",
+      "parentId": "tel_netflow",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "cyan",
+      "priority": "high",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 3,
+      "notes": "Owner: Sanmit\nTop talkers",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T14:30:28.962806+00:00",
+      "updatedAt": "2026-06-21T14:30:28.962806+00:00"
+    },
+    "tel_tunnel_metrics": {
+      "id": "tel_tunnel_metrics",
+      "title": "Tunnel Metrics",
+      "description": "Tunnel Metrics",
+      "parentId": "telemetry",
+      "childIds": [
+        "tel_tunnel_metrics_Loss",
+        "tel_tunnel_metrics_Latency",
+        "tel_tunnel_metrics_Jitter"
+      ],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "cyan",
+      "priority": "high",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 12,
+      "notes": "Owner: Sanmit\nTunnel Metrics",
+      "resources": [
+        {
+          "id": "r1",
+          "title": "Containerlab",
+          "url": "https://containerlab.dev",
+          "type": "tool"
+        },
+        {
+          "id": "r2",
+          "title": "Prometheus",
+          "url": "https://prometheus.io",
+          "type": "tool"
+        }
+      ],
+      "prerequisites": [],
+      "childTasks": [
+        {
+          "id": "dfd82093-6b95-4f6f-82ca-52509661f6f0",
+          "title": "Loss",
+          "completed": false
+        },
+        {
+          "id": "5c0f65a6-83ea-4314-84af-ac3e725d55be",
+          "title": "Latency",
+          "completed": false
+        },
+        {
+          "id": "bd591810-abf0-4802-a249-d479b325c759",
+          "title": "Jitter",
+          "completed": false
+        }
+      ],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T14:30:28.962806+00:00",
+      "updatedAt": "2026-06-21T14:30:28.962806+00:00"
+    },
+    "tel_tunnel_metrics_Loss": {
+      "id": "tel_tunnel_metrics_Loss",
+      "title": "Loss",
+      "description": "Loss",
+      "parentId": "tel_tunnel_metrics",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "cyan",
+      "priority": "high",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 3,
+      "notes": "Owner: Sanmit\nLoss",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T14:30:28.962806+00:00",
+      "updatedAt": "2026-06-21T14:30:28.962806+00:00"
+    },
+    "tel_tunnel_metrics_Latency": {
+      "id": "tel_tunnel_metrics_Latency",
+      "title": "Latency",
+      "description": "Latency",
+      "parentId": "tel_tunnel_metrics",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "cyan",
+      "priority": "high",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 3,
+      "notes": "Owner: Sanmit\nLatency",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T14:30:28.962806+00:00",
+      "updatedAt": "2026-06-21T14:30:28.962806+00:00"
+    },
+    "tel_tunnel_metrics_Jitter": {
+      "id": "tel_tunnel_metrics_Jitter",
+      "title": "Jitter",
+      "description": "Jitter",
+      "parentId": "tel_tunnel_metrics",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "cyan",
+      "priority": "high",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 3,
+      "notes": "Owner: Sanmit\nJitter",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T14:30:28.962806+00:00",
+      "updatedAt": "2026-06-21T14:30:28.962806+00:00"
+    },
+    "tel_prometheus": {
+      "id": "tel_prometheus",
+      "title": "Prometheus",
+      "description": "Prometheus",
+      "parentId": "telemetry",
+      "childIds": [
+        "tel_prometheus_Metrics_ingestion",
+        "tel_prometheus_Retention",
+        "tel_prometheus_Queries"
+      ],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "cyan",
+      "priority": "high",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 12,
+      "notes": "Owner: Sanmit\nPrometheus",
+      "resources": [
+        {
+          "id": "r1",
+          "title": "Containerlab",
+          "url": "https://containerlab.dev",
+          "type": "tool"
+        },
+        {
+          "id": "r2",
+          "title": "Prometheus",
+          "url": "https://prometheus.io",
+          "type": "tool"
+        }
+      ],
+      "prerequisites": [],
+      "childTasks": [
+        {
+          "id": "76d27191-2cd7-411a-b7cc-6a678287bdfc",
+          "title": "Metrics ingestion",
+          "completed": false
+        },
+        {
+          "id": "129027cc-5741-413f-99de-1cbfff60fe14",
+          "title": "Retention",
+          "completed": false
+        },
+        {
+          "id": "199c9fad-21b6-430f-8a1e-450563e41ee6",
+          "title": "Queries",
+          "completed": false
+        }
+      ],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T14:30:28.962806+00:00",
+      "updatedAt": "2026-06-21T14:30:28.962806+00:00"
+    },
+    "tel_prometheus_Metrics_ingestion": {
+      "id": "tel_prometheus_Metrics_ingestion",
+      "title": "Metrics ingestion",
+      "description": "Metrics ingestion",
+      "parentId": "tel_prometheus",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "cyan",
+      "priority": "high",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 3,
+      "notes": "Owner: Sanmit\nMetrics ingestion",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T14:30:28.962806+00:00",
+      "updatedAt": "2026-06-21T14:30:28.962806+00:00"
+    },
+    "tel_prometheus_Retention": {
+      "id": "tel_prometheus_Retention",
+      "title": "Retention",
+      "description": "Retention",
+      "parentId": "tel_prometheus",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "cyan",
+      "priority": "high",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 3,
+      "notes": "Owner: Sanmit\nRetention",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T14:30:28.962806+00:00",
+      "updatedAt": "2026-06-21T14:30:28.962806+00:00"
+    },
+    "tel_prometheus_Queries": {
+      "id": "tel_prometheus_Queries",
+      "title": "Queries",
+      "description": "Queries",
+      "parentId": "tel_prometheus",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "cyan",
+      "priority": "high",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 3,
+      "notes": "Owner: Sanmit\nQueries",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T14:30:28.962806+00:00",
+      "updatedAt": "2026-06-21T14:30:28.962806+00:00"
+    },
+    "an_isolation_forest": {
+      "id": "an_isolation_forest",
+      "title": "Isolation Forest",
+      "description": "Isolation Forest",
+      "parentId": "analytics",
+      "childIds": [
+        "an_isolation_forest_Prepare_features",
+        "an_isolation_forest_Train_model",
+        "an_isolation_forest_Tune_contamination",
+        "an_isolation_forest_Evaluate_anomalies"
+      ],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "emerald",
+      "priority": "high",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 18,
+      "notes": "Owner: Rushda\nIsolation Forest",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [
+        {
+          "id": "0a497c71-40d2-4a94-a6bd-c7b0f8227097",
+          "title": "Prepare features",
+          "completed": false
+        },
+        {
+          "id": "a47776f9-01b9-4593-ba30-374d4962fcd4",
+          "title": "Train model",
+          "completed": false
+        },
+        {
+          "id": "113b1f48-a0f4-4220-ab8f-e5f7702db2ac",
+          "title": "Tune contamination",
+          "completed": false
+        },
+        {
+          "id": "f30f34b6-55d4-4ef6-af49-04286bebc0bd",
+          "title": "Evaluate anomalies",
+          "completed": false
+        }
+      ],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T14:30:28.962806+00:00",
+      "updatedAt": "2026-06-21T14:30:28.962806+00:00"
+    },
+    "an_isolation_forest_Prepare_features": {
+      "id": "an_isolation_forest_Prepare_features",
+      "title": "Prepare features",
+      "description": "Prepare features",
+      "parentId": "an_isolation_forest",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "emerald",
+      "priority": "high",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 4,
+      "notes": "Owner: Rushda\nPrepare features",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T14:30:28.962806+00:00",
+      "updatedAt": "2026-06-21T14:30:28.962806+00:00"
+    },
+    "an_isolation_forest_Train_model": {
+      "id": "an_isolation_forest_Train_model",
+      "title": "Train model",
+      "description": "Train model",
+      "parentId": "an_isolation_forest",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "emerald",
+      "priority": "high",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 4,
+      "notes": "Owner: Rushda\nTrain model",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T14:30:28.962806+00:00",
+      "updatedAt": "2026-06-21T14:30:28.962806+00:00"
+    },
+    "an_isolation_forest_Tune_contamination": {
+      "id": "an_isolation_forest_Tune_contamination",
+      "title": "Tune contamination",
+      "description": "Tune contamination",
+      "parentId": "an_isolation_forest",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "emerald",
+      "priority": "high",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 4,
+      "notes": "Owner: Rushda\nTune contamination",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T14:30:28.962806+00:00",
+      "updatedAt": "2026-06-21T14:30:28.962806+00:00"
+    },
+    "an_isolation_forest_Evaluate_anomalies": {
+      "id": "an_isolation_forest_Evaluate_anomalies",
+      "title": "Evaluate anomalies",
+      "description": "Evaluate anomalies",
+      "parentId": "an_isolation_forest",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "emerald",
+      "priority": "high",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 4,
+      "notes": "Owner: Rushda\nEvaluate anomalies",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T14:30:28.962806+00:00",
+      "updatedAt": "2026-06-21T14:30:28.962806+00:00"
+    },
+    "an_xgboost": {
+      "id": "an_xgboost",
+      "title": "XGBoost",
+      "description": "XGBoost",
+      "parentId": "analytics",
+      "childIds": [
+        "an_xgboost_Build_dataset",
+        "an_xgboost_Train_classifier",
+        "an_xgboost_Hyperparameter_tuning",
+        "an_xgboost_Feature_importance"
+      ],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "emerald",
+      "priority": "high",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 18,
+      "notes": "Owner: Rushda\nXGBoost",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [
+        {
+          "id": "f871b530-8f7b-4be6-9839-23aeab6f02ad",
+          "title": "Build dataset",
+          "completed": false
+        },
+        {
+          "id": "0fe2727a-ab76-46cb-adf3-b59b1695320c",
+          "title": "Train classifier",
+          "completed": false
+        },
+        {
+          "id": "a6b90596-6211-40ad-a5a4-0f2b3b0987fb",
+          "title": "Hyperparameter tuning",
+          "completed": false
+        },
+        {
+          "id": "837e3e35-7865-42cd-a100-671e67c37377",
+          "title": "Feature importance",
+          "completed": false
+        }
+      ],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T14:30:28.962806+00:00",
+      "updatedAt": "2026-06-21T14:30:28.962806+00:00"
+    },
+    "an_xgboost_Build_dataset": {
+      "id": "an_xgboost_Build_dataset",
+      "title": "Build dataset",
+      "description": "Build dataset",
+      "parentId": "an_xgboost",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "emerald",
+      "priority": "high",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 4,
+      "notes": "Owner: Rushda\nBuild dataset",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T14:30:28.962806+00:00",
+      "updatedAt": "2026-06-21T14:30:28.962806+00:00"
+    },
+    "an_xgboost_Train_classifier": {
+      "id": "an_xgboost_Train_classifier",
+      "title": "Train classifier",
+      "description": "Train classifier",
+      "parentId": "an_xgboost",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "emerald",
+      "priority": "high",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 4,
+      "notes": "Owner: Rushda\nTrain classifier",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T14:30:28.962806+00:00",
+      "updatedAt": "2026-06-21T14:30:28.962806+00:00"
+    },
+    "an_xgboost_Hyperparameter_tuning": {
+      "id": "an_xgboost_Hyperparameter_tuning",
+      "title": "Hyperparameter tuning",
+      "description": "Hyperparameter tuning",
+      "parentId": "an_xgboost",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "emerald",
+      "priority": "high",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 4,
+      "notes": "Owner: Rushda\nHyperparameter tuning",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T14:30:28.962806+00:00",
+      "updatedAt": "2026-06-21T14:30:28.962806+00:00"
+    },
+    "an_xgboost_Feature_importance": {
+      "id": "an_xgboost_Feature_importance",
+      "title": "Feature importance",
+      "description": "Feature importance",
+      "parentId": "an_xgboost",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "emerald",
+      "priority": "high",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 4,
+      "notes": "Owner: Rushda\nFeature importance",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T14:30:28.962806+00:00",
+      "updatedAt": "2026-06-21T14:30:28.962806+00:00"
+    },
+    "an_prophet": {
+      "id": "an_prophet",
+      "title": "Prophet",
+      "description": "Prophet",
+      "parentId": "analytics",
+      "childIds": [
+        "an_prophet_Forecast_utilization",
+        "an_prophet_Forecast_latency",
+        "an_prophet_Forecast_packet_loss"
+      ],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "emerald",
+      "priority": "high",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 18,
+      "notes": "Owner: Rushda\nProphet",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [
+        {
+          "id": "2ea17b30-015d-40c8-b3ab-fafa36067518",
+          "title": "Forecast utilization",
+          "completed": false
+        },
+        {
+          "id": "eb99c482-d0d8-423a-b2e3-e24a07635a3f",
+          "title": "Forecast latency",
+          "completed": false
+        },
+        {
+          "id": "d5bcdd37-5d68-416f-ac29-bf9423f9b84a",
+          "title": "Forecast packet loss",
+          "completed": false
+        }
+      ],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T14:30:28.962806+00:00",
+      "updatedAt": "2026-06-21T14:30:28.962806+00:00"
+    },
+    "an_prophet_Forecast_utilization": {
+      "id": "an_prophet_Forecast_utilization",
+      "title": "Forecast utilization",
+      "description": "Forecast utilization",
+      "parentId": "an_prophet",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "emerald",
+      "priority": "high",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 4,
+      "notes": "Owner: Rushda\nForecast utilization",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T14:30:28.962806+00:00",
+      "updatedAt": "2026-06-21T14:30:28.962806+00:00"
+    },
+    "an_prophet_Forecast_latency": {
+      "id": "an_prophet_Forecast_latency",
+      "title": "Forecast latency",
+      "description": "Forecast latency",
+      "parentId": "an_prophet",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "emerald",
+      "priority": "high",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 4,
+      "notes": "Owner: Rushda\nForecast latency",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T14:30:28.962806+00:00",
+      "updatedAt": "2026-06-21T14:30:28.962806+00:00"
+    },
+    "an_prophet_Forecast_packet_loss": {
+      "id": "an_prophet_Forecast_packet_loss",
+      "title": "Forecast packet loss",
+      "description": "Forecast packet loss",
+      "parentId": "an_prophet",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "emerald",
+      "priority": "high",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 4,
+      "notes": "Owner: Rushda\nForecast packet loss",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T14:30:28.962806+00:00",
+      "updatedAt": "2026-06-21T14:30:28.962806+00:00"
+    },
+    "an_risk_scoring": {
+      "id": "an_risk_scoring",
+      "title": "Risk Scoring",
+      "description": "Risk Scoring",
+      "parentId": "analytics",
+      "childIds": [
+        "an_risk_scoring_Weight_signals",
+        "an_risk_scoring_Generate_score",
+        "an_risk_scoring_Normalize_output"
+      ],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "emerald",
+      "priority": "high",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 18,
+      "notes": "Owner: Rushda\nRisk Scoring",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [
+        {
+          "id": "6c4d0853-91aa-4ee0-842d-ea03b2efd6cb",
+          "title": "Weight signals",
+          "completed": false
+        },
+        {
+          "id": "31f04fda-fa92-447f-b506-9fa405b5f827",
+          "title": "Generate score",
+          "completed": false
+        },
+        {
+          "id": "65e9ed60-b52f-475f-a06e-cd9801c60eb8",
+          "title": "Normalize output",
+          "completed": false
+        }
+      ],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T14:30:28.962806+00:00",
+      "updatedAt": "2026-06-21T14:30:28.962806+00:00"
+    },
+    "an_risk_scoring_Weight_signals": {
+      "id": "an_risk_scoring_Weight_signals",
+      "title": "Weight signals",
+      "description": "Weight signals",
+      "parentId": "an_risk_scoring",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "emerald",
+      "priority": "high",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 4,
+      "notes": "Owner: Rushda\nWeight signals",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T14:30:28.962806+00:00",
+      "updatedAt": "2026-06-21T14:30:28.962806+00:00"
+    },
+    "an_risk_scoring_Generate_score": {
+      "id": "an_risk_scoring_Generate_score",
+      "title": "Generate score",
+      "description": "Generate score",
+      "parentId": "an_risk_scoring",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "emerald",
+      "priority": "high",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 4,
+      "notes": "Owner: Rushda\nGenerate score",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T14:30:28.962806+00:00",
+      "updatedAt": "2026-06-21T14:30:28.962806+00:00"
+    },
+    "an_risk_scoring_Normalize_output": {
+      "id": "an_risk_scoring_Normalize_output",
+      "title": "Normalize output",
+      "description": "Normalize output",
+      "parentId": "an_risk_scoring",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "emerald",
+      "priority": "high",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 4,
+      "notes": "Owner: Rushda\nNormalize output",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T14:30:28.962806+00:00",
+      "updatedAt": "2026-06-21T14:30:28.962806+00:00"
+    },
+    "an_time_to_impact": {
+      "id": "an_time_to_impact",
+      "title": "Time To Impact",
+      "description": "Time To Impact",
+      "parentId": "analytics",
+      "childIds": [
+        "an_time_to_impact_Regression_model",
+        "an_time_to_impact_Lead_time_estimation",
+        "an_time_to_impact_Validation"
+      ],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "emerald",
+      "priority": "high",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 18,
+      "notes": "Owner: Rushda\nTime To Impact",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [
+        {
+          "id": "fbe8760a-8d56-4e47-b5df-61f575bfad35",
+          "title": "Regression model",
+          "completed": false
+        },
+        {
+          "id": "07951c30-0fb1-44be-b13f-14071c4c4917",
+          "title": "Lead time estimation",
+          "completed": false
+        },
+        {
+          "id": "c1c3c5d4-1836-47e8-8a44-9e5eaebc5773",
+          "title": "Validation",
+          "completed": false
+        }
+      ],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T14:30:28.962806+00:00",
+      "updatedAt": "2026-06-21T14:30:28.962806+00:00"
+    },
+    "an_time_to_impact_Regression_model": {
+      "id": "an_time_to_impact_Regression_model",
+      "title": "Regression model",
+      "description": "Regression model",
+      "parentId": "an_time_to_impact",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "emerald",
+      "priority": "high",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 4,
+      "notes": "Owner: Rushda\nRegression model",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T14:30:28.962806+00:00",
+      "updatedAt": "2026-06-21T14:30:28.962806+00:00"
+    },
+    "an_time_to_impact_Lead_time_estimation": {
+      "id": "an_time_to_impact_Lead_time_estimation",
+      "title": "Lead time estimation",
+      "description": "Lead time estimation",
+      "parentId": "an_time_to_impact",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "emerald",
+      "priority": "high",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 4,
+      "notes": "Owner: Rushda\nLead time estimation",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T14:30:28.962806+00:00",
+      "updatedAt": "2026-06-21T14:30:28.962806+00:00"
+    },
+    "an_time_to_impact_Validation": {
+      "id": "an_time_to_impact_Validation",
+      "title": "Validation",
+      "description": "Validation",
+      "parentId": "an_time_to_impact",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "emerald",
+      "priority": "high",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 4,
+      "notes": "Owner: Rushda\nValidation",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T14:30:28.962806+00:00",
+      "updatedAt": "2026-06-21T14:30:28.962806+00:00"
+    },
+    "cop_mistral_7b": {
+      "id": "cop_mistral_7b",
+      "title": "Mistral 7B",
+      "description": "Mistral 7B",
+      "parentId": "copilot",
+      "childIds": [
+        "cop_mistral_7b_Model_setup",
+        "cop_mistral_7b_Quantization",
+        "cop_mistral_7b_Benchmarking"
+      ],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "violet",
+      "priority": "high",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 14,
+      "notes": "Owner: Siddhi\nMistral 7B",
+      "resources": [
+        {
+          "id": "r3",
+          "title": "Ollama",
+          "url": "https://ollama.com",
+          "type": "tool"
+        },
+        {
+          "id": "r4",
+          "title": "ChromaDB",
+          "url": "https://www.trychroma.com",
+          "type": "tool"
+        }
+      ],
+      "prerequisites": [],
+      "childTasks": [
+        {
+          "id": "14f23178-c944-4acd-a24b-2d49ba61189b",
+          "title": "Model setup",
+          "completed": false
+        },
+        {
+          "id": "d7bda651-f70a-4764-9945-0c860116aaa8",
+          "title": "Quantization",
+          "completed": false
+        },
+        {
+          "id": "df71cb51-d2af-42dc-8fed-ed8db020a3a1",
+          "title": "Benchmarking",
+          "completed": false
+        }
+      ],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T14:30:28.962806+00:00",
+      "updatedAt": "2026-06-21T14:30:28.962806+00:00"
+    },
+    "cop_mistral_7b_Model_setup": {
+      "id": "cop_mistral_7b_Model_setup",
+      "title": "Model setup",
+      "description": "Model setup",
+      "parentId": "cop_mistral_7b",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "violet",
+      "priority": "high",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 4,
+      "notes": "Owner: Siddhi\nModel setup",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T14:30:28.962806+00:00",
+      "updatedAt": "2026-06-21T14:30:28.962806+00:00"
+    },
+    "cop_mistral_7b_Quantization": {
+      "id": "cop_mistral_7b_Quantization",
+      "title": "Quantization",
+      "description": "Quantization",
+      "parentId": "cop_mistral_7b",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "violet",
+      "priority": "high",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 4,
+      "notes": "Owner: Siddhi\nQuantization",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T14:30:28.962806+00:00",
+      "updatedAt": "2026-06-21T14:30:28.962806+00:00"
+    },
+    "cop_mistral_7b_Benchmarking": {
+      "id": "cop_mistral_7b_Benchmarking",
+      "title": "Benchmarking",
+      "description": "Benchmarking",
+      "parentId": "cop_mistral_7b",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "violet",
+      "priority": "high",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 4,
+      "notes": "Owner: Siddhi\nBenchmarking",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T14:30:28.962806+00:00",
+      "updatedAt": "2026-06-21T14:30:28.962806+00:00"
+    },
+    "cop_ollama": {
+      "id": "cop_ollama",
+      "title": "Ollama",
+      "description": "Ollama",
+      "parentId": "copilot",
+      "childIds": [
+        "cop_ollama_Local_serving",
+        "cop_ollama_Model_management",
+        "cop_ollama_API_integration"
+      ],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "violet",
+      "priority": "high",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 14,
+      "notes": "Owner: Siddhi\nOllama",
+      "resources": [
+        {
+          "id": "r3",
+          "title": "Ollama",
+          "url": "https://ollama.com",
+          "type": "tool"
+        },
+        {
+          "id": "r4",
+          "title": "ChromaDB",
+          "url": "https://www.trychroma.com",
+          "type": "tool"
+        }
+      ],
+      "prerequisites": [],
+      "childTasks": [
+        {
+          "id": "b30e2331-6c07-4409-8b0d-adb2fc385d26",
+          "title": "Local serving",
+          "completed": false
+        },
+        {
+          "id": "4161a8c6-df40-4fa1-baf4-5ed314a9f429",
+          "title": "Model management",
+          "completed": false
+        },
+        {
+          "id": "a4092c82-52ec-4ec7-89ee-a32bf9d7e2fe",
+          "title": "API integration",
+          "completed": false
+        }
+      ],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T14:30:28.962806+00:00",
+      "updatedAt": "2026-06-21T14:30:28.962806+00:00"
+    },
+    "cop_ollama_Local_serving": {
+      "id": "cop_ollama_Local_serving",
+      "title": "Local serving",
+      "description": "Local serving",
+      "parentId": "cop_ollama",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "violet",
+      "priority": "high",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 4,
+      "notes": "Owner: Siddhi\nLocal serving",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T14:30:28.962806+00:00",
+      "updatedAt": "2026-06-21T14:30:28.962806+00:00"
+    },
+    "cop_ollama_Model_management": {
+      "id": "cop_ollama_Model_management",
+      "title": "Model management",
+      "description": "Model management",
+      "parentId": "cop_ollama",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "violet",
+      "priority": "high",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 4,
+      "notes": "Owner: Siddhi\nModel management",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T14:30:28.962806+00:00",
+      "updatedAt": "2026-06-21T14:30:28.962806+00:00"
+    },
+    "cop_ollama_API_integration": {
+      "id": "cop_ollama_API_integration",
+      "title": "API integration",
+      "description": "API integration",
+      "parentId": "cop_ollama",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "violet",
+      "priority": "high",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 4,
+      "notes": "Owner: Siddhi\nAPI integration",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T14:30:28.962806+00:00",
+      "updatedAt": "2026-06-21T14:30:28.962806+00:00"
+    },
+    "cop_chromadb": {
+      "id": "cop_chromadb",
+      "title": "ChromaDB",
+      "description": "ChromaDB",
+      "parentId": "copilot",
+      "childIds": [
+        "cop_chromadb_Embeddings",
+        "cop_chromadb_Vector_indexing",
+        "cop_chromadb_Similarity_search"
+      ],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "violet",
+      "priority": "high",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 14,
+      "notes": "Owner: Siddhi\nChromaDB",
+      "resources": [
+        {
+          "id": "r3",
+          "title": "Ollama",
+          "url": "https://ollama.com",
+          "type": "tool"
+        },
+        {
+          "id": "r4",
+          "title": "ChromaDB",
+          "url": "https://www.trychroma.com",
+          "type": "tool"
+        }
+      ],
+      "prerequisites": [],
+      "childTasks": [
+        {
+          "id": "0121c217-5f1b-4a58-a63c-5ce5b7a8b5f8",
+          "title": "Embeddings",
+          "completed": false
+        },
+        {
+          "id": "1a6c2e96-6b3a-465d-a8cb-d2d06ed1c49e",
+          "title": "Vector indexing",
+          "completed": false
+        },
+        {
+          "id": "5c226ef0-1b37-4102-91db-b4dbd8156bfc",
+          "title": "Similarity search",
+          "completed": false
+        }
+      ],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T14:30:28.962806+00:00",
+      "updatedAt": "2026-06-21T14:30:28.962806+00:00"
+    },
+    "cop_chromadb_Embeddings": {
+      "id": "cop_chromadb_Embeddings",
+      "title": "Embeddings",
+      "description": "Embeddings",
+      "parentId": "cop_chromadb",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "violet",
+      "priority": "high",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 4,
+      "notes": "Owner: Siddhi\nEmbeddings",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T14:30:28.962806+00:00",
+      "updatedAt": "2026-06-21T14:30:28.962806+00:00"
+    },
+    "cop_chromadb_Vector_indexing": {
+      "id": "cop_chromadb_Vector_indexing",
+      "title": "Vector indexing",
+      "description": "Vector indexing",
+      "parentId": "cop_chromadb",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "violet",
+      "priority": "high",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 4,
+      "notes": "Owner: Siddhi\nVector indexing",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T14:30:28.962806+00:00",
+      "updatedAt": "2026-06-21T14:30:28.962806+00:00"
+    },
+    "cop_chromadb_Similarity_search": {
+      "id": "cop_chromadb_Similarity_search",
+      "title": "Similarity search",
+      "description": "Similarity search",
+      "parentId": "cop_chromadb",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "violet",
+      "priority": "high",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 4,
+      "notes": "Owner: Siddhi\nSimilarity search",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T14:30:28.962806+00:00",
+      "updatedAt": "2026-06-21T14:30:28.962806+00:00"
+    },
+    "cop_runbooks": {
+      "id": "cop_runbooks",
+      "title": "Runbooks",
+      "description": "Runbooks",
+      "parentId": "copilot",
+      "childIds": [
+        "cop_runbooks_Congestion_runbook",
+        "cop_runbooks_BGP_runbook",
+        "cop_runbooks_Tunnel_runbook"
+      ],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "violet",
+      "priority": "high",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 14,
+      "notes": "Owner: Siddhi\nRunbooks",
+      "resources": [
+        {
+          "id": "r3",
+          "title": "Ollama",
+          "url": "https://ollama.com",
+          "type": "tool"
+        },
+        {
+          "id": "r4",
+          "title": "ChromaDB",
+          "url": "https://www.trychroma.com",
+          "type": "tool"
+        }
+      ],
+      "prerequisites": [],
+      "childTasks": [
+        {
+          "id": "926719d3-aeb0-4751-8da5-021c94079039",
+          "title": "Congestion runbook",
+          "completed": false
+        },
+        {
+          "id": "f5ff389c-4a3c-4c3c-a0b3-834291241ab6",
+          "title": "BGP runbook",
+          "completed": false
+        },
+        {
+          "id": "d8b5bd41-9031-47cf-831a-595168f22309",
+          "title": "Tunnel runbook",
+          "completed": false
+        }
+      ],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T14:30:28.962806+00:00",
+      "updatedAt": "2026-06-21T14:30:28.962806+00:00"
+    },
+    "cop_runbooks_Congestion_runbook": {
+      "id": "cop_runbooks_Congestion_runbook",
+      "title": "Congestion runbook",
+      "description": "Congestion runbook",
+      "parentId": "cop_runbooks",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "violet",
+      "priority": "high",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 4,
+      "notes": "Owner: Siddhi\nCongestion runbook",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T14:30:28.962806+00:00",
+      "updatedAt": "2026-06-21T14:30:28.962806+00:00"
+    },
+    "cop_runbooks_BGP_runbook": {
+      "id": "cop_runbooks_BGP_runbook",
+      "title": "BGP runbook",
+      "description": "BGP runbook",
+      "parentId": "cop_runbooks",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "violet",
+      "priority": "high",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 4,
+      "notes": "Owner: Siddhi\nBGP runbook",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T14:30:28.962806+00:00",
+      "updatedAt": "2026-06-21T14:30:28.962806+00:00"
+    },
+    "cop_runbooks_Tunnel_runbook": {
+      "id": "cop_runbooks_Tunnel_runbook",
+      "title": "Tunnel runbook",
+      "description": "Tunnel runbook",
+      "parentId": "cop_runbooks",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "violet",
+      "priority": "high",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 4,
+      "notes": "Owner: Siddhi\nTunnel runbook",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T14:30:28.962806+00:00",
+      "updatedAt": "2026-06-21T14:30:28.962806+00:00"
+    },
+    "cop_rag_pipeline": {
+      "id": "cop_rag_pipeline",
+      "title": "RAG Pipeline",
+      "description": "RAG Pipeline",
+      "parentId": "copilot",
+      "childIds": [
+        "cop_rag_pipeline_Retriever",
+        "cop_rag_pipeline_Prompt_template",
+        "cop_rag_pipeline_Context_injection"
+      ],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "violet",
+      "priority": "high",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 14,
+      "notes": "Owner: Siddhi\nRAG Pipeline",
+      "resources": [
+        {
+          "id": "r3",
+          "title": "Ollama",
+          "url": "https://ollama.com",
+          "type": "tool"
+        },
+        {
+          "id": "r4",
+          "title": "ChromaDB",
+          "url": "https://www.trychroma.com",
+          "type": "tool"
+        }
+      ],
+      "prerequisites": [],
+      "childTasks": [
+        {
+          "id": "7f06f15f-dd3e-4424-b72a-bc2fda53f742",
+          "title": "Retriever",
+          "completed": false
+        },
+        {
+          "id": "45cd49bf-a62b-4089-af6e-fc6aacedad26",
+          "title": "Prompt template",
+          "completed": false
+        },
+        {
+          "id": "261f0bb5-2d2c-4557-b7c9-02427f6ccfb3",
+          "title": "Context injection",
+          "completed": false
+        }
+      ],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T14:30:28.962806+00:00",
+      "updatedAt": "2026-06-21T14:30:28.962806+00:00"
+    },
+    "cop_rag_pipeline_Retriever": {
+      "id": "cop_rag_pipeline_Retriever",
+      "title": "Retriever",
+      "description": "Retriever",
+      "parentId": "cop_rag_pipeline",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "violet",
+      "priority": "high",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 4,
+      "notes": "Owner: Siddhi\nRetriever",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T14:30:28.962806+00:00",
+      "updatedAt": "2026-06-21T14:30:28.962806+00:00"
+    },
+    "cop_rag_pipeline_Prompt_template": {
+      "id": "cop_rag_pipeline_Prompt_template",
+      "title": "Prompt template",
+      "description": "Prompt template",
+      "parentId": "cop_rag_pipeline",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "violet",
+      "priority": "high",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 4,
+      "notes": "Owner: Siddhi\nPrompt template",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T14:30:28.962806+00:00",
+      "updatedAt": "2026-06-21T14:30:28.962806+00:00"
+    },
+    "cop_rag_pipeline_Context_injection": {
+      "id": "cop_rag_pipeline_Context_injection",
+      "title": "Context injection",
+      "description": "Context injection",
+      "parentId": "cop_rag_pipeline",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "violet",
+      "priority": "high",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 4,
+      "notes": "Owner: Siddhi\nContext injection",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T14:30:28.962806+00:00",
+      "updatedAt": "2026-06-21T14:30:28.962806+00:00"
+    },
+    "graph_topology_graph": {
+      "id": "graph_topology_graph",
+      "title": "Topology Graph",
+      "description": "Topology Graph",
+      "parentId": "graph",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "rose",
+      "priority": "high",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 12,
+      "notes": "Owner: Ajinkya\nTopology Graph",
+      "resources": [
+        {
+          "id": "r5",
+          "title": "NetworkX",
+          "url": "https://networkx.org",
+          "type": "tool"
+        }
+      ],
+      "prerequisites": [],
+      "childTasks": [
+        {
+          "id": "8b892961-572b-4b5a-b75c-3ca820bb61ad",
+          "title": "Design",
+          "completed": false
+        },
+        {
+          "id": "a60d1608-85ea-47bb-9a4b-ff83c72507fc",
+          "title": "Implement",
+          "completed": false
+        },
+        {
+          "id": "5311e7f8-2fbc-46d6-9da6-a88a289424ff",
+          "title": "Validate",
+          "completed": false
+        }
+      ],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T14:30:28.962806+00:00",
+      "updatedAt": "2026-06-21T14:30:28.962806+00:00"
+    },
+    "graph_blast_radius": {
+      "id": "graph_blast_radius",
+      "title": "Blast Radius",
+      "description": "Blast Radius",
+      "parentId": "graph",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "rose",
+      "priority": "high",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 12,
+      "notes": "Owner: Ajinkya\nBlast Radius",
+      "resources": [
+        {
+          "id": "r5",
+          "title": "NetworkX",
+          "url": "https://networkx.org",
+          "type": "tool"
+        }
+      ],
+      "prerequisites": [],
+      "childTasks": [
+        {
+          "id": "e31fe466-0e9f-4176-83be-bb59c3026cab",
+          "title": "Design",
+          "completed": false
+        },
+        {
+          "id": "db56af8e-830a-4d7e-a860-b14c60e3daa1",
+          "title": "Implement",
+          "completed": false
+        },
+        {
+          "id": "b5d56e1e-5d37-4e54-b57f-84044b2a0c35",
+          "title": "Validate",
+          "completed": false
+        }
+      ],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T14:30:28.962806+00:00",
+      "updatedAt": "2026-06-21T14:30:28.962806+00:00"
+    },
+    "graph_dependency_graph": {
+      "id": "graph_dependency_graph",
+      "title": "Dependency Graph",
+      "description": "Dependency Graph",
+      "parentId": "graph",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "rose",
+      "priority": "high",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 12,
+      "notes": "Owner: Ajinkya\nDependency Graph",
+      "resources": [
+        {
+          "id": "r5",
+          "title": "NetworkX",
+          "url": "https://networkx.org",
+          "type": "tool"
+        }
+      ],
+      "prerequisites": [],
+      "childTasks": [
+        {
+          "id": "a1767ba0-6ade-478a-bb31-6abc3f924c75",
+          "title": "Design",
+          "completed": false
+        },
+        {
+          "id": "f171a996-54f4-4c4a-8f47-abddd33c0d94",
+          "title": "Implement",
+          "completed": false
+        },
+        {
+          "id": "4b96f5ca-8e6f-41c2-a415-0aeb3645625e",
+          "title": "Validate",
+          "completed": false
+        }
+      ],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T14:30:28.962806+00:00",
+      "updatedAt": "2026-06-21T14:30:28.962806+00:00"
+    },
+    "graph_impact_estimation": {
+      "id": "graph_impact_estimation",
+      "title": "Impact Estimation",
+      "description": "Impact Estimation",
+      "parentId": "graph",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "rose",
+      "priority": "high",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 12,
+      "notes": "Owner: Ajinkya\nImpact Estimation",
+      "resources": [
+        {
+          "id": "r5",
+          "title": "NetworkX",
+          "url": "https://networkx.org",
+          "type": "tool"
+        }
+      ],
+      "prerequisites": [],
+      "childTasks": [
+        {
+          "id": "f7fc45ea-9f96-4ec9-bc6d-c18a2ef8122b",
+          "title": "Design",
+          "completed": false
+        },
+        {
+          "id": "769cd1fd-88e8-4c13-b44f-f05099f43651",
+          "title": "Implement",
+          "completed": false
+        },
+        {
+          "id": "857187a5-800a-42f5-8751-af7846caa983",
+          "title": "Validate",
+          "completed": false
+        }
+      ],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T14:30:28.962806+00:00",
+      "updatedAt": "2026-06-21T14:30:28.962806+00:00"
+    },
+    "dec_counterfactual_simulation": {
+      "id": "dec_counterfactual_simulation",
+      "title": "Counterfactual Simulation",
+      "description": "Counterfactual Simulation",
+      "parentId": "decision",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "amber",
+      "priority": "high",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 12,
+      "notes": "Owner: Ajinkya\nCounterfactual Simulation",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [
+        {
+          "id": "65e1be11-861c-43cf-bb04-7d3ed069b93a",
+          "title": "Design logic",
+          "completed": false
+        },
+        {
+          "id": "c2484a5b-98ba-47d4-989d-8e24505dbabc",
+          "title": "Implement",
+          "completed": false
+        },
+        {
+          "id": "8af771fd-9a17-478d-b44a-1a87c9807b17",
+          "title": "Test",
+          "completed": false
+        }
+      ],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T14:30:28.962806+00:00",
+      "updatedAt": "2026-06-21T14:30:28.962806+00:00"
+    },
+    "dec_action_ranking": {
+      "id": "dec_action_ranking",
+      "title": "Action Ranking",
+      "description": "Action Ranking",
+      "parentId": "decision",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "amber",
+      "priority": "high",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 12,
+      "notes": "Owner: Ajinkya\nAction Ranking",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [
+        {
+          "id": "7be25e39-937d-43d2-a48c-c3149fb7b0d6",
+          "title": "Design logic",
+          "completed": false
+        },
+        {
+          "id": "9f180cdb-3ad3-4c6a-9ef6-ed7bb7052fd3",
+          "title": "Implement",
+          "completed": false
+        },
+        {
+          "id": "0d703459-c1fa-4297-ad73-ddfb8471328d",
+          "title": "Test",
+          "completed": false
+        }
+      ],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T14:30:28.962806+00:00",
+      "updatedAt": "2026-06-21T14:30:28.962806+00:00"
+    },
+    "dec_risk_reduction_score": {
+      "id": "dec_risk_reduction_score",
+      "title": "Risk Reduction Score",
+      "description": "Risk Reduction Score",
+      "parentId": "decision",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "amber",
+      "priority": "high",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 12,
+      "notes": "Owner: Ajinkya\nRisk Reduction Score",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [
+        {
+          "id": "9ca78363-0c17-4939-8228-e085a39a9891",
+          "title": "Design logic",
+          "completed": false
+        },
+        {
+          "id": "99abca2d-4515-4bea-81e6-cd9f32233e42",
+          "title": "Implement",
+          "completed": false
+        },
+        {
+          "id": "c57d33fe-db00-4686-bd1c-26577522c7b7",
+          "title": "Test",
+          "completed": false
+        }
+      ],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T14:30:28.962806+00:00",
+      "updatedAt": "2026-06-21T14:30:28.962806+00:00"
+    },
+    "dec_recommendation_engine": {
+      "id": "dec_recommendation_engine",
+      "title": "Recommendation Engine",
+      "description": "Recommendation Engine",
+      "parentId": "decision",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "amber",
+      "priority": "high",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 12,
+      "notes": "Owner: Ajinkya\nRecommendation Engine",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [
+        {
+          "id": "28e2bb7e-be8e-4d39-aef3-b931411b737c",
+          "title": "Design logic",
+          "completed": false
+        },
+        {
+          "id": "819c2e69-973c-405c-8bc3-f785dd13f8d9",
+          "title": "Implement",
+          "completed": false
+        },
+        {
+          "id": "e511dc62-fbf7-4956-90bd-54cc06b04f21",
+          "title": "Test",
+          "completed": false
+        }
+      ],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T14:30:28.962806+00:00",
+      "updatedAt": "2026-06-21T14:30:28.962806+00:00"
+    },
+    "dash_topology_view": {
+      "id": "dash_topology_view",
+      "title": "Topology View",
+      "description": "Topology View",
+      "parentId": "dashboard",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "indigo",
+      "priority": "high",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 10,
+      "notes": "Owner: Ajinkya\nTopology View",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [
+        {
+          "id": "1e1f5cb3-9083-4c94-b0c4-7cd2feb2f67e",
+          "title": "UI",
+          "completed": false
+        },
+        {
+          "id": "5acb0229-de0d-42c1-a141-946f34411f26",
+          "title": "Backend",
+          "completed": false
+        },
+        {
+          "id": "89a36179-cbab-4233-b336-273befd5ed31",
+          "title": "Testing",
+          "completed": false
+        }
+      ],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T14:30:28.962806+00:00",
+      "updatedAt": "2026-06-21T14:30:28.962806+00:00"
+    },
+    "dash_telemetry_view": {
+      "id": "dash_telemetry_view",
+      "title": "Telemetry View",
+      "description": "Telemetry View",
+      "parentId": "dashboard",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "indigo",
+      "priority": "high",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 10,
+      "notes": "Owner: Ajinkya\nTelemetry View",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [
+        {
+          "id": "faf69507-5416-436a-9c18-712c4e59e4c6",
+          "title": "UI",
+          "completed": false
+        },
+        {
+          "id": "e70a667d-718f-4776-b3e2-82db74e700e4",
+          "title": "Backend",
+          "completed": false
+        },
+        {
+          "id": "03a40435-cdbe-48b0-a8c9-587ea181cea2",
+          "title": "Testing",
+          "completed": false
+        }
+      ],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T14:30:28.962806+00:00",
+      "updatedAt": "2026-06-21T14:30:28.962806+00:00"
+    },
+    "dash_risk_heatmap": {
+      "id": "dash_risk_heatmap",
+      "title": "Risk Heatmap",
+      "description": "Risk Heatmap",
+      "parentId": "dashboard",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "indigo",
+      "priority": "high",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 10,
+      "notes": "Owner: Ajinkya\nRisk Heatmap",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [
+        {
+          "id": "ecc2fa80-7329-4a1a-8d50-bfebecbe3ae1",
+          "title": "UI",
+          "completed": false
+        },
+        {
+          "id": "ad0d63b8-cc13-4e10-b498-f0b6a920ce86",
+          "title": "Backend",
+          "completed": false
+        },
+        {
+          "id": "2a3d4b4a-e06d-45a8-94ac-660f1e472361",
+          "title": "Testing",
+          "completed": false
+        }
+      ],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T14:30:28.962806+00:00",
+      "updatedAt": "2026-06-21T14:30:28.962806+00:00"
+    },
+    "dash_copilot_chat": {
+      "id": "dash_copilot_chat",
+      "title": "Copilot Chat",
+      "description": "Copilot Chat",
+      "parentId": "dashboard",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "indigo",
+      "priority": "high",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 10,
+      "notes": "Owner: Ajinkya\nCopilot Chat",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [
+        {
+          "id": "ead9dbd9-308c-48d8-bc21-97db49b5b52d",
+          "title": "UI",
+          "completed": false
+        },
+        {
+          "id": "207b5532-452f-4194-90b7-1c652d1a900b",
+          "title": "Backend",
+          "completed": false
+        },
+        {
+          "id": "c4d1619d-d956-4aa9-acfc-8f6fc1e464ec",
+          "title": "Testing",
+          "completed": false
+        }
+      ],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T14:30:28.962806+00:00",
+      "updatedAt": "2026-06-21T14:30:28.962806+00:00"
+    },
+    "dash_scenario_console": {
+      "id": "dash_scenario_console",
+      "title": "Scenario Console",
+      "description": "Scenario Console",
+      "parentId": "dashboard",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "indigo",
+      "priority": "high",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 10,
+      "notes": "Owner: Ajinkya\nScenario Console",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [
+        {
+          "id": "cde2c90a-6d82-467b-943a-69f948df0898",
+          "title": "UI",
+          "completed": false
+        },
+        {
+          "id": "8934d446-53da-43cd-b5e8-c7c5dcf6d6f5",
+          "title": "Backend",
+          "completed": false
+        },
+        {
+          "id": "f79fc28d-ee02-4849-9b02-34cc46a17cde",
+          "title": "Testing",
+          "completed": false
+        }
+      ],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T14:30:28.962806+00:00",
+      "updatedAt": "2026-06-21T14:30:28.962806+00:00"
+    },
+    "demo_congestion_build_up": {
+      "id": "demo_congestion_build_up",
+      "title": "Congestion Build Up",
+      "description": "Congestion Build Up",
+      "parentId": "demo",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "rose",
+      "priority": "high",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 8,
+      "notes": "Owner: Team\nCongestion Build Up",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [
+        {
+          "id": "2ecede51-2ada-4a39-aa5a-d8b85c610542",
+          "title": "Inject fault",
+          "completed": false
+        },
+        {
+          "id": "074fc7f8-5584-4849-88ce-799002f7eb4c",
+          "title": "Capture telemetry",
+          "completed": false
+        },
+        {
+          "id": "b5876f7c-519f-4ab0-826e-c3770342432b",
+          "title": "Predict",
+          "completed": false
+        },
+        {
+          "id": "df48095c-8460-4aa6-b100-9f05a5a3c9d3",
+          "title": "Explain",
+          "completed": false
+        },
+        {
+          "id": "b800bdb6-b2c2-4d7d-801b-8acd3bdf05d6",
+          "title": "Recommend",
+          "completed": false
+        }
+      ],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T14:30:28.962806+00:00",
+      "updatedAt": "2026-06-21T14:30:28.962806+00:00"
+    },
+    "demo_bgp_route_flap": {
+      "id": "demo_bgp_route_flap",
+      "title": "BGP Route Flap",
+      "description": "BGP Route Flap",
+      "parentId": "demo",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "rose",
+      "priority": "high",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 8,
+      "notes": "Owner: Team\nBGP Route Flap",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [
+        {
+          "id": "b50603f4-769f-4048-b5db-09f68e7a0540",
+          "title": "Inject fault",
+          "completed": false
+        },
+        {
+          "id": "d3b6b167-8241-471b-833f-590dcfeb42b1",
+          "title": "Capture telemetry",
+          "completed": false
+        },
+        {
+          "id": "bcf59f83-ddab-44e1-810b-c4c97a570753",
+          "title": "Predict",
+          "completed": false
+        },
+        {
+          "id": "8b65ac61-8bd3-420f-9467-69a8e14845e5",
+          "title": "Explain",
+          "completed": false
+        },
+        {
+          "id": "aca038bd-d5e0-40fd-bf8d-26f11d719e44",
+          "title": "Recommend",
+          "completed": false
+        }
+      ],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T14:30:28.962806+00:00",
+      "updatedAt": "2026-06-21T14:30:28.962806+00:00"
+    },
+    "demo_tunnel_degradation": {
+      "id": "demo_tunnel_degradation",
+      "title": "Tunnel Degradation",
+      "description": "Tunnel Degradation",
+      "parentId": "demo",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "rose",
+      "priority": "high",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 8,
+      "notes": "Owner: Team\nTunnel Degradation",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [
+        {
+          "id": "c70ac6d4-80d2-4496-a2ad-b42df60924eb",
+          "title": "Inject fault",
+          "completed": false
+        },
+        {
+          "id": "b082b3e5-e52e-4220-8a92-735aa216a9fe",
+          "title": "Capture telemetry",
+          "completed": false
+        },
+        {
+          "id": "65d5794c-1fd2-402e-8bee-882808363866",
+          "title": "Predict",
+          "completed": false
+        },
+        {
+          "id": "a58f4290-749c-4934-b1d8-49fa7b4ec0a8",
+          "title": "Explain",
+          "completed": false
+        },
+        {
+          "id": "26c07283-9da8-418e-bb61-41b87a25c32f",
+          "title": "Recommend",
+          "completed": false
+        }
+      ],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T14:30:28.962806+00:00",
+      "updatedAt": "2026-06-21T14:30:28.962806+00:00"
+    },
+    "demo_policy_drift": {
+      "id": "demo_policy_drift",
+      "title": "Policy Drift",
+      "description": "Policy Drift",
+      "parentId": "demo",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "rose",
+      "priority": "high",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 8,
+      "notes": "Owner: Team\nPolicy Drift",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [
+        {
+          "id": "48090c9a-3873-451c-8fbf-d305581cbb08",
+          "title": "Inject fault",
+          "completed": false
+        },
+        {
+          "id": "0045c6dc-d9b0-4cdd-9aa4-3b5d0a58d5c8",
+          "title": "Capture telemetry",
+          "completed": false
+        },
+        {
+          "id": "ee97cdf3-5c7e-406a-9577-cb776869c6a8",
+          "title": "Predict",
+          "completed": false
+        },
+        {
+          "id": "6a8fe7a1-3b5f-40a8-a4b5-475a4992b728",
+          "title": "Explain",
+          "completed": false
+        },
+        {
+          "id": "b734bc60-268b-4da2-9c9e-e27b577dcbc7",
+          "title": "Recommend",
+          "completed": false
+        }
+      ],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T14:30:28.962806+00:00",
+      "updatedAt": "2026-06-21T14:30:28.962806+00:00"
+    },
+    "demo_mpls_failure": {
+      "id": "demo_mpls_failure",
+      "title": "MPLS Failure",
+      "description": "MPLS Failure",
+      "parentId": "demo",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "rose",
+      "priority": "high",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 8,
+      "notes": "Owner: Team\nMPLS Failure",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [
+        {
+          "id": "a011c7c2-3510-4e1a-aa75-0ca37b22fff6",
+          "title": "Inject fault",
+          "completed": false
+        },
+        {
+          "id": "ada8c9e2-4b93-4504-b769-c092582e5698",
+          "title": "Capture telemetry",
+          "completed": false
+        },
+        {
+          "id": "2a6feb03-ddcc-4f1f-bbe4-88cccf29006d",
+          "title": "Predict",
+          "completed": false
+        },
+        {
+          "id": "280d947d-df83-4518-9350-df55d01ffc10",
+          "title": "Explain",
+          "completed": false
+        },
+        {
+          "id": "49fb1c5a-f6f5-429d-847c-7cdd971a8956",
+          "title": "Recommend",
+          "completed": false
+        }
+      ],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T14:30:28.962806+00:00",
+      "updatedAt": "2026-06-21T14:30:28.962806+00:00"
+    },
+    "team_ajinkya": {
+      "id": "team_ajinkya",
+      "title": "Ajinkya",
+      "description": "Responsibilities for Ajinkya",
+      "parentId": "team",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "amber",
+      "priority": "high",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 8,
+      "notes": "Owner: Ajinkya\nResponsibilities for Ajinkya",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T14:30:28.962806+00:00",
+      "updatedAt": "2026-06-21T14:30:28.962806+00:00"
+    },
+    "team_rushda": {
+      "id": "team_rushda",
+      "title": "Rushda",
+      "description": "Responsibilities for Rushda",
+      "parentId": "team",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "amber",
+      "priority": "high",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 8,
+      "notes": "Owner: Rushda\nResponsibilities for Rushda",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T14:30:28.962806+00:00",
+      "updatedAt": "2026-06-21T14:30:28.962806+00:00"
+    },
+    "team_siddhi": {
+      "id": "team_siddhi",
+      "title": "Siddhi",
+      "description": "Responsibilities for Siddhi",
+      "parentId": "team",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "amber",
+      "priority": "high",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 8,
+      "notes": "Owner: Siddhi\nResponsibilities for Siddhi",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T14:30:28.962806+00:00",
+      "updatedAt": "2026-06-21T14:30:28.962806+00:00"
+    },
+    "team_sanmit": {
+      "id": "team_sanmit",
+      "title": "Sanmit",
+      "description": "Responsibilities for Sanmit",
+      "parentId": "team",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "amber",
+      "priority": "high",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 8,
+      "notes": "Owner: Sanmit\nResponsibilities for Sanmit",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T14:30:28.962806+00:00",
+      "updatedAt": "2026-06-21T14:30:28.962806+00:00"
+    },
+    "day_1": {
+      "id": "day_1",
+      "title": "Day 1",
+      "description": "Execution plan for day 1",
+      "parentId": "roadmap",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "emerald",
+      "priority": "high",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 8,
+      "notes": "Owner: Team\nExecution plan for day 1",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [
+        {
+          "id": "963b0402-46a7-4764-a2b4-ba53ec42e574",
+          "title": "Deliver Day 1 milestone",
+          "completed": false
+        },
+        {
+          "id": "59301804-c80e-4382-b40a-2e95325ed9e9",
+          "title": "Review blockers",
+          "completed": false
+        },
+        {
+          "id": "1070afd5-a570-471a-9165-62f0ff90c645",
+          "title": "Commit code",
+          "completed": false
+        }
+      ],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T14:30:28.962806+00:00",
+      "updatedAt": "2026-06-21T14:30:28.962806+00:00"
+    },
+    "day_2": {
+      "id": "day_2",
+      "title": "Day 2",
+      "description": "Execution plan for day 2",
+      "parentId": "roadmap",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "emerald",
+      "priority": "high",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 8,
+      "notes": "Owner: Team\nExecution plan for day 2",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [
+        {
+          "id": "fbcc92bb-cdfa-45ff-8415-2066902efc32",
+          "title": "Deliver Day 2 milestone",
+          "completed": false
+        },
+        {
+          "id": "77081399-1668-47dd-9fdf-b533e83d9119",
+          "title": "Review blockers",
+          "completed": false
+        },
+        {
+          "id": "af748a7e-89b3-46a1-a606-2623d9b21a93",
+          "title": "Commit code",
+          "completed": false
+        }
+      ],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T14:30:28.962806+00:00",
+      "updatedAt": "2026-06-21T14:30:28.962806+00:00"
+    },
+    "day_3": {
+      "id": "day_3",
+      "title": "Day 3",
+      "description": "Execution plan for day 3",
+      "parentId": "roadmap",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "emerald",
+      "priority": "high",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 8,
+      "notes": "Owner: Team\nExecution plan for day 3",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [
+        {
+          "id": "026bd9b5-1e52-4a5a-87f0-75b9b507a6b8",
+          "title": "Deliver Day 3 milestone",
+          "completed": false
+        },
+        {
+          "id": "4dcf70a8-67f7-44a7-b11a-b5258cd1c00d",
+          "title": "Review blockers",
+          "completed": false
+        },
+        {
+          "id": "00c6110f-a588-4a28-a50f-d3f6b5a15ffd",
+          "title": "Commit code",
+          "completed": false
+        }
+      ],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T14:30:28.962806+00:00",
+      "updatedAt": "2026-06-21T14:30:28.962806+00:00"
+    },
+    "day_4": {
+      "id": "day_4",
+      "title": "Day 4",
+      "description": "Execution plan for day 4",
+      "parentId": "roadmap",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "emerald",
+      "priority": "high",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 8,
+      "notes": "Owner: Team\nExecution plan for day 4",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [
+        {
+          "id": "c24c952f-ce80-421f-9b21-0714a81b62ef",
+          "title": "Deliver Day 4 milestone",
+          "completed": false
+        },
+        {
+          "id": "33a33cff-3129-4706-8663-d9b843be8ab3",
+          "title": "Review blockers",
+          "completed": false
+        },
+        {
+          "id": "dbcfca8f-6dd0-455e-85aa-a06258672b9c",
+          "title": "Commit code",
+          "completed": false
+        }
+      ],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T14:30:28.962806+00:00",
+      "updatedAt": "2026-06-21T14:30:28.962806+00:00"
+    },
+    "day_5": {
+      "id": "day_5",
+      "title": "Day 5",
+      "description": "Execution plan for day 5",
+      "parentId": "roadmap",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "emerald",
+      "priority": "high",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 8,
+      "notes": "Owner: Team\nExecution plan for day 5",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [
+        {
+          "id": "90e58df7-63a8-4b9a-ad57-adaa35d63f46",
+          "title": "Deliver Day 5 milestone",
+          "completed": false
+        },
+        {
+          "id": "b194fd85-c9ad-4b71-b5ca-968b550b5346",
+          "title": "Review blockers",
+          "completed": false
+        },
+        {
+          "id": "3c54d255-18a1-4355-a752-1ac8b86ae082",
+          "title": "Commit code",
+          "completed": false
+        }
+      ],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T14:30:28.962806+00:00",
+      "updatedAt": "2026-06-21T14:30:28.962806+00:00"
+    },
+    "day_6": {
+      "id": "day_6",
+      "title": "Day 6",
+      "description": "Execution plan for day 6",
+      "parentId": "roadmap",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "emerald",
+      "priority": "high",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 8,
+      "notes": "Owner: Team\nExecution plan for day 6",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [
+        {
+          "id": "685801f2-74bd-44ba-945a-a421b2a217e7",
+          "title": "Deliver Day 6 milestone",
+          "completed": false
+        },
+        {
+          "id": "27dde0ba-6475-4048-a15c-dcc77616bcaf",
+          "title": "Review blockers",
+          "completed": false
+        },
+        {
+          "id": "c0132d60-2c8a-4dc3-9f9c-d48cc6e459c3",
+          "title": "Commit code",
+          "completed": false
+        }
+      ],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T14:30:28.962806+00:00",
+      "updatedAt": "2026-06-21T14:30:28.962806+00:00"
+    },
+    "day_7": {
+      "id": "day_7",
+      "title": "Day 7",
+      "description": "Execution plan for day 7",
+      "parentId": "roadmap",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "emerald",
+      "priority": "high",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 8,
+      "notes": "Owner: Team\nExecution plan for day 7",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [
+        {
+          "id": "1f2cf77e-2027-4963-b2ea-ba3997643cfa",
+          "title": "Deliver Day 7 milestone",
+          "completed": false
+        },
+        {
+          "id": "8f78ca36-d51c-43b9-bb2a-9debb5bb4425",
+          "title": "Review blockers",
+          "completed": false
+        },
+        {
+          "id": "9057def2-655a-4743-9c2b-1cbddb97c8f4",
+          "title": "Commit code",
+          "completed": false
+        }
+      ],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T14:30:28.962806+00:00",
+      "updatedAt": "2026-06-21T14:30:28.962806+00:00"
+    },
+    "day_8": {
+      "id": "day_8",
+      "title": "Day 8",
+      "description": "Execution plan for day 8",
+      "parentId": "roadmap",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "emerald",
+      "priority": "high",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 8,
+      "notes": "Owner: Team\nExecution plan for day 8",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [
+        {
+          "id": "08c5b788-ce7c-4b9e-8ec1-b6db930b208a",
+          "title": "Deliver Day 8 milestone",
+          "completed": false
+        },
+        {
+          "id": "de75855f-187c-4931-8f0b-31b6988b3459",
+          "title": "Review blockers",
+          "completed": false
+        },
+        {
+          "id": "228300f4-583d-4047-a809-28191bf84b52",
+          "title": "Commit code",
+          "completed": false
+        }
+      ],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T14:30:28.962806+00:00",
+      "updatedAt": "2026-06-21T14:30:28.962806+00:00"
+    },
+    "eval_technical_merit": {
+      "id": "eval_technical_merit",
+      "title": "Technical Merit",
+      "description": "Technical Merit",
+      "parentId": "evaluation",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "cyan",
+      "priority": "high",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 4,
+      "notes": "Owner: Team\nTechnical Merit",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [
+        {
+          "id": "420a0894-b36c-46e9-83b1-3490acad6f25",
+          "title": "Measure",
+          "completed": false
+        },
+        {
+          "id": "d44c86c9-c556-45c4-aa86-f49bf0fe2859",
+          "title": "Validate",
+          "completed": false
+        },
+        {
+          "id": "8063a827-25e1-422a-a5b2-486ea764bbd1",
+          "title": "Document",
+          "completed": false
+        }
+      ],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T14:30:28.962806+00:00",
+      "updatedAt": "2026-06-21T14:30:28.962806+00:00"
+    },
+    "eval_copilot_effectiveness": {
+      "id": "eval_copilot_effectiveness",
+      "title": "Copilot Effectiveness",
+      "description": "Copilot Effectiveness",
+      "parentId": "evaluation",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "cyan",
+      "priority": "high",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 4,
+      "notes": "Owner: Team\nCopilot Effectiveness",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [
+        {
+          "id": "f2eb1fe4-5e44-445d-a432-fc3c6771b4cc",
+          "title": "Measure",
+          "completed": false
+        },
+        {
+          "id": "5fa63ba2-9563-438f-b10f-d0a7a5684188",
+          "title": "Validate",
+          "completed": false
+        },
+        {
+          "id": "05941048-1226-447f-8afe-cc973574c86f",
+          "title": "Document",
+          "completed": false
+        }
+      ],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T14:30:28.962806+00:00",
+      "updatedAt": "2026-06-21T14:30:28.962806+00:00"
+    },
+    "eval_security_compliance": {
+      "id": "eval_security_compliance",
+      "title": "Security Compliance",
+      "description": "Security Compliance",
+      "parentId": "evaluation",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "cyan",
+      "priority": "high",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 4,
+      "notes": "Owner: Team\nSecurity Compliance",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [
+        {
+          "id": "35ed4acc-35bc-4b72-bdc6-f26b0fb17fa9",
+          "title": "Measure",
+          "completed": false
+        },
+        {
+          "id": "c443acda-c218-4123-bc8e-59c34a52b958",
+          "title": "Validate",
+          "completed": false
+        },
+        {
+          "id": "41103350-dc35-49cd-98b0-c04976b94d19",
+          "title": "Document",
+          "completed": false
+        }
+      ],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T14:30:28.962806+00:00",
+      "updatedAt": "2026-06-21T14:30:28.962806+00:00"
+    },
+    "eval_documentation_quality": {
+      "id": "eval_documentation_quality",
+      "title": "Documentation Quality",
+      "description": "Documentation Quality",
+      "parentId": "evaluation",
+      "childIds": [],
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "color": "cyan",
+      "priority": "high",
+      "status": "not_started",
+      "progress": 0,
+      "deadline": null,
+      "estimatedHours": 4,
+      "notes": "Owner: Team\nDocumentation Quality",
+      "resources": [],
+      "prerequisites": [],
+      "childTasks": [
+        {
+          "id": "8d1ea510-8b9b-4295-a629-6c560000a5cd",
+          "title": "Measure",
+          "completed": false
+        },
+        {
+          "id": "8ab67299-0d36-4cbc-93da-ad378c26c292",
+          "title": "Validate",
+          "completed": false
+        },
+        {
+          "id": "d024ee1c-7960-4bd0-b8e8-e17bcdc7cf97",
+          "title": "Document",
+          "completed": false
+        }
+      ],
+      "isExpanded": true,
+      "isRoot": false,
+      "completed": false,
+      "createdAt": "2026-06-21T14:30:28.962806+00:00",
+      "updatedAt": "2026-06-21T14:30:28.962806+00:00"
+    }
+  },
+  "rootIds": [
+    "root"
+  ],
+  "selectedNodeId": null,
+  "selectedNodeIds": [],
+  "version": 1,
+  "lastSaved": "2026-06-21T14:30:28.962806+00:00"
+}

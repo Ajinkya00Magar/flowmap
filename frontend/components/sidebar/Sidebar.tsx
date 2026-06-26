@@ -187,8 +187,17 @@ export default function Sidebar({ collapsed, onToggle }: SidebarProps) {
         </AnimatePresence>
       </div>
 
-      {/* ── Nav links ─────────────────────────────────────────── */}
-      <nav style={{ padding: '10px 8px', display: 'flex', flexDirection: 'column', gap: 2 }}>
+      {/* Scrollable Container */}
+      <div style={{
+        flex: 1,
+        overflowY: 'auto',
+        overflowX: 'hidden',
+        display: 'flex',
+        flexDirection: 'column',
+        gap: 10,
+      }}>
+        {/* ── Nav links ─────────────────────────────────────────── */}
+        <nav style={{ padding: '10px 8px', display: 'flex', flexDirection: 'column', gap: 2 }}>
         {NAV_ITEMS.map(({ href, icon: Icon, label }) => {
           const active = pathname === href
           return (
@@ -359,9 +368,7 @@ export default function Sidebar({ collapsed, onToggle }: SidebarProps) {
           </motion.div>
         )}
       </AnimatePresence>
-
-      {/* Spacer */}
-      <div style={{ flex: 1 }} />
+      </div>
 
       {/* ── User profile ──────────────────────────────────────── */}
       {user && (
