@@ -42,10 +42,32 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 
     const finishLoading = async (nextSession: any = null) => {
       if (!mounted) return
-      setSession(nextSession)
-      setUser(nextSession?.user ?? null)
 
-      if (nextSession?.user) {
+      const currentUser = nextSession?.user ?? null
+      const isEmailConfirmed = currentUser ? (currentUser.email_confirmed_at !== null && currentUser.email_confirmed_at !== undefined) : false
+
+      console.log('DEBUG AUTH STATE:', {
+        email: currentUser?.email,
+        email_confirmed_at: currentUser?.email_confirmed_at,
+        isEmailConfirmed,
+        sessionExists: !!nextSession
+      })
+
+      if (currentUser && !isEmailConfirmed) {
+        setSession(null)
+        setUser(null)
+        setProfile(null)
+        if (mounted) {
+          setIsLoading(false)
+          window.clearTimeout(safetyTimeout)
+        }
+        return
+      }
+
+      setSession(nextSession)
+      setUser(currentUser)
+
+      if (currentUser) {
         let profileData = null
         let profileError: any = null
 
@@ -127,6 +149,10 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   const signUp = async (email: string, password: string) => {
     try {
       const { data, error } = await supabase.auth.signUp({ email, password })
+      // Safety net: if a session was established but the email is not confirmed, sign out immediately
+      if (data?.session && !data.user?.email_confirmed_at) {
+        await supabase.auth.signOut()
+      }
       return { error }
     } catch (err: any) {
       return { error: err }

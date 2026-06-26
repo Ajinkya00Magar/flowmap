@@ -774,19 +774,47 @@ export function RoadmapProvider({ children }: { children: React.ReactNode }) {
           }
           info(`Updated ${email} to ${role}`)
           await loadRoadmapCollaborators(roadmapId)
+          
+          // Send collaborator email invitation
+          const roadmapName = roadmapsList.find(r => r.id === roadmapId)?.name || 'a FlowMap roadmap'
+          const ownerEmail = user.email || 'A FlowMap user'
+          try {
+            await fetch('/api/invite', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ email, roadmapName, role, ownerEmail })
+            })
+          } catch (emailErr) {
+            console.error('Failed to send collaborator email:', emailErr)
+          }
+
           return true
         }
         throw membershipErr
       }
 
       await loadRoadmapCollaborators(roadmapId)
+      
+      // Send collaborator email invitation
+      const roadmapName = roadmapsList.find(r => r.id === roadmapId)?.name || 'a FlowMap roadmap'
+      const ownerEmail = user.email || 'A FlowMap user'
+      try {
+        await fetch('/api/invite', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email, roadmapName, role, ownerEmail })
+        })
+      } catch (emailErr) {
+        console.error('Failed to send collaborator email:', emailErr)
+      }
+
       success(`Roadmap shared with ${email} as ${role}`)
       return true
     } catch (err: any) {
       error(`Failed to share roadmap: ${err.message || err}`)
       return false
     }
-  }, [user, info, error, loadRoadmapCollaborators, success])
+  }, [user, info, error, loadRoadmapCollaborators, success, roadmapsList])
 
   // ─── Dispatch with Undo / Redo ──────────────────────────────────────────
   const dispatch = useCallback((action: RoadmapAction) => {

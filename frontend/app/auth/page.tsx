@@ -23,6 +23,12 @@ export default function AuthPage() {
       return
     }
 
+    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
+    if (!emailRegex.test(email.trim())) {
+      toastError('Please enter a valid email address.')
+      return
+    }
+
     if (!isLogin && password !== confirmPassword) {
       toastError('Passwords do not match')
       return
@@ -52,9 +58,10 @@ export default function AuthPage() {
           const msg = error?.message || error?.error_description || error?.msg || 'Failed to create account'
           toastError(String(msg))
         } else {
-          toastSuccess('Account created! Entering universe...')
-          // Attempt an immediate sign-in just in case the session wasn't auto-established
-          await signIn(email, password)
+          toastSuccess('Registration successful! A verification link has been sent to your email. Please verify your email before logging in.')
+          setIsLogin(true)
+          setPassword('')
+          setConfirmPassword('')
         }
       }
     } catch (err: any) {
