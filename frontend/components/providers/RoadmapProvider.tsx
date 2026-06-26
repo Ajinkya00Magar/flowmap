@@ -368,49 +368,76 @@ export function RoadmapProvider({ children }: { children: React.ReactNode }) {
           return acc
         }, {})
 
-        setRoadmapsList((roadmapData || []).map((roadmap: any) => ({
-          ...roadmap,
-          isOwner: roadmap.user_id === user.id,
-          shared: roadmap.user_id !== user.id,
-          role: roadmap.user_id === user.id ? 'owner' : (sharedRoadmapRoles[roadmap.id] || 'viewer'),
-          owner: ownerMap[roadmap.user_id] || null,
-        })))
-
-        // Select active roadmap
+        // Check if user has at least one owned roadmap
+        const ownedRoadmaps = (roadmapData || []).filter((r: any) => r.user_id === user.id)
         let activeId = localStorage.getItem(`flowmap_active_id_${user.id}`)
-        const matchesCached = roadmapData?.some(r => r.id === activeId)
+        let matchesCached = roadmapData?.some(r => r.id === activeId)
 
-        if (!activeId || !matchesCached) {
-          if (roadmapData && roadmapData.length > 0) {
-            activeId = roadmapData[0].id
-          } else {
-            // Create a default first roadmap
-            const defaultState = createDefaultState()
-            const { data: newRoadmap, error: createErr } = await supabase
-              .from('roadmaps')
-              .insert({
-                name: 'My Learning Space',
-                user_id: user.id,
-                state: defaultState,
-                folder_id: null
-              })
-              .select()
-              .single()
+        if (ownedRoadmaps.length === 0) {
+          // Create a default first roadmap owned by the current user
+          const defaultState = createDefaultState()
+          const { data: newRoadmap, error: createErr } = await supabase
+            .from('roadmaps')
+            .insert({
+              name: 'My Learning Space',
+              user_id: user.id,
+              state: defaultState,
+              folder_id: null
+            })
+            .select()
+            .single()
 
-            if (createErr) throw createErr
-            if (newRoadmap) {
-              setRoadmapsList([{
-                ...newRoadmap,
-                isOwner: true,
-                shared: false,
-                owner: {
-                  id: user.id,
-                  email: user.email,
-                  display_name: null,
-                }
-              }])
-              activeId = newRoadmap.id
+          if (createErr) throw createErr
+
+          if (newRoadmap) {
+            // Ensure collaboration metadata exists: create an owner membership record
+            try {
+              await supabase
+                .from('roadmap_memberships')
+                .insert({ roadmap_id: newRoadmap.id, user_id: user.id, role: 'owner' })
+            } catch (memErr) {
+              console.warn('Could not create roadmap_membership for default roadmap:', memErr)
             }
+
+            const formattedNewRoadmap = {
+              ...newRoadmap,
+              isOwner: true,
+              shared: false,
+              role: 'owner' as const,
+              owner: {
+                id: user.id,
+                email: user.email,
+                display_name: null,
+              }
+            }
+
+            const updatedRoadmaps = [
+              formattedNewRoadmap,
+              ...(roadmapData || []).map((roadmap: any) => ({
+                ...roadmap,
+                isOwner: roadmap.user_id === user.id,
+                shared: roadmap.user_id !== user.id,
+                role: roadmap.user_id === user.id ? ('owner' as const) : (sharedRoadmapRoles[roadmap.id] || ('viewer' as const)),
+                owner: ownerMap[roadmap.user_id] || null,
+              }))
+            ]
+
+            setRoadmapsList(updatedRoadmaps)
+            activeId = newRoadmap.id
+          }
+        } else {
+          // Set mapped roadmaps list
+          setRoadmapsList((roadmapData || []).map((roadmap: any) => ({
+            ...roadmap,
+            isOwner: roadmap.user_id === user.id,
+            shared: roadmap.user_id !== user.id,
+            role: roadmap.user_id === user.id ? 'owner' : (sharedRoadmapRoles[roadmap.id] || 'viewer'),
+            owner: ownerMap[roadmap.user_id] || null,
+          })))
+
+          // If no cached activeId, or it's not matchesCached, default to their most recent owned roadmap
+          if (!activeId || !matchesCached) {
+            activeId = ownedRoadmaps[0].id
           }
         }
 
